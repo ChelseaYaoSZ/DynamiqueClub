@@ -11,7 +11,7 @@ const Navbar = () => {
         <div className="flex-grow" style={{ flex: "2" }}>
           <Logo />
         </div>
-        <div className="flex-grow" style={{ flex: "7" }}>
+        <div className="flex-grow" style={{ flex: "8" }}>
           <Nav />
         </div>
         <div className="flex-grow" style={{ flex: "1" }}>
