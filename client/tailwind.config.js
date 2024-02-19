@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         customRed: '#C00021',
+        primary: '#F4EFE6'
       },
 
       fontFamily: {
