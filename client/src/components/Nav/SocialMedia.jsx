@@ -1,9 +1,9 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 const socialMediaLinks = [
-  { id: 'facebook', icon: faFacebookF, url: 'https://www.facebook.com/profile.php?id=61551709738046' },
+  { id: 'facebook', icon: faFacebook, url: 'https://www.facebook.com/profile.php?id=61551709738046' },
   { id: 'instagram', icon: faInstagram, url: 'https://www.instagram.com/ssffsteven/' },
 ];
 
