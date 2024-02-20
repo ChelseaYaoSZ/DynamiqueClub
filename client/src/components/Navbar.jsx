@@ -12,7 +12,7 @@ const Navbar = () => {
           <Logo />
         </div>
         <div className="flex-grow" style={{ flex: "8" }}>
-          <Nav />
+          <Nav isDropdown={false} />
         </div>
         <div className="flex-grow" style={{ flex: "1" }}>
           <SocialMedia />
