@@ -3,7 +3,7 @@ import React from "react";
 const Contact = () => {
   return (
 
-    <div className="inline-flex flex-col items-start">
+    <div className="flex flex-col items-start">
             <div className="font-semibold text-darkBlue text-xl text-center">
               CONTACT
             </div>
