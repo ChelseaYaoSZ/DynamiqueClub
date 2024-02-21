@@ -39,11 +39,13 @@ const Sidebar = () => {
               Volleyball Club
             </div>
           </div>
+
           <Nav isDropdown={true} />
+
           <div className="flex justify-start">
             <SocialMedia />
           </div>
-          {/* Close Button */}
+          
           <button
             className=" text-customYellow self-start text-xl ml-5 my-5"
             onClick={toggleSidebar}

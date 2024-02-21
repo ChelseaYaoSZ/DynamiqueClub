@@ -3,7 +3,7 @@ import logoImage from '../../assets/logo-white.png';
 
 const Logo = () => {
     return (
-      <div className="flex flex-col items-center">
+      <div className="flex lg:flex-col items-center ">
         <div className="mb-2">
         <img src={logoImage} alt="Logo" className="h-24" /> 
         </div>  
