@@ -13,7 +13,7 @@ const Nav = ({ isDropdown = false }) => {
 
   const containerClasses = isDropdown
     ? "flex-col items-start space-y-2" 
-    : "flex-row justify-between items-center pl-20 pr-10"; 
+    : "flex-row justify-between items-center pl-16 pr-10"; 
 
   const linkClasses = isDropdown
     ? "block px-4 py-2 text-left" 

@@ -3,7 +3,8 @@ import Sidebar from "../components/Nav/Sidebar";
 
 const Homepage = () => {
   return (
-    <Sidebar />
+    // <Sidebar />
+    <></>
   );
 }
 
