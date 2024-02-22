@@ -18,7 +18,7 @@ const Newsletter = () => {
         <Subscribe />
       </div>
     </div>
-  );
+  ); 
 };
 
 export default Newsletter;

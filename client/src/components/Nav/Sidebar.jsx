@@ -16,7 +16,7 @@ const Sidebar = () => {
   return (
     <>
       {isVisible ? (
-        <div className="fixed right-0 top-0 z-50 flex flex-col w-1/3 bg-customRed p-3">
+        <div className="fixed right-0 top-0 z-50 flex flex-col w-3/7 bg-customRed p-3">
           <div className="flex flex-col items-start p-3">
             <div className="flex items-center">
               <div

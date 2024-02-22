@@ -18,7 +18,7 @@ const Subscribe = () => {
         <input
           type="email"
           placeholder="Email"
-          className="p-2  w-60 rounded-l focus:outline-none focus:border-gray-500"
+          className="p-2  lg:w-60 rounded-l focus:outline-none focus:border-gray-500"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
