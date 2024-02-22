@@ -17,7 +17,7 @@ const socialMediaLinks = [
 
 const FollowUs = () => {
   return (
-    <div className="inline-flex flex-col items-start">
+    <div className="flex flex-col items-start">
       <div className="font-semibold text-darkBlue text-xl text-center">
         FOLLOW US
       </div>

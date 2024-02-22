@@ -12,13 +12,13 @@ const Subscribe = () => {
   };
 
   return (
-    <div className="flex items-center justify-center space-x-4 mt-8">
+    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center lg:space-x-4 lg:mt-8">
       <span className="text-xl text-darkBlue font-semibold">GET ALL THE LATEST ON US</span>
       <form className="flex" onSubmit={handleSubmit}>
         <input
           type="email"
           placeholder="Email"
-          className="p-2  w-60 rounded-l focus:outline-none focus:border-gray-500"
+          className="p-2  lg:w-60 rounded-l focus:outline-none focus:border-gray-500"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
