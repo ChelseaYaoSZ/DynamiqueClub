@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Logo from "./Nav/Logo";
 import Nav from "./Nav/Nav";
 import SocialMedia from "./Nav/SocialMedia";
-import Shadow from "./Nav/Shadow";
 import Sidebar from "./Nav/Sidebar";
 
 const Navbar = () => {
@@ -22,10 +21,6 @@ const Navbar = () => {
         <Sidebar />
       </div>
 
-      {/* <div className="w-full">
-
-        <Shadow />
-      </div> */}
     </>
   );
 };
