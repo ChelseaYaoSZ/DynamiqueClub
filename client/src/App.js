@@ -4,6 +4,8 @@ import Homepage from "./pages/Homepage";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Newsletter from "./components/Newsletter";
+import ContactPage from "./pages/ContactPage";
+import ProgramPage from "./pages/ProgramPage";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <div className="flex flex-1 items-center justify-center">
           <Routes>
             <Route path="/" element={<Homepage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/program" element={<ProgramPage />} />
           </Routes>
         </div>
 

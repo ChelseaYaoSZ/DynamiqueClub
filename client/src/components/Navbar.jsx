@@ -7,7 +7,7 @@ import Shadow from "./Nav/Shadow";
 const Navbar = () => {
   return (
     <>
-      <div className="flex w-full">
+      <div className="flex w-full shadow-lg shadow-black-500/50">
         <div className="flex-grow" style={{ flex: "2" }}>
           <Logo />
         </div>
@@ -19,9 +19,9 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="w-full">
+      {/* <div className="w-full">
         <Shadow />
-      </div>
+      </div> */}
     </>
   );
 };
