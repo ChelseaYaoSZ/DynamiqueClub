@@ -23,13 +23,16 @@ module.exports = {
       }),
       borderWidth: {
         DEFAULT: "1px",
-
+        12: "12px",
         15: "15px",
         20: "20px",
         95: "95px",
       },
       fontSize: {
         110: "110px",
+      },
+      screens: {
+        card: "450px", // Custom breakpoint
       },
     },
   },
