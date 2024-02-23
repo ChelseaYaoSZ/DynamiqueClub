@@ -15,6 +15,7 @@ const Banner = () => {
 
   const nextButtton = <FontAwesomeIcon icon={faChevronRight} />
   const prevButton = <FontAwesomeIcon icon={faChevronLeft} />
+
   return (
     <>
       <Carousel
@@ -26,16 +27,15 @@ const Banner = () => {
       >
         {images.map((image) => (
           <div
-            className="flex lg:justify-end bg-cover bg-no-repeat w-full h-auto"
+            key={image.id}
+            className="flex lg:justify-end bg-cover bg-no-repeat w-full h-96"
             style={{ backgroundImage: `url(${image.url})` }}
           >
             <div className="flex flex-col p-12 gap-4 lg:w-1/2">
               <div className="hidden lg:block">
                 <ClubName />
               </div>
-              <div>
-                <LatestNews />
-              </div>
+              <LatestNews id={image.id} />
             </div>
           </div>
         ))}
