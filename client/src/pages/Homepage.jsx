@@ -7,9 +7,11 @@ import Banner from "../components/Banner";
 
 const Homepage = () => {
   return (
-    <div className="w-full flex flex-col justify-center items-center">
+    <div>
       <Banner />
-      <MeetTheTeams />
+      <div className="w-full flex flex-col justify-center items-center">
+        <MeetTheTeams />
+      </div>
     </div>
   );
 };
