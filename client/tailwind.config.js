@@ -9,6 +9,7 @@ module.exports = {
         customYellow: "#fed030",
         customBlue: "#5286a5",
         darkBlue: "#003049",
+        bgWhite:"#F8F5F0",
       },
 
       fontFamily: {

@@ -24,3 +24,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@keyframes scrollPlay {
+  0%, 100% { transform: translateX(0%); } /* Start and end at the original position */
+  50% { transform: translateX(70%); }
+}
+
+.scroll-text {
+  display: block;
+  width: 100%;
+  white-space: wrap;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .scroll-animation-lg {
+    display: inline-block;
+    animation: scrollPlay 10s linear infinite;
+  }
+}
