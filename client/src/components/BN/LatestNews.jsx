@@ -12,7 +12,7 @@ const LatestNews = () => {
                     February 22, 2024
                 </div>
             </div> 
-            <div className="text-white font-notable text-2xl"> 
+            <div className="text-white font-notable text-3xl"> 
                 2024 Winter season & U16 tryout registration is open!
             </div>
             <div className="flex justify-end">
