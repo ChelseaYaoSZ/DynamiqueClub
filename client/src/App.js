@@ -13,7 +13,7 @@ function App() {
       <div className="flex flex-col h-screen">
         <Navbar />
 
-        <div className="flex flex-1 items-center justify-center">
+        <div className="flex flex-1">
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/contact" element={<ContactPage />} />

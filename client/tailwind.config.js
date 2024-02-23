@@ -12,10 +12,11 @@ module.exports = {
       },
 
       fontFamily: {
-        sans: ["Khand", "sans-serif"], // This sets Khand as the default sans-serif font
-        ser: ["Inknut Antiqua", "serif"],
-        monomaniac: ["Monomaniac One"],
-        jetBrains: ["JetBrains Mono", "monospace"],
+        'sans': ['Khand', 'sans-serif'], // This sets Khand as the default sans-serif font
+        'ser':['Inknut Antiqua', 'serif'],
+        'monomaniac': ["Monomaniac One"],
+        'jetBrains': ["JetBrains Mono", "monospace"],
+        'notable': ['Notable', 'sans-serif'],
       },
       backgroundColor: (theme) => ({
         ...theme("colors"),
