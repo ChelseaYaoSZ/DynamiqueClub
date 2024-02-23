@@ -43,7 +43,7 @@ const teamsdata = [
 
 const TeamCards = () => {
   return (
-    <div className="sm:w-10/12 md:w-11/12 max-w-screen-lg mx-auto w-full">
+    <div className="sm:w-10/12 md:w-11/12 max-w-screen-lg mx-auto w-full mb-10">
       <div className="grid grid-cols-2 gap-3  lg:grid-cols-3 lg:gap-x-15 lg:gap-y-5 justify-items-center">
         {teamsdata.map((team) => (
           <TeamCard key={team.id} data={team} />
