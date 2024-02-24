@@ -18,15 +18,15 @@ const ContactPage = () => {
 
       <div className="w-full max-w-screen-lg flex flex-col  items-center  sm:my-10 ">
         <title className="w-full flex flex-col items-center  gap-x-5">
-          <h3 className="text-3xl text-customRed text-center font-semibold sm:text-5xl">
+          <h3 className="text-3xl text-customRed text-center font-semibold sm:text-4xl">
             Contact Us
           </h3>
           <div className="flex flex-col sm:flex-row justify-around items-center text-base gap-5 mt-10 sm:my-10">
-            <div className="flex items-center justify-center text-base sm:text-2xl">
+            <div className="flex items-center justify-center text-base sm:text-xl">
               <FiPhone />
               <p className="ml-5">514-402-3979</p>
             </div>
-            <div className="flex items-center justify-center text-base sm:text-2xl sm:ml-10">
+            <div className="flex items-center justify-center text-base sm:text-xl sm:ml-10">
               <span>
                 <FiMail />
               </span>
