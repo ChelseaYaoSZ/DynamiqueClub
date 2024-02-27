@@ -12,7 +12,7 @@ const ResgistrationPage = () => {
     const csvData = convertToCSV([data]);
     console.log(csvData);
 
-    const response = await fetch('/send-email', {
+    const response = await fetch('/api/send-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'text/csv',

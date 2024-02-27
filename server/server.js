@@ -7,7 +7,7 @@ require('dotenv').config()
 app.use(express.text({ type: 'text/csv' }));
 
 // Endpoint to handle form data submission
-app.post('/send-email', async (req, res) => {
+app.post('/api/send-email', async (req, res) => {
   // Configure your SMTP transporter
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
