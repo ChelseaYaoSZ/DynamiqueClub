@@ -23,7 +23,7 @@ const Subscribe = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <button type="submit" className="bg-white font-semibold text-customRed px-4 rounded-r -ml-1">
+        <button type="submit" className="bg-white font-semibold text-customRed px-4 rounded-r -ml-1 hover:font-bold hover:text-red-800">
           Subscribe
         </button>
       </form>

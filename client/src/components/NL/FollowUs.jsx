@@ -26,7 +26,7 @@ const FollowUs = () => {
           <a
             key={social.id}
             href={social.url}
-            className="text-white p-2 hover:bg-red-700 rounded"
+            className="text-white p-2 hover:text-customYellow"
           >
             <FontAwesomeIcon icon={social.icon} />
           </a>
