@@ -5,6 +5,7 @@ import Schedule from "./pages/Schedule";
 import ContactPage from "./pages/ContactPage";
 import ProgramPage from "./pages/ProgramPage";
 import Page from "./pages/Page";
+import RegistrationPage from "./pages/RegistrationPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/program" element={<ProgramPage />} />
+          <Route path="/registration" element={<RegistrationPage />} />
         </Route>
       </Routes>
     </Router>

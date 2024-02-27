@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Nav = ({ isDropdown = false }) => {
   const navLinks = [
-    { name: 'Homepage', path: '/' },
+    { name: 'Home', path: '/' },
     { name: 'Program', path: '/program' },
     { name: 'Registration', path: '/registration' },
     { name: 'Schedule', path: '/schedule' },

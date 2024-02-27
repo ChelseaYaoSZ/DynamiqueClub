@@ -7,7 +7,7 @@ const Schedule = () => {
 
   return (
     <div className="flex flex-col justify-center items-center py-8 lg:p-20 gap-4">
-      <h2 className="text-2xl lg:text-4xl font-semibold text-center lg:mb-6">PRACTICE & GAME SCHEDULE</h2>
+      <h2 className="text-3xl lg:text-4xl font-semibold text-center lg:mb-6">PRACTICE & GAME SCHEDULE</h2>
       <Notification/>
       <iframe
         src={calendarSrc}
