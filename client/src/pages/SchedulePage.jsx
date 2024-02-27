@@ -1,7 +1,7 @@
 import React from "react";
 import Notification from "../components/Notification";
 
-const Schedule = () => {
+const SchedulePage = () => {
 
   const calendarSrc = "https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FToronto&bgcolor=%23ffffff&showPrint=0&showTitle=0&showTz=0&showCalendars=0&showTabs=0&src=dm9sbGV5ZHluYW1pcXVlQGdtYWlsLmNvbQ&color=%23039BE5";
 
@@ -19,4 +19,4 @@ const Schedule = () => {
   );
 };
 
-export default Schedule;
+export default SchedulePage;

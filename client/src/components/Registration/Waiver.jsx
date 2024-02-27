@@ -53,14 +53,44 @@ const Waiver = () => {
           liability, damage, or cost which any may incur as the result of such
           claim.
         </p>
+        <br />
+        <p>
+          Additional waiver, release, indemnity, acknowledgment of&nbsp;
+          <span class="underline font-medium">
+            MEDIA/PHOTOGRAPHY RELEASE.
+          </span>
+        </p>
+
+        <br />
+        <p>
+          I (we) grant permission to Dynamique Volleyball the right to use
+          photographs taken of the participating child(ren) for promotional use
+          on its website, Facebook, Instagram and WeChat. I (We) agree to
+          release, defend, and hold harmless Dynamique Volleyball, its staff,
+          directors, coaches, employees, representatives and successors from and
+          against any claims, damages or liability arising from or related to
+          the use of the photographs for promotional purposes.
+        </p>
+        <br />
+        <p>
+          I / we, the undersigned, understand and acknowledge that participation
+          in a recreational training can be hazardous and I / we realize that no
+          one should enter into a recreational training unless the participant
+          is medically able. I / we assume all risk associated with this
+          including but not limited to; falls, contact with other participants
+          or equipment, effects of weather, equipment failure, and condition of
+          playing area. I / we fully understand it is my responsibility to
+          ascertain if this specific training contains other elements of risk
+          that could prove harmful to a participant. Having read this waiver and
+          in consideration of acceptance of entry into the program, I and anyone
+          entitled to act on my behalf waive and release Dynamique Volleyball,
+          its sponsors and successors, and their representatives from all claims
+          and liabilities of any kind arising out of my child(ren)’s
+          participation in this training.
+        </p>
       </div>
       <div className="flex">
-        <input
-          type="checkbox"
-          name="waiver"
-          required
-          className="mr-2"
-        />
+        <input type="checkbox" name="waiver" required className="mr-2" />
         <label className="flex items-center text-sm lg:text-base">
           By checking, I acknowledge and agree to the above-stated terms and
           conditions.

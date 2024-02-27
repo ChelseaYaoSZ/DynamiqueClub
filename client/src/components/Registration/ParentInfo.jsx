@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolleyballBall } from "@fortawesome/free-solid-svg-icons";
 
 const fields = [
-  { name: "firstName", label: "First name", required: true },
-  { name: "lastName", label: "Last name", required: true },
-  { name: "email", label: "Email", required: true },
-  { name: "phone", label: "Phone", required: true },
+  { name: "parentFirstName", label: "First name", required: true },
+  { name: "parentLastName", label: "Last name", required: true },
+  { name: "parentEmail", label: "Email", required: true },
+  { name: "parentPhone", label: "Phone", required: true },
 ];
 
 const ParentInfo = () => {
