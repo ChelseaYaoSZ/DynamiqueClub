@@ -11,7 +11,7 @@ const SocialMedia = () => {
   return (
     <div className="bg-customRed flex justify-center p-3 text-xl">
       {socialMediaLinks.map((social) => (
-        <a key={social.id} href={social.url} className="text-white p-2 hover:bg-red-700 rounded">
+        <a key={social.id} href={social.url} className="text-white p-2 hover:text-customYellow">
           <FontAwesomeIcon icon={social.icon} />
         </a>
       ))}

@@ -38,7 +38,7 @@ const LatestNews = ({ id }) => {
         <div className="flex justify-end">
           <Link
             to="/registration"
-            className="bg-customRed text-white font-medium rounded px-3 py-1 hover:bg-red-700 transition-colors"
+            className="bg-customRed text-white font-medium rounded px-3 py-1 hover:font-bold hover:bg-red-800"
           >
             Register now
           </Link>
