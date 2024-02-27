@@ -89,9 +89,9 @@ const Waiver = () => {
           participation in this training.
         </p>
       </div>
-      <div className="flex">
+      <div className="flex pt-4">
         <input type="checkbox" name="waiver" required className="mr-2" />
-        <label className="flex items-center text-sm lg:text-base">
+        <label className="flex items-center font-medium text-sm lg:text-base">
           By checking, I acknowledge and agree to the above-stated terms and
           conditions.
         </label>
