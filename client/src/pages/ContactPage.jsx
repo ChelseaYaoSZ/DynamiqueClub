@@ -67,7 +67,7 @@ const ContactPage = () => {
             </button>
           </form>
 
-          <div className="w-full flex flex-col max-w-md mt-5 md:mt-0 grayscale">
+          <div className="w-full flex flex-col max-w-md mt-5 md:mt-0 ">
             <iframe
               width="auto"
               height="350"
