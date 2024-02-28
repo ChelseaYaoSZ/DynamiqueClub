@@ -9,15 +9,14 @@ const ResgistrationPage = () => {
     const form = event.target;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
-    const csvData = convertToCSV([data]);
-    console.log(csvData);
+    console.log(data);
 
     const response = await fetch('/api/send-email', {
       method: 'POST',
       headers: {
-        'Content-Type': 'text/csv',
+        'Content-Type': 'application/json',
       },
-      body: csvData,
+      body: JSON.stringify(data),
     });
 
     if (response.ok) {
@@ -27,15 +26,7 @@ const ResgistrationPage = () => {
     }
 
   };
-
-  const convertToCSV = (objArray) => {
-    const array = [Object.keys(objArray[0])].concat(objArray);
-    return array.map(it => {
-      return Object.values(it).toString();
-    }).join('\n');
-  }
   
-
   return (
     <div className="flex flex-col justify-center items-center py-8 lg:p-20 gap-4">
       <div className="text-3xl lg:text-4xl font-semibold text-center lg:mb-6">
