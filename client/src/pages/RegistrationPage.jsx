@@ -11,7 +11,7 @@ const ResgistrationPage = () => {
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
     console.log(data);
-    
+
     try {
       const response = await sendEmail(data);
       if (response.success) {
@@ -21,7 +21,9 @@ const ResgistrationPage = () => {
       }
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert('An error occurred while submitting the form. Please try again later.');
+      alert(
+        "An error occurred while submitting the form. Please try again later."
+      );
     }
   };
 
