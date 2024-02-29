@@ -2,7 +2,7 @@ import React from "react";
 import PlayerInfo from "../components/Registration/PlayerInfo";
 import ParentInfo from "../components/Registration/ParentInfo";
 import Waiver from "../components/Registration/Waiver";
-import { sendEmail } from "../utils/sendEmail";
+import { sendEmail } from "../utils/emailService";
 
 const ResgistrationPage = () => {
   const handleSubmit = async (event) => {
