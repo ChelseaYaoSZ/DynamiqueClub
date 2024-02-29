@@ -42,4 +42,15 @@ const setupMailOptions = (data, csvData, htmlContent) => {
   };
 };
 
-export { convertToCSV, generateHtmlContent, setupMailOptions };
+const sendEmail = async (transporter, mailOptions) => {
+  try {
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Email sent successfully: " + info.response);
+  } catch (error) {
+    console.error("Error sending email:", error);
+    throw error;
+  }
+};
+
+
+export { convertToCSV, generateHtmlContent, setupMailOptions, sendEmail };
