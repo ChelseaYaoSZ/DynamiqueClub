@@ -1,5 +1,7 @@
 "use strict";
 
+import retry from 'retry';
+
 const convertToCSV = (objArray) => {
   try {
     if (!Array.isArray(objArray) || objArray.length === 0) {
@@ -49,7 +51,7 @@ const generateHtmlContent = (data) => {
 };
 
 
-const setupMailOptions = (data, csvData, htmlContent) => {
+const getMailOptions = (data, csvData, htmlContent) => {
   try {
     if (!data || !csvData || !htmlContent) {
       throw new Error('Invalid input data');
@@ -81,9 +83,41 @@ const sendEmail = async (transporter, mailOptions) => {
     console.log("Email sent successfully: " + info.response);
   } catch (error) {
     console.error("Error sending email:", error);
+    console.error("Mail options:", mailOptions);
     throw error;
   }
 };
 
+const getRetryOperation = (retries = 0, factor = 2, minTimeout = 1000, maxTimeout = 60000, randomize = true) => {
+  return retry.operation({
+    retries: retries,
+    factor: factor,
+    minTimeout: minTimeout,
+    maxTimeout: maxTimeout,
+    randomize: randomize,
+  });
+};
 
-export { convertToCSV, generateHtmlContent, setupMailOptions, sendEmail };
+const sendEmailWithRetry = async (transporter, mailOptions, operation) => {
+  if (!operation) {
+    operation = getRetryOperation(1, 2, 1000, 60000, true);
+  }
+  return new Promise((resolve, reject) => {
+    operation.attempt(async (currentAttempt) => {
+      try {
+        const info = await transporter.sendMail(mailOptions);
+        console.log("Email sent successfully: " + info.response);
+        resolve(info);
+      } catch (error) {
+        console.error(`Error sending email (attempt ${currentAttempt}):`, error);
+        if (operation.retry(error)) {
+          console.log(`Retrying email (attempt ${currentAttempt + 1})...`);
+          return;
+        }
+        reject(operation.mainError());
+      }
+    });
+  });
+};
+
+export { convertToCSV, generateHtmlContent, getMailOptions, getRetryOperation, sendEmail, sendEmailWithRetry };

@@ -8,8 +8,10 @@ import transporter from "../utils/transporter.js";
 import {
   convertToCSV,
   generateHtmlContent,
-  setupMailOptions,
+  getMailOptions,
+  getRetryOperation,
   sendEmail,
+  sendEmailWithRetry,
 } from "../utils/emailHelpers.js";
 
 // Initialize router
@@ -24,10 +26,14 @@ router.route("/").post(async (req, res) => {
 
     // Generate email content
     const htmlContent = generateHtmlContent(data);
-    const mailOptions = setupMailOptions(data, csvData, htmlContent);
+    
+    // Get mail options
+    const mailOptions = getMailOptions(data, csvData, htmlContent);
+    // Get retry operation
+    const operation = getRetryOperation();
 
     // Send email
-    await sendEmail(transporter, mailOptions);
+    await sendEmailWithRetry(transporter, mailOptions, operation);
 
     // Log success and send response
     console.log("Email sent successfully");
