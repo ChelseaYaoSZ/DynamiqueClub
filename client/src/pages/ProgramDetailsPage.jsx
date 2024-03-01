@@ -33,7 +33,7 @@ const ProgramDetailsPage = () => {
             </p>
             <Link
               to="/registration"
-              className="bg-customRed text-white font-medium rounded px-3 py-1 hover:font-bold hover:bg-red-800"
+              className="bg-customRed text-white font-medium rounded px-3 py-1 mb-10 hover:font-bold hover:bg-red-800"
             >
               Register now
             </Link>
