@@ -7,7 +7,7 @@ const Nav = ({ isDropdown = false }) => {
     { name: "Program", path: "/program" },
     { name: "Registration", path: "/registration" },
     { name: "Schedule", path: "/schedule" },
-    { name: "About Us", path: "/about" },
+    { name: "About Us", path: "/club" },
     { name: "Contact", path: "/contact" },
   ];
 
