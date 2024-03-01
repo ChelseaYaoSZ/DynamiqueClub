@@ -10,43 +10,55 @@ import team6 from "../../assets/team6.png";
 
 const teamsdata = [
   {
-    id: "01",
+    id: "u17",
     image: team1,
     highlighter: "17'S",
     age: "17 years old",
     grade: "Grade 10/Sec. 4",
   },
   {
-    id: "02",
+    id: "u16",
     image: team2,
     highlighter: "16'S",
     age: "16 years old",
     grade: "Grade 10/Sec. 4",
   },
   {
-    id: "03",
+    id: "u14",
     image: team3,
     highlighter: "14'S",
     age: "14 years old",
     grade: "Grade 10/Sec. 4",
   },
   {
-    id: "04",
+    id: "u13",
     image: team4,
     highlighter: "13'S",
     age: "13 years old",
     grade: "Grade 10/Sec. 4",
   },
-  { id: "05", image: team5, highlighter: " DEV1", age: "All Ages", grade: "" },
-  { id: "06", image: team6, highlighter: " DEV2", age: "All Ages", grade: "" },
+  {
+    id: "dev1",
+    image: team5,
+    highlighter: " DEV1",
+    age: "All Ages",
+    grade: "",
+  },
+  {
+    id: "dev2",
+    image: team6,
+    highlighter: " DEV2",
+    age: "All Ages",
+    grade: "",
+  },
 ];
 
 const TeamCards = () => {
   return (
     <div className="sm:w-10/12 md:w-11/12 max-w-screen-lg mx-auto w-full mb-10">
       <div className="grid grid-cols-2 gap-3  lg:grid-cols-3 lg:gap-x-15 lg:gap-y-5 justify-items-center">
-        {teamsdata.map((team) => (
-          <TeamCard key={team.id} data={team} />
+        {teamsdata.map((program) => (
+          <TeamCard key={program.id} program={program} />
         ))}
       </div>
     </div>

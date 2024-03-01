@@ -6,6 +6,7 @@ import ContactPage from "./pages/ContactPage";
 import ProgramPage from "./pages/ProgramPage";
 import Page from "./pages/Page";
 import RegistrationPage from "./pages/RegistrationPage";
+import ProgramDetailsPage from "./pages/ProgramDetailsPage";
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
           <Route path="/schedule" element={<SchedulePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/program" element={<ProgramPage />} />
+          <Route path="/program/:programId" element={<ProgramDetailsPage />} />
+
           <Route path="/registration" element={<RegistrationPage />} />
         </Route>
       </Routes>

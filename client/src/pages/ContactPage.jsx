@@ -1,6 +1,5 @@
 import React from "react";
 import contact from "../assets/contact.png";
-import map from "../assets/map.png";
 import { FiPhone } from "react-icons/fi";
 import { FiMail } from "react-icons/fi";
 
