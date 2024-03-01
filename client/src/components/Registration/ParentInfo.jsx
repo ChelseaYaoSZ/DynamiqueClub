@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolleyballBall } from "@fortawesome/free-solid-svg-icons";
 
 const fields = [
-  { name: "parentFirstName", label: "First name", required: true },
-  { name: "parentLastName", label: "Last name", required: true },
-  { name: "parentEmail", label: "Email", required: true },
-  { name: "parentPhone", label: "Phone", required: true },
+  { name: "parentFirstName", label: "First name", required: true, type: "text" },
+  { name: "parentLastName", label: "Last name", required: true, type: "text" },
+  { name: "parentEmail", label: "Email", required: true, type: "email" },
+  { name: "parentPhone", label: "Phone", required: true, type: "tel"},
 ];
 
 const ParentInfo = () => {
@@ -29,13 +29,7 @@ const ParentInfo = () => {
               )}
             </label>
             <input
-              type={
-                field.name === "email"
-                  ? "email"
-                  : field.name === "phone"
-                  ? "tel"
-                  : "text"
-              }
+              type={field.type}
               name={field.name}
               required={field.required}
               className="border p-2 rounded h-10"

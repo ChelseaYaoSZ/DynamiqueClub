@@ -18,6 +18,7 @@ module.exports = {
         'monomaniac': ["Monomaniac One"],
         'jetBrains': ["JetBrains Mono", "monospace"],
         'notable': ['Notable', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
       },
       backgroundColor: (theme) => ({
         ...theme("colors"),

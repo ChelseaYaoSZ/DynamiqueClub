@@ -6,7 +6,11 @@ import ContactPage from "./pages/ContactPage";
 import ProgramPage from "./pages/ProgramPage";
 import Page from "./pages/Page";
 import RegistrationPage from "./pages/RegistrationPage";
+
 import ProgramDetailsPage from "./pages/ProgramDetailsPage";
+
+import ClubPage from "./pages/ClubPage";
+
 
 function App() {
   return (
@@ -20,6 +24,7 @@ function App() {
           <Route path="/program/:programId" element={<ProgramDetailsPage />} />
 
           <Route path="/registration" element={<RegistrationPage />} />
+          <Route path="/club" element={<ClubPage />} />
         </Route>
       </Routes>
     </Router>
