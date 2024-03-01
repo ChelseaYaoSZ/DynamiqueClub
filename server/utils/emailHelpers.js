@@ -90,17 +90,6 @@ const getMailOptions = (data, csvData, htmlContent) => {
   }
 };
 
-const sendEmail = async (transporter, mailOptions) => {
-  try {
-    const result = await transporter.sendMail(mailOptions);
-    console.log("Email sent:", result);
-    return result;
-  } catch (error) {
-    console.error("Error sending email:", error);
-    throw error;
-  }
-};
-
 const getRetryOperation = (
   retries = 0,
   factor = 2,
@@ -117,10 +106,23 @@ const getRetryOperation = (
   });
 };
 
-const sendEmailWithRetry = async (transporter, mailOptions, operation) => {
-  if (!operation) {
-    operation = getRetryOperation(1, 2, 1000, 60000, true);
-  }
+const sendEmailWithRetry = async (data, transporter) => {
+  // Convert form data to CSV
+  const csvData = convertToCSV([data]);
+  console.log("CSV data generated:", csvData);
+
+  // Generate HTML content for email
+  const htmlContent = generateHtmlContent(data);
+  console.log("HTML content generated:", htmlContent);
+
+  // Configure email options
+  const mailOptions = getMailOptions(data, csvData, htmlContent);
+  console.log("Mail options configured:", mailOptions);
+
+  // Initialize retry operation
+  const operation = getRetryOperation();
+  console.log("Retry operation initialized:", operation);
+
   return new Promise((resolve, reject) => {
     operation.attempt(async (currentAttempt) => {
       try {
@@ -142,49 +144,14 @@ const sendEmailWithRetry = async (transporter, mailOptions, operation) => {
   });
 };
 
-// Middleware to check if user has valid access tokens
-const checkAccessToken = (req, res, next) => {
-  const { tokens } = req.session;
-  if (!tokens) {
-    console.warn("No access tokens found in session");
-    // Redirect user to OAuth2 authentication flow
-    return res.redirect("/api/auth/google");
-  }
-  // User has valid access tokens, proceed to next middleware
-  next();
-};
-
-// Function to get the access token from the session
-const getAccessToken = (req) => {
-  const { tokens } = req.session;
-  if (!tokens) {
-    console.warn("No access tokens found in session");
-    return null;
-  }
-  return tokens.access_token;
-};
-
-const accessType = process.env.NODEMAILER_ACCESS_TYPE || "AppPassword";
-
-// Middleware to conditionally check access token
-const conditionalCheckAccessToken = (req, res, next) => {
-  if (accessType === "OAuth2") {
-      return checkAccessToken(req, res, next);
-  } else {
-      return next(); // Skip checkAccessToken middleware
-  }
-};
-
 // Configure your SMTP transporter
-const getTransporter = (accessType = "AppPassword", req) => {
+const getTransporter = (accessType = "AppPassword", accessToken) => {
   switch (accessType) {
     case "OAuth2":
-      const accessToken = getAccessToken(req);
       return getOAuth2Transporter(accessToken);
     default:
       return getAppPasswordTransporter();
   }
-  
 };
 
 const getOAuth2Transporter = (accessToken) => {
@@ -212,12 +179,10 @@ const getAppPasswordTransporter = () => {
 };
 
 export {
-  conditionalCheckAccessToken,
   convertToCSV,
   generateHtmlContent,
   getMailOptions,
   getRetryOperation,
   getTransporter,
-  sendEmail,
   sendEmailWithRetry,
 };
