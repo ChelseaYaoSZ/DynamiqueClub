@@ -5,33 +5,77 @@ import { faVolleyballBall } from "@fortawesome/free-solid-svg-icons";
 
 const OurMission = () => {
   return (
-    <div className="flex flex-col lg:flex-row">
-      <div className="lg:w-1/2 flex justify-center">
-        <img src={missionImage} alt="MissionImgae" className="h-52 w-88" />
-      </div>
-      <div className="lg:w-1/2 flex flex-col gap-2">
-        <div className="flex items-center text-customRed ">
-          <FontAwesomeIcon
-            icon={faVolleyballBall}
-            className="text-base lg:text-lg mr-2"
-          />
-          <h2 className=" text-lg lg:text-xl font-semibold mr-2">Our Mission</h2>
-          <hr className="flex-grow border-t border-customRed" />
-        </div>
-        <div className="font-inter font-black text-darkBlue  text-xl lg:text-2xl pl-5 max-w-96 lg:max-w-[1080px]">
-          <p>
-            The <span className="text-customYellow italic">dynamic</span> place
-            to be for young Volleyballers:
-          </p>
-        </div>
+    <div className="lg:flex lg:flex-row">
+      {/* For mobile mode or default mode */}
+      <div className="lg:hidden">
+        <div className="flex flex-col max-w-96 gap-3">
+          <div className="flex items-center text-customRed ">
+            <FontAwesomeIcon
+              icon={faVolleyballBall}
+              className="text-base mr-2"
+            />
+            <h2 className=" text-lg font-semibold mr-2">
+              Our Mission
+            </h2>
+            <hr className="flex-grow border-t border-customRed" />
+          </div>
+          <div className="flex justify-center">
+          <img src={missionImage} alt="MissionImage" className="h-52 w-auto" />
+          </div>
+          
+          <div className="font-inter max-w-96">
+            <div className="font-black text-darkBlue text-xl pl-5">
+              <p>
+                The <span className="text-customYellow italic">dynamic</span>{" "}
+                place to be for young Volleyballers:
+              </p>
+            </div>
 
-        <div className=" pl-8 font-inter">
-          <ul className="list-disc">
-            <li>Foster Holistic Youth Development</li>
-            <li>Instill Love for Volleyball</li>
-            <li>Provide Safe and Inclusive Environment</li>
-            <li>Equip for success in both volleyball and life</li>
-          </ul>
+            <div className="text-sm pl-8 pt-2">
+              <ul className="list-disc">
+                <li>Foster Holistic Youth Development</li>
+                <li>Instill Love for Volleyball</li>
+                <li>Provide Safe and Inclusive Environment</li>
+                <li>Equip for success in both volleyball and life</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* For large screen mode */}
+      <div className="hidden lg:flex lg:w-full">
+        <div className="lg:w-1/2 flex justify-center">
+          <img src={missionImage} alt="MissionImage" className="h-52 w-88" />
+        </div>
+        <div className="lg:w-1/2 flex flex-col gap-2">
+          <div className="flex items-center text-customRed ">
+            <FontAwesomeIcon
+              icon={faVolleyballBall}
+              className="text-base lg:text-lg mr-2"
+            />
+            <h2 className=" text-lg lg:text-xl font-semibold mr-2">
+              Our Mission
+            </h2>
+            <hr className="flex-grow border-t border-customRed border-[1px]" />
+          </div>
+          <div className="font-inter max-w-[1080px]">
+            <div className="font-black text-darkBlue  text-xl lg:text-2xl pl-5">
+              <p>
+                The <span className="text-customYellow italic">dynamic</span>{" "}
+                place to be for young Volleyballers:
+              </p>
+            </div>
+
+            <div className=" pl-8 pt-2">
+              <ul className="list-disc">
+                <li>Foster Holistic Youth Development</li>
+                <li>Instill Love for Volleyball</li>
+                <li>Provide Safe and Inclusive Environment</li>
+                <li>Equip for success in both volleyball and life</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
