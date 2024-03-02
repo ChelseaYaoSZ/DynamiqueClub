@@ -56,7 +56,7 @@ const Waiver = () => {
         <br />
         <p>
           Additional waiver, release, indemnity, acknowledgment of&nbsp;
-          <span class="underline font-medium">
+          <span className="underline font-medium">
             MEDIA/PHOTOGRAPHY RELEASE.
           </span>
         </p>
