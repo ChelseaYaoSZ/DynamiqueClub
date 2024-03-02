@@ -70,18 +70,19 @@ const ProgramDetailsPage = () => {
             <p>{currP.current_session}</p>
           </div>
 
-          <div className="flex w-full mb-2">
+          <div className="flex flex-col w-full mb-2">
             <div className="flex flex-row items-center">
               <SiWebmoney />
               <p className="mx-2  text-darkBlue font-medium">Cost :</p>
+              <p>N/A</p>
             </div>
-            <p>N/A</p>
-            <p className="mx-10">
+
+            <p className="mx-5">
               <span className="text-customRed">*</span> {currP.otherCost}
             </p>
           </div>
 
-          <div className="flex w-full mb-2">
+          <div className="flex flex-col md:flex-row w-full mb-2">
             <div className="flex flex-row items-center">
               <CgGirl />
               <p className="mx-2  text-darkBlue font-medium">Admission :</p>
@@ -89,7 +90,7 @@ const ProgramDetailsPage = () => {
             <p>{currP.admision}</p>
           </div>
 
-          <div className="flex w-full mb-2">
+          <div className="flex flex-col md:flex-row w-full mb-2">
             <div className="flex flex-row items-center">
               <TbLocationCheck />
               <p className="mx-2  text-darkBlue font-medium">Address :</p>

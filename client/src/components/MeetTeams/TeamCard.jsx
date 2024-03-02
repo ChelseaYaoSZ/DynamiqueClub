@@ -19,8 +19,10 @@ const TeamCard = ({ program }) => {
             </h2>
           </div>
 
-          <div className="w-[80px] h-[7px] sm:w-[161px] sm:h-[14px] text-[7px] font-bold rounded-md bg-customRed text-customRed transform -translate-y-3 group-hover:h-[15px] sm:group-hover:h-[20px] sm:text-sm text-center  group-hover:text-white">
-            <p>MEET THE TEAM</p>
+          <div className="w-[80px] h-[7px] sm:w-[161px] sm:h-[14px] text-[5px] font-bold rounded-md bg-customRed text-customRed transform -translate-y-3 group-hover:h-[15px] sm:group-hover:h-[20px] group-hover:text-[8px] sm:group-hover:text-sm text-center  group-hover:text-white">
+            <p className="group-hover:mt-[0.5px] sm:group-hover:mt-0">
+              MEET THE TEAM
+            </p>
           </div>
         </div>
       </div>
