@@ -10,7 +10,7 @@ import RegistrationPage from "./pages/RegistrationPage";
 import ProgramDetailsPage from "./pages/ProgramDetailsPage";
 
 import ClubPage from "./pages/ClubPage";
-
+import ThankyouPage from "./pages/ThankyouPage";
 
 function App() {
   return (
@@ -25,6 +25,7 @@ function App() {
 
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/club" element={<ClubPage />} />
+          <Route path="/thankyou" element={<ThankyouPage />} />
         </Route>
       </Routes>
     </Router>

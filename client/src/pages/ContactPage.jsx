@@ -1,5 +1,6 @@
 import React from "react";
 import contact from "../assets/contact.png";
+
 import { FiPhone } from "react-icons/fi";
 import { FiMail } from "react-icons/fi";
 
@@ -34,22 +35,29 @@ const ContactPage = () => {
           </div>
         </title>
 
-        <div className="w-4/5 sm:w-full flex flex-col sm:flex-row justify-center sm:gap-10  my-10">
-          <form className="w-full flex flex-col max-w-lg text-lg">
+        <div className="w-4/5 xl:w-full flex flex-col lg:flex-row mx-auto justify-between lg:gap-5 xl:gap-10  my-10">
+          <form
+            className="w-full flex flex-col max-w-lg text-lg mx-auto"
+            action="https://formsubmit.co/jennifer.melanie.fan@gmail.com"
+            method="POST"
+          >
             <div className="flex flex-col sm:flex-row sm:gap-2">
               <input
                 type="text"
+                name="full_name"
                 placeholder="Full Name"
                 className="w-full mb-3 rounded-sm"
               />
               <input
                 type="text"
+                name="phone"
                 placeholder="Phone(Optional)"
                 className="w-full mb-3 rounded-sm"
               />
             </div>
             <input
-              type="text"
+              type="email"
+              name="email"
               placeholder="Email"
               className="mb-3 rounded-sm"
             />
@@ -61,12 +69,21 @@ const ContactPage = () => {
               placeholder="Message"
               className="mb-2 rounded-sm"
             ></textarea>
-            <button className="w-full h-[45px] bg-customRed rounded-lg text-white font-semibold text-2xl my-5">
+            <input
+              type="hidden"
+              name="_next"
+              value="https://test.volleyballdynamique.ca/thankyou"
+            ></input>
+            <input type="hidden" name="_captcha" value="false"></input>
+            <button
+              className="w-full h-[45px] bg-customRed rounded-lg text-white font-semibold text-2xl my-5"
+              type="submit"
+            >
               Submit
             </button>
           </form>
 
-          <div className="w-full flex flex-col max-w-md mt-5 md:mt-0 ">
+          <div className="w-full flex flex-col max-w-lg mt-5 md:mt-5 lg:mt-0 mx-auto">
             <iframe
               width="auto"
               height="350"
