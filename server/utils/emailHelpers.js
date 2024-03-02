@@ -2,8 +2,8 @@
 
 // External imports
 import dotenv from "dotenv";
-import { createTransport } from "nodemailer";
 import retry from "retry";
+import sgMail from "@sendgrid/mail";
 
 // Environment configuration
 dotenv.config();
@@ -64,7 +64,7 @@ const generateHtmlContent = (data) => {
   }
 };
 
-const getMailOptions = (data, csvData, htmlContent) => {
+const generateMessage = (data, csvData, htmlContent) => {
   try {
     if (!data || !csvData || !htmlContent) {
       throw new Error("Invalid input data");
@@ -72,15 +72,18 @@ const getMailOptions = (data, csvData, htmlContent) => {
 
     const currentDate = new Date().toLocaleString();
     return {
-      from: "Volleyball Dynamique Club",
-      to: process.env.GOOGLE_EMAIL_ACCOUNT,
+      to: process.env.EMAIL_ACCOUNT,
+      from: process.env.EMAIL_ACCOUNT,
       subject: `Form Submission - ${data.firstName} ${data.lastName} - ${currentDate}`,
       text: "Here is the form submission.",
       html: htmlContent, // HTML version of the message
       attachments: [
         {
+          content: Buffer.from(csvData).toString('base64'),
           filename: "form-data.csv",
-          content: csvData,
+          type: "text/csv",
+          disposition: "attachment",
+          contentId: 'Form Data CSV File'
         },
       ],
     };
@@ -106,7 +109,7 @@ const getRetryOperation = (
   });
 };
 
-const sendEmailWithRetry = async (data, transporter) => {
+const sendEmailWithRetry = (data) => {
   // Convert form data to CSV
   const csvData = convertToCSV([data]);
   console.log("CSV data generated:", csvData);
@@ -116,8 +119,8 @@ const sendEmailWithRetry = async (data, transporter) => {
   console.log("HTML content generated:", htmlContent);
 
   // Configure email options
-  const mailOptions = getMailOptions(data, csvData, htmlContent);
-  console.log("Mail options configured:", mailOptions);
+  const message = generateMessage(data, csvData, htmlContent);
+  console.log("Message generated:", message);
 
   // Initialize retry operation
   const operation = getRetryOperation();
@@ -126,8 +129,9 @@ const sendEmailWithRetry = async (data, transporter) => {
   return new Promise((resolve, reject) => {
     operation.attempt(async (currentAttempt) => {
       try {
-        const info = await transporter.sendMail(mailOptions);
-        console.log("Email sent successfully: " + info.response);
+        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+        const info = await sgMail.send(message);
+        console.log("Email sent successfully");
         resolve(info);
       } catch (error) {
         console.error(
@@ -144,45 +148,9 @@ const sendEmailWithRetry = async (data, transporter) => {
   });
 };
 
-// Configure your SMTP transporter
-const getTransporter = (accessType = "AppPassword", accessToken) => {
-  switch (accessType) {
-    case "OAuth2":
-      return getOAuth2Transporter(accessToken);
-    default:
-      return getAppPasswordTransporter();
-  }
-};
-
-const getOAuth2Transporter = (accessToken) => {
-  return createTransport({
-    service: "gmail",
-    auth: {
-      type: "OAuth2",
-      user: process.env.GOOGLE_EMAIL_ACCOUNT,
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      refreshToken: process.env.GOOGLE_REFRESH_TOKEN,
-      accessToken: accessToken,
-    },
-  });
-};
-
-const getAppPasswordTransporter = () => {
-  return createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.GOOGLE_EMAIL_ACCOUNT,
-      pass: process.env.GOOGLE_APP_PASSWORD,
-    },
-  });
-};
-
 export {
   convertToCSV,
   generateHtmlContent,
-  getMailOptions,
   getRetryOperation,
-  getTransporter,
   sendEmailWithRetry,
 };
