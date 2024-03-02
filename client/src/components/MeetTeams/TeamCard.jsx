@@ -11,9 +11,9 @@ const TeamCard = ({ program }) => {
         <img src={program.image} alt="team" />
         <div className="absolute flex flex-col items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-14  sm:-translate-y-24 group ease-in-out duration-700 delay-150">
           <div className="flex flex-col justify-center items-center transition-all group-hover:-translate-y-5">
-            <p className="text-white text-xs sm:text-2xl font-jetBrains font-extrabold transform translate-y-7 sm:translate-y-10">
+            {/* <p className="text-white text-xs sm:text-2xl font-jetBrains font-extrabold transform translate-y-7 sm:translate-y-10">
               UNDER
-            </p>
+            </p> */}
             <h2 className="text-customYellow text-5xl my-5 sm:text-110 font-monomaniac text-center">
               {program.highlighter}
             </h2>
