@@ -4,7 +4,7 @@ import logoImage from '../../assets/logo-transparent.png';
 
 const Logo = () => {
   return (
-    <div className="flex h-20 lg:justify-center items-center pt-2 sm:pl-12 lg:pl-0 bg-primary">
+    <div className="flex h-full lg:justify-center items-center pt-2 sm:pl-12 lg:pl-0 bg-primary">
       
       <img src={logoImage} alt="Logo" className="h-14 mr-1 ml-2" /> 
       
