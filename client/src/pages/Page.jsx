@@ -10,7 +10,7 @@ const Page = () => {
       <div className="fixed top-0 w-full z-50">
         <Navbar />
       </div>
-      <div className="pt-[84px]">
+      <div className="pt-20">
         <Outlet />
       </div>
       <Newsletter />
