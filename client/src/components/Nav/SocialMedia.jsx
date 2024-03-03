@@ -9,7 +9,7 @@ const socialMediaLinks = [
 
 const SocialMedia = () => {
   return (
-    <div className="bg-customRed flex justify-center p-3 text-xl">
+    <div className="bg-customRed flex justify-center p-3 text-2xl h-20 items-center">
       {socialMediaLinks.map((social) => (
         <a key={social.id} href={social.url} className="text-white p-2 hover:text-customYellow">
           <FontAwesomeIcon icon={social.icon} />

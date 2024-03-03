@@ -8,7 +8,7 @@ import Sidebar from "./Nav/Sidebar";
 const Navbar = () => {
   return (
     <>
-      <div className="flex w-full shadow-md">
+      <div className="flex w-full h-20 shadow-md">
         <div className="flex-grow w-2/12">
           <Logo />
         </div>

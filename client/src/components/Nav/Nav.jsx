@@ -18,7 +18,7 @@ const Nav = ({ isDropdown = false }) => {
   const linkClasses = isDropdown ? "block px-4 py-2 text-left" : "mx-2 py-2";
 
   return (
-    <nav className={`bg-customRed flex ${containerClasses} p-3 text-lg`}>
+    <nav className={`bg-customRed flex ${containerClasses} p-3 text-xl h-20`}>
       {navLinks.map((link) => (
         <NavLink
           key={link.name}
@@ -26,7 +26,7 @@ const Nav = ({ isDropdown = false }) => {
           className={({ isActive }) =>
             `${linkClasses} ${
               isActive
-                ? "text-customYellow font-medium text-xl"
+                ? "text-customYellow font-medium text-2xl"
                 : "text-white hover:text-customYellow hover:font-medium"
             }`
           }

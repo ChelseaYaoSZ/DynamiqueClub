@@ -4,7 +4,7 @@ import Coaches from "../components/Club/Coaches";
 
 const ClubPage = () => {
   return (
-    <div className="flex flex-col justify-center items-center gap-4 my-10 py-8">
+    <div className="flex flex-col justify-center items-center gap-4 my-8 py-8">
       <div className="text-3xl lg:text-4xl font-semibold text-center lg:mb-6">
         <h2>CLUBS & COACHING</h2>
       </div>
