@@ -6,8 +6,8 @@ const MeetTheTeams = () => {
   return (
     <div className="w-11/12  flex flex-col justify-center items-center mb-10">
       <div className="w-11/12 sm:w-11/12 flex flex-row justify-between items-center max-w-screen-lg mx-auto text-darkBlue font-semibold my-5 gap-2">
-        <FaVolleyballBall className="text-customRed lg:text-2xl" />
-        <p className=" lg:text-2xl ">MEET THE TEAMS</p>
+        <FaVolleyballBall className="text-customRed lg:text-lg" />
+        <p className=" text-lg lg:text-xl font-semibold ">MEET THE TEAMS</p>
         <div className="h-0.5 lg:h-1 bg-customRed flex-grow"></div>
       </div>
       <div className="w-11/12 max-w-screen-lg mb-3 shadow-md shadow-gray-400 text-base lg:text-2xl text-white bg-customRed py-3 sm:py-5 px-2 sm:px-16 rounded ">
