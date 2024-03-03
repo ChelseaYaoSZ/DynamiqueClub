@@ -55,7 +55,7 @@ const Events = () => {
       <div className="w-11/12 xl:w-full max-w-screen-lg flex items-center text-customRed  gap-3 mb-4">
         <FaVolleyballBall className="text-base lg:text-lg " />
         <h2 className="text-lg lg:text-xl font-semibold  text-darkBlue">
-          LATEST EVENT & VIDEOS
+          LATEST EVENTS & VIDEOS
         </h2>
 
         <div className="h-0.5 lg:h-1 bg-customRed flex-grow"></div>
