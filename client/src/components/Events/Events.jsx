@@ -11,6 +11,8 @@ import events from "../../data/events.js";
 
 // Settings for the react-slick carousel
 const settings = {
+  autoplay: true,
+  autoplaySpeed: 3000,
   dots: true,
   infinite: true,
   speed: 500,

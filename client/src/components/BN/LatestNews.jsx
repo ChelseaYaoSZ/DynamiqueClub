@@ -34,7 +34,14 @@ const LatestNews = ({ id }) => {
           </div>
           <div className="text-sm text-white">{date}</div>
         </div>
-        <div className="text-white font-notable text-2xl lg:text-3xl">{event}</div>
+        <div>
+          <Link
+            to="/schedule"
+            className="text-white font-notable text-2xl lg:text-3xl hover:underline"
+          >
+            {event}
+          </Link>
+        </div>
         <div className="flex justify-end">
           <Link
             to="/registration"
