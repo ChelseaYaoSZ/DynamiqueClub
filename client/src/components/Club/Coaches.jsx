@@ -78,8 +78,8 @@ const Coaches = () => {
             id={coach.id}
             name={coach.name}
             title={coach.title}
-            section={coach.section}
             email={coach.email}
+            description={coach.description}
             image={coach.image}
           />
         ))}
