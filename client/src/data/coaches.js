@@ -8,7 +8,7 @@ const coaches = [
     name: "Steven Sun",
     title: "HEAD COACH",
     description:
-      "Steven Sun is Founder of Volleyball Dynamique. Former student player of Dongbei university of Finance and Economics volleyball team, middle position. Bachelor of concordia university and Dongbei university of Finance and Economics. 6 years of coaching experience with youth. NCCP level 1 in progress.",
+      "Founder of Volleyball Dynamique. Former student player of Dongbei university of Finance and Economics volleyball team, middle position. Bachelor of concordia university and Dongbei university of Finance and Economics. 6 years of coaching experience with youth. NCCP level 1 in progress.",
     email: "stevenjoe@gmail.com",
     image: stevenImage,
   },
@@ -18,7 +18,7 @@ const coaches = [
     title: "HEAD COACH",
     email: "stevenjoe@gmail.com",
     description:
-      "Rui Zhang is a former student player of Dongbei university of Finance and Economics volleyball team, middle position. Bachelor of concordia university and Dongbei university of Finance and Economics. 6 years of coaching experience with youth. NCCP level 1 in progress.",
+      "Former student player of China Jinlin sport university volleyball team, setter position. Bachelor of China Jinlin university sport college. Represented university in local, provincial, and National Volleyball tournaments in China. Actively participate in various high level volleyball tournaments in Toronto. Over 30 years of playing experience. ",
     image: zhangImage,
   },
   {
