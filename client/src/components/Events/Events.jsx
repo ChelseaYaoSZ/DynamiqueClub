@@ -58,7 +58,7 @@ const Events = () => {
           LATEST EVENTS & VIDEOS
         </h2>
 
-        <div className="h-0.5 lg:h-1 bg-customRed flex-grow"></div>
+        <hr className="flex-grow border-t border-customRed border-[1px]" />
         <FontAwesomeIcon
           icon={faChevronCircleLeft}
           className="text-xl"

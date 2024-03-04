@@ -12,7 +12,7 @@ const Introduce = () => {
           INTRODUCING OUR CLUB
         </h2>
 
-        <div className="h-0.5 lg:h-1 bg-customRed flex-grow"></div>
+        <hr className="flex-grow border-t border-customRed border-[1px]" />
       </div>
 
       <div className="w-11/12 2xl:w-full flex flex-col sm:flex-row justify-center mx-auto">
@@ -29,7 +29,7 @@ const Introduce = () => {
             <h3 className="text-customRed text-xs lg:text-base font-semibold">
               Dynamique Volleyball Club
             </h3>
-            <div className=" h-[0.5px] lg:h-[2px] bg-customRed flex-grow"></div>
+            <hr className="flex-grow border-t border-customRed border-[1px]" />
           </div>
 
           <div className="flex flex-col text-white bg-[#417999] w-4/5 md:w-10/12  items-start justify-center mx-auto p-3 mb-1">

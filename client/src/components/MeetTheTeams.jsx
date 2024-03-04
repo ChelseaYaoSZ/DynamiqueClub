@@ -10,7 +10,7 @@ const MeetTheTeams = () => {
         <h2 className="text-lg lg:text-xl font-semibold  text-darkBlue">
           MEET THE TEAMS
         </h2>
-        <div className="h-0.5 lg:h-1 bg-customRed flex-grow"></div>
+        <hr className="flex-grow border-t border-customRed border-[1px]" />
       </div>
       <div className="w-11/12 max-w-screen-lg mb-3 shadow-md shadow-gray-400 text-base lg:text-2xl text-white bg-customRed py-3 sm:py-5 px-2 sm:px-16 rounded ">
         <p>
