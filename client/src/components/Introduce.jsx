@@ -24,7 +24,7 @@ const Introduce = () => {
           />
         </div>
 
-        <div className="bg-customBlue w-full sm:w-6/12 h-[240px] sm:h-[300px] lg:h-[362px] flex flex-col gap-1 mx-auto rounded-b-lg md:rounded-bl-none md:rounded-r-lg">
+        <div className="bg-customBlue w-full sm:w-6/12 h-[240px] sm:h-[300px] lg:h-[362px] 2xl:h-[400px] 2xl:gap-8 flex flex-col gap-1 mx-auto rounded-b-lg md:rounded-bl-none md:rounded-r-lg">
           <div className="flex flex-row w-4/5 ml-10 md:ml-5 gap-2  items-center pt-4">
             <h3 className="text-customRed text-xs lg:text-base font-semibold">
               Dynamique Volleyball Club
