@@ -3,7 +3,7 @@ import Notification from "../components/Notification";
 
 const SchedulePage = () => {
 
-  const calendarSrc = "https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FToronto&bgcolor=%23ffffff&showPrint=0&showTitle=0&showTz=0&showCalendars=0&showTabs=0&src=dm9sbGV5ZHluYW1pcXVlQGdtYWlsLmNvbQ&color=%23039BE5";
+  const calendarSrc = "https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=America%2FToronto&bgcolor=%23ffffff&showTitle=0&showTz=0&src=dm9sbGV5ZHluYW1pcXVlQGdtYWlsLmNvbQ&color=%23039BE5";
 
   return (
     <div className="flex flex-col justify-center items-center py-8 lg:p-20 gap-4">
