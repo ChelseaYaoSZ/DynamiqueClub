@@ -27,7 +27,7 @@ const Introduce = () => {
         <div className="bg-customBlue lg:w-2/5 flex flex-col justify-center gap-2 px-6 py-4 lg:py-6 rounded-tr-none lg:rounded-tr-md rounded-br-md rounded-bl-md lg:rounded-bl-none">
         
           <div className="flex flex-col text-white bg-[#417999] px-4 py-4 lg:py-6 gap-4 rounded-sm">
-            <h2 className=" font-bold font-inter text-2xl 2xl:text-3xl">
+            <h2 className=" font-bold font-inter text-xl lg:text-2xl 2xl:text-3xl">
             The <span className="text-customYellow italic">DYNAMIQUE</span>{" "}
                 place to be for young Volleyballers:
             </h2>
@@ -40,7 +40,7 @@ const Introduce = () => {
           <div className="flex justify-end pt-2">
           <Link
             to="/club"
-            className="bg-customRed text-white text-base font-medium rounded px-2 py-1 hover:font-bold hover:bg-darkBlue"
+            className="bg-customRed text-white text-sm lg:text-base font-medium rounded px-2 py-1 hover:font-bold hover:bg-darkBlue"
           >
             Learn More
           </Link>
