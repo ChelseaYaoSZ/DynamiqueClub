@@ -6,7 +6,7 @@ import intro from "../assets/intro.png";
 const Introduce = () => {
   return (
     <div className="w-11/12  flex flex-col justify-center items-center max-w-screen-lg mx-auto mt-10">
-      <div className="w-11/12 xl:w-full max-w-screen-lg flex items-center text-customRed  gap-3 mb-4">
+      <div className="w-11/12 xl:w-full flex items-center text-customRed  gap-3 mb-4">
         <FaVolleyballBall className="text-base lg:text-lg " />
         <h2 className="text-lg lg:text-xl font-semibold  text-darkBlue">
           INTRODUCING OUR CLUB
@@ -16,7 +16,7 @@ const Introduce = () => {
       </div>
 
       <div className="w-11/12 2xl:w-full flex flex-col sm:flex-row justify-center mx-auto">
-        <div className="flex flex-grow ">
+        <div className="flex flex-grow  w-full">
           <img
             src={intro}
             alt="intro"
@@ -24,16 +24,16 @@ const Introduce = () => {
           />
         </div>
 
-        <div className="bg-customBlue w-full sm:w-6/12 h-[240px] lg:h-[320px] flex flex-col gap-1 mx-auto rounded-b-lg md:rounded-bl-none md:rounded-r-lg">
-          <div className="flex flex-row w-4/5 ml-8 gap-2  items-center pt-4">
-            <h3 className="text-customRed text-xs lg:text-2xl font-semibold">
+        <div className="bg-customBlue w-full sm:w-6/12 h-[240px] sm:h-[300px] lg:h-[362px] flex flex-col gap-1 mx-auto rounded-b-lg md:rounded-bl-none md:rounded-r-lg">
+          <div className="flex flex-row w-4/5 ml-10 md:ml-5 gap-2  items-center pt-4">
+            <h3 className="text-customRed text-xs lg:text-base font-semibold">
               Dynamique Volleyball Club
             </h3>
-            <div className="w-20 h-[0.5px] lg:h-[2px] bg-customRed " />
+            <div className=" h-[0.5px] lg:h-[2px] bg-customRed flex-grow"></div>
           </div>
 
           <div className="flex flex-col text-white bg-[#417999] w-4/5 md:w-10/12  items-start justify-center mx-auto p-3 mb-1">
-            <h2 className=" font-bold text-lg lg:text-3xl mb-2">
+            <h2 className=" font-bold text-lg xl:text-3xl mb-2">
               The place to be for young Volleyballers
             </h2>
             <p className=" text-xs lg:text-base">
