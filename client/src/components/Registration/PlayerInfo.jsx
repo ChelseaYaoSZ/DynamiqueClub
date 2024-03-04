@@ -14,13 +14,39 @@ const fields = [
 const PlayerInfo = () => {
   return (
     <div className="flex flex-col gap-2">
+      {/* level dropdown */}
+      <div className="flex flex-col gap-3 pb-3 lg:pb-6">
+        {/* level title */}
+        <div className="flex justify-start items-center gap-2">
+          <FontAwesomeIcon icon={faVolleyballBall} className="text-customRed" />
+          <h2 className="text-xl lg:text-2xl font-medium">
+            LEVEL OF PLAYER:
+            <span className="text-base lg:text-lg text-gray-400">
+              {" "}
+              (required)
+            </span>
+          </h2>
+        </div>
+        {/* level choice */}
+        <select name="level" required className="border p-2 rounded h-10">
+          <option value="" disabled>
+            Select one
+          </option>
+          <option value="beginner">U17 Competitive Team</option>
+          <option value="intermediate">U16 Competitive Team</option>
+          <option value="advanced">U14 Competitive Team</option>
+          <option value="advanced">U13 Competitive Team</option>
+          <option value="advanced">Development 1 Team</option>
+          <option value="advanced">Development 2 Team</option>
+          <option value="advanced">Tryout</option>
+        </select>
+      </div>
+      {/* player info title */}
       <div className="flex justify-start items-center gap-2">
-        <FontAwesomeIcon
-          icon={faVolleyballBall}
-          className="text-customRed"
-        />
+        <FontAwesomeIcon icon={faVolleyballBall} className="text-customRed" />
         <h2 className="text-xl lg:text-2xl font-medium">PLAYER INFORMATION:</h2>
       </div>
+      {/* player info */}
       <div className="grid grid-cols lg:grid-cols-2 gap-2 lg:gap-5">
         {fields.map((field, index) => (
           <div key={index} className="flex flex-col">

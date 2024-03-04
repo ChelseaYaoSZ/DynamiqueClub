@@ -11,7 +11,7 @@ const Waiver = () => {
           ASSUMPTION OF RISK AND WAIVER OF LIABILITY:
         </h2>
       </div>
-      <div className="text-sm lg:text-base h-48 text-justify overflow-y-scroll border border-gray p-4 bg-white">
+      <div className="text-sm lg:text-base h-60 text-justify overflow-y-scroll border border-gray p-4 bg-white">
         <p>
           I/We the undersigned hereby certify that I (we) am (are) the parent(s)
           or legal guardian(s) of the participating child(ren). In consideration
