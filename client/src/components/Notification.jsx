@@ -20,7 +20,7 @@ const Notification = () => {
           U17 Practice in March 6th has changed to March 7th!
         </span>
       </div>
-      <div className="flex justify-end">
+      <div className="flex justify-end pt-4">
           <Link
             to="/registration"
             className="bg-customRed text-white text-base font-medium rounded px-2 py-1 hover:font-bold hover:bg-customBlue"

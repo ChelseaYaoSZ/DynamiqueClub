@@ -43,7 +43,7 @@ const ResgistrationPage = () => {
           <Waiver />
         </form>
         <button
-          className="bg-customRed text-white py-2 px-4 rounded-lg max-w-28 hover:font-bold hover:bg-darkBlue"
+          className="bg-customRed text-white py-2 px-4 rounded-lg max-w-28 hover:font-bold hover:bg-customBlue"
           type="submit"
           form="registration-form"
         >

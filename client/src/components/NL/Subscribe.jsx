@@ -12,7 +12,7 @@ const Subscribe = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center lg:space-x-4 lg:mt-8">
+    <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-center lg:space-x-4 lg:mt-8">
       <span className="text-xl text-darkBlue font-semibold">GET ALL THE LATEST ON US</span>
       <form className="flex" onSubmit={handleSubmit}>
         <input

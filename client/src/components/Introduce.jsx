@@ -5,7 +5,7 @@ import intro from "../assets/intro.png";
 
 const Introduce = () => {
   return (
-    <div className="w-11/12  flex flex-col justify-center items-center max-w-screen-lg mx-auto mt-10">
+    <div className="w-11/12 flex flex-col justify-center items-center max-w-screen-lg mx-auto mt-10">
       <div className="w-11/12 xl:w-full flex items-center text-customRed  gap-3 mb-4">
         <FaVolleyballBall className="text-base lg:text-lg " />
         <h2 className="text-lg lg:text-xl font-semibold  text-darkBlue">
@@ -15,41 +15,35 @@ const Introduce = () => {
         <hr className="flex-grow border-t border-customRed border-[1px]" />
       </div>
 
-      <div className="w-11/12 2xl:w-full flex flex-col sm:flex-row justify-center mx-auto">
-        <div className="flex flex-grow  w-full">
+      <div className="w-11/12 2xl:w-full flex flex-col lg:flex-row justify-center">
+        <div className="lg:w-3/5">
           <img
             src={intro}
             alt="intro"
-            className="rounded-t-lg md:rounded-tr-none md:rounded-l-lg"
+            className="object-cover w-full h-full rounded-sm shadow-md"
           />
         </div>
 
-        <div className="bg-customBlue w-full sm:w-6/12 h-[240px] sm:h-[300px] lg:h-[362px] 2xl:h-[400px] 2xl:gap-8 flex flex-col gap-1 mx-auto rounded-b-lg md:rounded-bl-none md:rounded-r-lg">
-          <div className="flex flex-row w-4/5 ml-10 md:ml-5 gap-2  items-center pt-4">
-            <h3 className="text-customRed text-xs lg:text-base font-semibold">
-              Dynamique Volleyball Club
-            </h3>
-            <hr className="flex-grow border-t border-customRed border-[1px]" />
-          </div>
-
-          <div className="flex flex-col text-white bg-[#417999] w-4/5 md:w-10/12  items-start justify-center mx-auto p-3 mb-1">
-            <h2 className=" font-bold text-lg xl:text-3xl mb-2">
-              The place to be for young Volleyballers
+        <div className="bg-customBlue lg:w-2/5 flex flex-col gap-2 px-6 py-4 lg:py-6">
+          <div className="flex flex-col text-white bg-[#417999] px-4 py-4 lg:py-6 gap-4 rounded-sm">
+            <h2 className=" font-bold font-inter text-2xl">
+            The <span className="text-customYellow italic">DYNAMIQUE</span>{" "}
+                place to be for young Volleyballers:
             </h2>
-            <p className=" text-xs lg:text-base">
+            <p className="font-inter font-light text-base lg:text-lg">
               Since 2011, Dynamique club has aimed to grow the popularity and
-              caliber of competitive volleyball in the Montreal area. Founded by
-              players and managed by professionals, we offer coaching services
+              caliber of competitive volleyball in the Montreal area. We offer coaching services
               for all and field high level competitive teams of all ages.
             </p>
           </div>
-
+          <div className="flex justify-end pt-2">
           <Link
             to="/club"
-            className="bg-customRed  w-[45px] lg:w-[80px] text-center text-white text-[10px] lg:text-base font-medium rounded py-[2px]  hover:font-bold hover:bg-red-800 ml-9"
+            className="bg-customRed text-white text-base font-medium rounded px-2 py-1 hover:font-bold hover:bg-darkBlue"
           >
             Learn More
           </Link>
+          </div>
         </div>
       </div>
     </div>
