@@ -13,14 +13,18 @@ const CoachCard = ({ id, name, title, email, description, image }) => {
 
   const extraDetails = (
     <div
-      className="px-4 py-2 overflow-hidden h-[290px] lg:h-[354px] flex flex-col justify-center opacity-50 bg-contain bg-no-repeat"
-      style={{ backgroundImage: `url(${image})` }}
-    >
-      <p className="text-white text-base lg:text-xl">{description}</p>
-      <p className="text-customYellow text-sm lg:text-base font-normal">
-        {email}
-      </p>
-    </div>
+    className="relative px-4 py-2 overflow-hidden h-[290px] lg:h-[354px] flex flex-col justify-center"
+  >
+    <div className="absolute inset-0 bg-no-repeat bg-contain z-0" style={{
+      backgroundImage: `url(${image})`,
+      opacity: 0.4,
+    }}></div>
+    <p className="text-white font-medium text-base lg:text-xl z-10 relative">
+      {description}
+    </p>
+
+  </div>
+  
   );
 
   return (
@@ -29,7 +33,6 @@ const CoachCard = ({ id, name, title, email, description, image }) => {
       className="rounded overflow-hidden shadow-lg text-center flex flex-col px-5 py-3 cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => setIsHovered(!isHovered)}
     >
       {!isHovered ? coachImage : extraDetails}
 
@@ -40,6 +43,9 @@ const CoachCard = ({ id, name, title, email, description, image }) => {
         <p className="text-darkBlue text-xl lg:text-2xl font-semibold">
           {title}
         </p>
+        <p className="text-customYellow text-sm lg:text-base font-normal">
+        {email}
+      </p>
       </div>
     </div>
   );

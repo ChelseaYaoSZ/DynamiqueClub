@@ -75,6 +75,7 @@ const Coaches = () => {
       <Slider ref={sliderRef} {...settings}>
         {coaches.map((coach) => (
           <CoachCard
+            key={coach.id}
             id={coach.id}
             name={coach.name}
             title={coach.title}
