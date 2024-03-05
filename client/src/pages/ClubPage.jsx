@@ -1,6 +1,7 @@
 import React from "react";
 import OurMission from "../components/Club/OurMission";
 import Coaches from "../components/Club/Coaches";
+import OurSpirit from "../components/Club/OurSpirit";
 
 const ClubPage = () => {
   return (
@@ -8,10 +9,10 @@ const ClubPage = () => {
       <div className="text-3xl lg:text-4xl font-semibold text-center lg:mb-6">
         <h2>CLUBS & COACHING</h2>
       </div>
-      <div className="flex flex-col gap-4 lg:gap-8 max-w-72 sm:max-w-screen-sm lg:max-w-screen-lg">
-        <OurMission />
-        
+      <div className="flex flex-col gap-4 lg:gap-12 max-w-72 sm:max-w-screen-sm lg:max-w-screen-lg">
+        <OurMission />       
         <Coaches />
+        <OurSpirit />
       </div>
     </div>
   );

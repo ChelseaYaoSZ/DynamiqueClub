@@ -40,7 +40,7 @@ const OurMission = () => {
       {/* For large screen mode */}
       <div className="hidden lg:flex lg:w-full">
         <div className="lg:w-1/2 flex justify-center">
-          <img src={missionImage} alt="MissionImage" className="h-52 w-88" />
+          <img src={missionImage} alt="MissionImage" className="w-[400px]" />
         </div>
         <div className="lg:w-1/2 flex flex-col gap-2">
           <div className="flex items-center text-customRed ">
