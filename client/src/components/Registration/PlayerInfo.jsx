@@ -28,17 +28,17 @@ const PlayerInfo = () => {
           </h2>
         </div>
         {/* level choice */}
-        <select name="level" required className="border p-2 rounded h-10">
+        <select name="level" defaultValue="" required className="border p-2 rounded h-10">
           <option value="" disabled>
             Select one
           </option>
-          <option value="beginner">U17 Competitive Team</option>
-          <option value="intermediate">U16 Competitive Team</option>
-          <option value="advanced">U14 Competitive Team</option>
-          <option value="advanced">U13 Competitive Team</option>
-          <option value="advanced">Development 1 Team</option>
-          <option value="advanced">Development 2 Team</option>
-          <option value="advanced">Tryout</option>
+          <option value="U17">U17 Competitive Team</option>
+          <option value="U16">U16 Competitive Team</option>
+          <option value="U14">U14 Competitive Team</option>
+          <option value="U13">U13 Competitive Team</option>
+          <option value="DEV1">Development 1 Team</option>
+          <option value="DEV2">Development 2 Team</option>
+          <option value="Tryout">Tryout</option>
         </select>
       </div>
       {/* player info title */}

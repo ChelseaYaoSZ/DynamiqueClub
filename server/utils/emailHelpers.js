@@ -30,13 +30,14 @@ const generateHtmlContent = (data) => {
   try {
     // Ensure that all required fields are present in the data object
     const requiredFields = [
-      "firstName",
-      "lastName",
       "dateOfBirth",
+      "firstName",
       "gender",
+      "lastName",
+      "level",
+      "parentEmail",
       "parentFirstName",
       "parentLastName",
-      "parentEmail",
       "parentPhone",
     ];
     requiredFields.forEach((field) => {
