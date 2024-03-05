@@ -11,10 +11,12 @@ import ProgramDetailsPage from "./pages/ProgramDetailsPage";
 
 import ClubPage from "./pages/ClubPage";
 import ThankyouPage from "./pages/ThankyouPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Page />}>
           <Route path="/" element={<Homepage />} />
