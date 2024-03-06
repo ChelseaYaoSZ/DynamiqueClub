@@ -11,7 +11,18 @@ const fields = [
   { name: "phone", label: "Phone", required: false, type: "tel" },
 ];
 
-const PlayerInfo = () => {
+const levels = {
+  u17: "U17",
+  u16: "U16",
+  u14: "U14",
+  u13: "U13",
+  dev1: "DEV1",
+  dev2: "DEV2",
+};
+
+const PlayerInfo = ({ id }) => {
+  console.log(id);
+  const defaultLevel = levels[id];
   return (
     <div className="flex flex-col gap-2">
       {/* level dropdown */}
@@ -28,7 +39,12 @@ const PlayerInfo = () => {
           </h2>
         </div>
         {/* level choice */}
-        <select name="level" defaultValue="" required className="border p-2 rounded h-10">
+        <select
+          name="level"
+          defaultValue={defaultLevel || ""}
+          required
+          className="border p-2 rounded h-10"
+        >
           <option value="" disabled>
             Select one
           </option>

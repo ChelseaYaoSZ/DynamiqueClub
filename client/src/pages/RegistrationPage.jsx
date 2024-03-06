@@ -1,10 +1,18 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import PlayerInfo from "../components/Registration/PlayerInfo";
 import ParentInfo from "../components/Registration/ParentInfo";
 import Waiver from "../components/Registration/Waiver";
 import { sendEmail } from "../utils/emailService";
 
+const useQuery = () => {
+  return new URLSearchParams(useLocation().search);
+};
+
 const ResgistrationPage = () => {
+  const query = useQuery();
+  const programId = query.get("programId");
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
@@ -38,7 +46,7 @@ const ResgistrationPage = () => {
           id="registration-form"
           className="flex flex-col gap-4 lg:gap-8"
         >
-          <PlayerInfo />
+          <PlayerInfo id={programId} />
           <ParentInfo />
           <Waiver />
         </form>

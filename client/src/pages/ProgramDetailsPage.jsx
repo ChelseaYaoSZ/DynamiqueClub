@@ -32,7 +32,7 @@ const ProgramDetailsPage = () => {
               {currP.grade}
             </p>
             <Link
-              to="/registration"
+              to={`/registration?programId=${currP.id}`}
               className="bg-customRed text-white font-medium rounded px-3 py-1 mb-10 hover:font-bold hover:bg-red-800"
             >
               Register now
