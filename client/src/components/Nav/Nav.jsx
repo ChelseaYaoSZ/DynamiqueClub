@@ -51,7 +51,7 @@ const Nav = ({ isDropdown = false }) => {
                 <NavLink
                   key={program.name}
                   to={program.path}
-                  className="block px-4 py-2 text-left text-base font-medium hover:bg-gray-200 hover:text-customRed"
+                  className="block px-6 py-1 text-left text-base font-medium hover:bg-gray-200 hover:text-customRed"
                 >
                   {program.name}
                 </NavLink>
