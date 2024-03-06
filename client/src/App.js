@@ -12,6 +12,7 @@ import ProgramDetailsPage from "./pages/ProgramDetailsPage";
 import ClubPage from "./pages/ClubPage";
 import ThankyouPage from "./pages/ThankyouPage";
 import ScrollToTop from "./components/ScrollToTop";
+import AdminPage from "./pages/AdminPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/club" element={<ClubPage />} />
           <Route path="/thankyou" element={<ThankyouPage />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Route>
       </Routes>
     </Router>
