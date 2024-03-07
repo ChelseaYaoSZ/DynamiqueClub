@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BannerForm from "../components/Admin/BannerForm";
 import NoteForm from "../components/Admin/NoteForm";
+import ProgramForm from "../components/Admin/ProgramForm";
 
 const tabTypes = ["banner", "note", "program"]; // Add more form types as needed
 
@@ -33,9 +34,10 @@ const AdminPage = () => {
         ))}
       </div>
 
-      <div className="lg:w-[650px]">
+      <div className="w-96 lg:w-[650px]">
         {activeTab === "banner" && <BannerForm />}
         {activeTab === "note" && <NoteForm />}
+        {activeTab === "program" && <ProgramForm />}
         {/* Handle additional form components as needed based on the active tab */}
       </div>
     </div>

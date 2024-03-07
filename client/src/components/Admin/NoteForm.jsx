@@ -1,12 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const NoteForm = () => {
   const [formData, setFormData] = useState({ notification: "" });
+  const [notes, setNotes] = useState([]); // State to hold notes from the database
+
+  useEffect(() => {
+    // Fetch notes from your API
+    const fetchNotes = async () => {
+      try {
+        const response = await fetch("YOUR_API_ENDPOINT");
+        const data = await response.json();
+        setNotes(data); // Assuming the API returns an array of notes
+      } catch (error) {
+        console.error("Failed to fetch notes:", error);
+      }
+    };
+
+    fetchNotes();
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(formData);
-    // Add logic to send data to the server
+    // Add logic to update the note in the database
   };
 
   const handleChange = (event) => {
@@ -14,9 +30,14 @@ const NoteForm = () => {
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     console.log(name, value);
   };
+
   return (
     <div className="w-full bg-bgWhite rounded shadow-md p-10 my-10 border">
       <h2 className="text-2xl font-medium mb-4 text-center">Note Form</h2>
+      {/* Display Notes from Database */}
+      <div className="mb-5 border h-36 bg-white">
+      </div>
+       {/* Display specific Note from Database */}
       <form onSubmit={handleSubmit} id="note-form" className="space-y-4">
         <label className="block text-lg font-medium">
           Notification:

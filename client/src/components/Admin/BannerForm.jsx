@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 const BannerForm = () => {
   const [formData, setFormData] = useState({
-    newEvent: "",
+    eventTitle: "",
     bannerImage: null,
   });
 
@@ -34,13 +34,16 @@ const BannerForm = () => {
   return (
     <div className="w-full bg-bgWhite rounded shadow-md p-10 my-10 border">
       <h2 className="text-2xl font-medium mb-4 text-center">Banner Form</h2>
+       {/* Display all the banners info from Database */}
+       <div className="mb-5 border h-36 bg-white">
+      </div>
       <form id="banner-form" onSubmit={handleSubmit} className="space-y-4">
         {/* New Event input */}
         <label className="block text-lg font-medium">
-          New Event:
+          Event title:
           <input
-            name="newEvent"
-            value={formData.newEvent}
+            name="eventTitle"
+            value={formData.eventTitle}
             onChange={handleChange}
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
           />
