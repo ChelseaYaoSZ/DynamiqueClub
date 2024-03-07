@@ -46,7 +46,7 @@ const Nav = ({ isDropdown = false }) => {
             {link.name}
           </NavLink>
           {link.dropdown && (
-            <div className="absolute hidden group-hover:block bg-primary text-black mt-1">
+            <div className="lg:absolute hidden group-hover:block bg-primary text-black mt-1">
               {programs.map((program) => (
                 <NavLink
                   key={program.name}
