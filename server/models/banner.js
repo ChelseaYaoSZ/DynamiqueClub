@@ -5,10 +5,6 @@ import mongoose, { Schema } from "mongoose";
 
 const bannerSchema = new Schema(
   {
-    id: {
-      type: Number,
-      required: true,
-    },
     event: {
       type: String,
       required: true,

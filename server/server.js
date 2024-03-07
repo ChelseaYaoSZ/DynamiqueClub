@@ -9,6 +9,7 @@ import mongoose from "mongoose";
 // Internal imports
 import emailRoutes from "./routes/emailRoutes.js";
 import bannerRoutes from "./routes/bannerRoutes.js";
+import noteRoutes from "./routes/noteRoutes.js";
 
 // Environment configuration
 dotenv.config();
@@ -24,6 +25,7 @@ app.use(json());
 // Routes
 app.use("/api/email", emailRoutes);
 app.use("/api/banners", bannerRoutes);
+app.use("/api/notes", noteRoutes);
 
 // Database connection
 mongoose
