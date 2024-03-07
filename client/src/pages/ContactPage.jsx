@@ -85,13 +85,14 @@ const ContactPage = () => {
 
           <div className="w-full flex flex-col max-w-lg mt-5 md:mt-5 lg:mt-0 mx-auto">
             <iframe
+              id="gmap_canvas"
+              title="gmap_canvas"
               width="auto"
               height="350"
               frameborder="0"
               scrolling="no"
               marginheight="0"
               marginwidth="0"
-              id="gmap_canvas"
               src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=4901%20Rue%20du%20Coll%C3%A8ge%20Pierrefonds+(College%20Beaubois)&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
             ></iframe>
           </div>

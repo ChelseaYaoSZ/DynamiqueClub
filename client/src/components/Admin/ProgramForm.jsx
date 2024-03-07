@@ -40,6 +40,8 @@ const ProgramForm = () => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     console.log(name, value);
+    console.log(programs);
+
   };
 
   return (

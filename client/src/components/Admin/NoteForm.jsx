@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 
 const NoteForm = () => {
+  const [formData, setFormData] = useState({
+    notification: "",
+    buttonDisplay: "",
+  });
+
+  const [notes, setNotes] = useState([]); // State to hold notes from the database
+
   const [isToggled, setIsToggled] = useState(false); // false for "Turn off", true for "Turn on"
 
   const handleToggle = () => {
     setIsToggled(!isToggled);
   };
-
-  const [formData, setFormData] = useState({
-    notification: "",
-    buttonDisplay: "",
-  });
-  const [notes, setNotes] = useState([]); // State to hold notes from the database
-
   useEffect(() => {
     // Fetch notes from your API
     const fetchNotes = async () => {
@@ -38,6 +38,7 @@ const NoteForm = () => {
     const { name, value } = event.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     console.log(name, value);
+    console.log(notes);
   };
 
   return (

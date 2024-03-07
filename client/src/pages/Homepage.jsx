@@ -1,6 +1,5 @@
 import React from "react";
 
-import Sidebar from "../components/Nav/Sidebar";
 import Introduce from "../components/Introduce";
 import Events from "../components/Events/Events";
 import MeetTheTeams from "../components/MeetTheTeams";

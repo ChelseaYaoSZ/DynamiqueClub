@@ -10,6 +10,8 @@ const SchedulePage = () => {
       <h2 className="text-3xl lg:text-4xl font-semibold text-center lg:mb-6">PRACTICE & GAME SCHEDULE</h2>
       <Notification/>
       <iframe
+        id="calendar"
+        title="calendar"
         src={calendarSrc}
         className="w-3/4 h-[450px] lg:h-[600px] border-0" 
         frameborder="0"

@@ -82,7 +82,7 @@ const Events = () => {
             <div key={e.id} style={{ margin: "0 10px" }}>
               <img
                 src={e.image}
-                alt={`event photo ${e.id}`}
+                alt={`event ${e.id}`}
                 className="border-8 border-primary rounded-2xl"
               />
             </div>
