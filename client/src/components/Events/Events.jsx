@@ -39,7 +39,10 @@ const settings = {
   ],
 };
 
+const getLatestEvents = () => {};
+
 const Events = () => {
+  const allEvents = getLatestEvents() ? [...events, getLatestEvents()] : events;
   const sliderRef = useRef();
 
   // Function to go to the next slide
@@ -75,7 +78,7 @@ const Events = () => {
 
       <div className="w-11/12 2xl:w-full">
         <Slider ref={sliderRef} {...settings} className="">
-          {events.map((e) => (
+          {allEvents.map((e) => (
             <div key={e.id} style={{ margin: "0 10px" }}>
               <img
                 src={e.image}
