@@ -44,3 +44,13 @@ code {
     animation: scrollPlay 10s linear infinite;
   }
 }
+
+/* Toggle Switch */
+input:checked ~ .dot {
+  transform: translateX(24px); /* Adjust based on the size of your toggle */
+}
+
+.dot {
+  transition: transform 0.3s ease-in-out;
+}
+
