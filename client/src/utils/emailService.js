@@ -1,4 +1,4 @@
-const API_URL = "/api/send-email";
+const API_URL = "/api/email/send";
 const API_HEADERS = {
   "Content-Type": "application/json",
 };

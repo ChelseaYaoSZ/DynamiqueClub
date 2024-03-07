@@ -13,13 +13,8 @@ dotenv.config();
 // Initialize router
 const router = Router();
 
-// Endpoint to test the server
-router.route("/").get((req, res) => {
-  res.send("Welcome to the Volleyball Dynamique Club server");
-});
-
 // Endpoint to handle form data submission
-router.route("/send-email").post(async (req, res) => {
+router.route("/send").post(async (req, res) => {
   try {
     // Send email with retry
     await sendEmailWithRetry(req.body)
