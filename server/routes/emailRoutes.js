@@ -14,6 +14,10 @@ dotenv.config();
 const router = Router();
 
 // Endpoint to handle form data submission
+router.route("/").get((req, res) => {
+  res.send("Email service is running");
+});
+
 router.route("/send").post(async (req, res) => {
   try {
     // Send email with retry

@@ -36,7 +36,7 @@ const Nav = ({ isDropdown = false }) => {
               `${linkClasses} ${
                 isActive
                   ? "text-customYellow font-medium text-2xl"
-                  : "text-white hover:text-customYellow hover:font-medium"
+                  : "text-white  hover:text-customYellow hover:font-medium"
               }`
             }
             style={({ isActive }) => ({
@@ -51,7 +51,7 @@ const Nav = ({ isDropdown = false }) => {
                 <NavLink
                   key={program.name}
                   to={program.path}
-                  className="block pl-6 lg:pl-2 pr-4 py-2 lg:py-3 text-left text-base lg:text-xl font-medium hover:bg-gray-200 lg:hover:bg-customRed hover:text-customRed  lg:hover:text-customYellow"
+                  className="block pl-6 lg:pl-2 pr-4 py-2 lg:py-3 text-left text-base lg:text-xl hover:font-medium hover:bg-gray-200 lg:hover:bg-customRed hover:text-customRed  lg:hover:text-customYellow"
                 >
                   {program.name}
                 </NavLink>
