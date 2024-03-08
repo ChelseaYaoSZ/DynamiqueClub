@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBullhorn } from "@fortawesome/free-solid-svg-icons";
@@ -8,18 +8,25 @@ import moment from "moment";
 const Notification = () => {
   const { notes, loading, error } = useFetchNotes();
 
+  const [updatedDate, setUpdatedDate] = useState("");
+  const [note, setNote] = useState("");
+  const [buttonDisplay, setButtonDisplay] = useState(false);
+
   useEffect(() => {
-    if (notes.length > 0) {
+    if (notes && notes.length > 0) {
       console.log("Notes fetched successfully:", notes);
+      setUpdatedDate(moment(notes[0].updatedAt).format("MMMM Do YYYY"));
+      setNote(notes[0].note);
+      setButtonDisplay(notes[0].buttonDisplay);
+    } else {
+      setUpdatedDate(moment().format("MMMM Do YYYY"));
+      setNote("No notes available.");
+      setButtonDisplay(false);
     }
   }, [notes]);
 
   if (loading) return <p>Loading notes...</p>;
   if (error) return <p>No notes.</p>;
-
-  const updatedDate = moment(notes[0].updatedAt).format("MMMM DD, YYYY");
-  const note = notes[0].note;
-  const buttonDisplay = notes[0].buttonDisplay;
 
   return (
     <div className="bg-bgWhite text-black py-3 px-6 text-lg w-3/4 border">

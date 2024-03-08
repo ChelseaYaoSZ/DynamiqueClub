@@ -19,6 +19,8 @@ const updateNote = async (id, noteData) => {
     } else {
       console.error("Failed to save the note", response.data);
     }
+
+    return response.data;
   } catch (error) {
     console.error("Error:", error.response ? error.response.data : error);
   }

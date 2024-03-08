@@ -15,11 +15,12 @@ const NoteForm = () => {
   const [buttonDisplay, setButtonDisplay] = useState(false);
 
   useEffect(() => {
-    if (notes.length > 0) {
+    if (notes && notes.length > 0) {
       const note = notes[0];
       setCurrentNoteId(note._id);
       setCurrentNote(note.note);
       setButtonDisplay(note.buttonDisplay);
+      setFormData({ note: note.note, buttonDisplay: note.buttonDisplay });
       console.log("Notes fetched successfully:", note);
     }
   }, [notes]);
@@ -42,9 +43,13 @@ const NoteForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await updateNote(currentNoteId, formData);
-      console.log("Note saved successfully");
-      alert("Note saved successfully");
+      const response = await updateNote(currentNoteId, formData);
+      if (response) {
+        console.log("Note saved successfully:", response);
+        alert("Note saved successfully");
+      } else {
+        alert("Failed to save note");
+      }
     } catch (error) {
       console.error("Failed to save note:", error);
       alert("Failed to save note");
@@ -64,6 +69,7 @@ const NoteForm = () => {
           New Note:
           <textarea
             placeholder={currentNote}
+            value={formData.note}
             onChange={handleNoteChange}
             name="note"
             className="mt-1 block w-full h-32 border border-gray-300 rounded-md shadow-sm p-2"
@@ -79,6 +85,7 @@ const NoteForm = () => {
                   className="sr-only"
                   onChange={handleButtonDisplayToggle}
                   checked={buttonDisplay}
+                  value={buttonDisplay}
                 />
                 {/* Line */}
                 <div className="block bg-gray-600 w-14 h-8 rounded-full"></div>
