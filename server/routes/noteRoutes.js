@@ -1,13 +1,17 @@
-import express from 'express';
-import Note from '../models/note.js'; // Adjust the path as necessary
+import { Router } from "express";
+import dotenv from "dotenv";
+import Note from "../models/note.js"; // Adjust the path as necessary
 
-const router = express.Router();
-
-// POST: Create a new note
-router.post('/add', async (req, res) => {
+const router = Router();
+dotenv.config();
+// POST: Create a new note, endpoint: /api/notes/add
+router.route("/add").post(async (req, res) => {
+  console.log(req.body);
   const { note, buttonDisplay } = req.body;
+  console.log(note, buttonDisplay);
   try {
-    const newNote = new Note({ note, buttonDisplay });
+    const newNote = new Note({ note: note, buttonDisplay: buttonDisplay });
+    console.log(newNote);
     await newNote.save();
     res.status(201).json(newNote);
   } catch (error) {
@@ -16,7 +20,7 @@ router.post('/add', async (req, res) => {
 });
 
 // GET: Fetch all notes
-router.get('/getAll', async (req, res) => {
+router.route("/getAll").get( async (req, res) => {
   try {
     const notes = await Note.find();
     res.json(notes);
@@ -27,20 +31,24 @@ router.get('/getAll', async (req, res) => {
 
 // Additional routes for UPDATE and DELETE operations here...
 
-// PUT: Update an existing note by ID
-router.put('/update/:id', async (req, res) => {
-    const { id } = req.params;
-    const { note, buttonDisplay } = req.body;
-  
-    try {
-      const updatedNote = await Note.findByIdAndUpdate(id, { note, buttonDisplay }, { new: true });
-      if (!updatedNote) {
-        return res.status(404).json({ message: "Note not found" });
-      }
-      res.json(updatedNote);
-    } catch (error) {
-      res.status(400).json({ message: error.message });
+// P0ST: Update an existing note by ID, endpoint: /api/notes/update/:id
+router.route("/update/:id").put(async (req, res) => {
+  const { id } = req.params;
+  const { note, buttonDisplay } = req.body;
+
+  try {
+    const updatedNote = await Note.findByIdAndUpdate(
+      id,
+      { note: note, buttonDisplay: buttonDisplay },
+      { new: true }
+    );
+    if (!updatedNote) {
+      return res.status(404).json({ message: "Note not found" });
     }
-  });
+    res.json(updatedNote);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
 
 export default router;
