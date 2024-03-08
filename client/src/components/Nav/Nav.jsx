@@ -46,12 +46,12 @@ const Nav = ({ isDropdown = false }) => {
             {link.name}
           </NavLink>
           {link.dropdown && (
-            <div className="lg:absolute hidden group-hover:block bg-primary text-black mt-1">
+            <div className="lg:absolute hidden group-hover:block bg-customRed text-black lg:text-white mt-2">
               {programs.map((program) => (
                 <NavLink
                   key={program.name}
                   to={program.path}
-                  className="block px-6 py-1 text-left text-base font-medium hover:bg-gray-200 hover:text-customRed"
+                  className="block pl-6 lg:pl-2 pr-4 py-2 lg:py-3 text-left text-base lg:text-xl font-medium hover:bg-gray-200 lg:hover:bg-customRed hover:text-customRed  lg:hover:text-customYellow"
                 >
                   {program.name}
                 </NavLink>
