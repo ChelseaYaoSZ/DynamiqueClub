@@ -9,7 +9,7 @@ const Footer = () => {
   const handleGoogleSignIn = async () => {
     try {
       const res = await signInWithPopup(auth, googleAuthProvider);
-      console.log(res);
+
       localStorage.setItem("token", res.user.accessToken);
       localStorage.setItem("user", JSON.stringify(res.user));
       navigate("/admin");
