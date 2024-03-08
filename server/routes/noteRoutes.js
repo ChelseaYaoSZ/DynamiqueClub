@@ -4,6 +4,12 @@ import Note from "../models/note.js"; // Adjust the path as necessary
 
 const router = Router();
 dotenv.config();
+
+// Endpoints for note
+router.route("/").get((req, res) => {
+  res.send("Note service is running");
+});
+
 // POST: Create a new note, endpoint: /api/notes/add
 router.route("/add").post(async (req, res) => {
   console.log(req.body);

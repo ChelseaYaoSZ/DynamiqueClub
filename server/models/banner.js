@@ -5,11 +5,11 @@ import mongoose, { Schema } from "mongoose";
 
 const bannerSchema = new Schema(
   {
-    event: {
+    eventTitle: {
       type: String,
       required: true,
     },
-    imageUrl: {
+    imageURL: {
       type: String,
       required: true,
     },
