@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CoachCard = ({ id, name, title, email, description, image }) => {
+const CoachCard = ({ id, name, title, description, image }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const coachImage = (
@@ -43,9 +43,6 @@ const CoachCard = ({ id, name, title, email, description, image }) => {
         <p className="text-darkBlue text-xl lg:text-2xl font-semibold">
           {title}
         </p>
-        <p className="text-customYellow text-sm lg:text-base font-normal">
-        {email}
-      </p>
       </div>
     </div>
   );
