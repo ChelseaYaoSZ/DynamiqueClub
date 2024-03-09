@@ -9,6 +9,7 @@ import { auth } from "../firebase/config";
 const tabTypes = ["banner", "note", "program"]; // Add more form types as needed
 
 const allowedEmail = "jennifer.melanie.fan@gmail.com";
+const allowedEmail2 = "szyao416@gmail.com";
 
 const AdminPage = () => {
   const [user, setUser] = useState(null);
@@ -20,7 +21,7 @@ const AdminPage = () => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        if (user.email === allowedEmail) {
+        if (user.email === allowedEmail || user.email === allowedEmail2) {
           setUser(user);
         } else {
           alert("Admin Dashboard access restricted to specific email account.");
