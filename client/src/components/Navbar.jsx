@@ -9,7 +9,7 @@ const Navbar = () => {
   return (
     <>
       <div className="flex w-full h-20 shadow-md">
-        <div className="flex-grow w-2/12">
+        <div className="flex-grow ">
           <Logo />
         </div>
         <div className="flex-grow w-8/12 hidden lg:block">

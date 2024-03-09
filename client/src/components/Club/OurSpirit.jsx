@@ -11,7 +11,7 @@ const OurSpirit = () => {
         <div className="lg:hidden flex flex-col gap-3 mt-4">
           <div className="flex items-center text-customRed gap-2">
             <FontAwesomeIcon icon={faVolleyballBall} className="text-base" />
-            <h2 className="text-lg font-semibold">Our Mission</h2>
+            <h2 className="text-lg font-semibold">Our Spirit</h2>
             <hr className="flex-grow border-t border-customRed border-[1px]" />
           </div>
   
