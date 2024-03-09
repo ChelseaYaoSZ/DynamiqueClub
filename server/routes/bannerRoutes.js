@@ -8,12 +8,14 @@ import Banner from "../models/banner.js";
 // Initialize router
 const router = Router();
 dotenv.config();
+
 // Endpoints for banner
 router.route("/").get((req, res) => {
   res.send("Banner service is running");
 });
+
 // Create a new banner
-router.post("/add", async (req, res) => {
+router.route("/add").post(async (req, res) => {
   console.log(req.body);
   const { eventTitle, imageURL } = req.body;
   console.log(eventTitle, imageURL);
@@ -31,7 +33,7 @@ router.post("/add", async (req, res) => {
 });
 
 // Get all banners
-router.get("/getALL", async (req, res) => {
+router.route("/getAll").get(async (req, res) => {
   try {
     const banners = await Banner.find({});
     res.json(banners);
@@ -41,7 +43,7 @@ router.get("/getALL", async (req, res) => {
 });
 
 // Update banner by id
-router.get("/update/:id", async (req, res) => {
+router.route("/update/:id").put(async (req, res) => {
   const { id } = req.params;
   const { eventTitle, imageURL } = req.body;
 
