@@ -25,25 +25,25 @@ const Introduce = () => {
         </div>
 
         <div className="bg-customBlue lg:w-2/5 flex flex-col justify-center gap-2 px-6 py-4 lg:py-6 rounded-tr-none lg:rounded-tr-md rounded-br-md rounded-bl-md lg:rounded-bl-none">
-        
           <div className="flex flex-col text-white bg-[#417999] px-4 py-4 lg:py-6 gap-4 rounded-sm">
             <h2 className=" font-bold font-inter text-xl lg:text-2xl 2xl:text-3xl">
-            The <span className="text-customYellow italic">dynamic</span>{" "}
-                place to be for young Volleyballers:
+              The <span className="text-customYellow italic">dynamic</span>{" "}
+              place to be for young Volleyballers:
             </h2>
             <p className="font-inter font-light text-base lg:text-lg">
-              Since 2011, Dynamique club has aimed to grow the popularity and
-              caliber of competitive volleyball in the Montreal area. We offer coaching services
-              for all and field high level competitive teams of all ages.
+              Since 2011, Dynamique Club has been dedicated to increasing the
+              popularity and caliber of competitive volleyball in the Montreal
+              area. We provide coaching services for all skill levels and field
+              high-level competitive teams across various age groups.
             </p>
           </div>
           <div className="flex justify-end pt-2">
-          <Link
-            to="/club"
-            className="bg-customRed text-white text-sm lg:text-base font-medium rounded px-2 py-1 hover:font-bold hover:bg-darkBlue"
-          >
-            Learn More
-          </Link>
+            <Link
+              to="/club"
+              className="bg-customRed text-white text-sm lg:text-base font-medium rounded px-2 py-1 hover:font-bold hover:bg-darkBlue"
+            >
+              Learn More
+            </Link>
           </div>
         </div>
       </div>
