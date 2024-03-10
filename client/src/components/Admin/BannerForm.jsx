@@ -84,52 +84,34 @@ const BannerForm = () => {
     <div className="w-full bg-bgWhite rounded shadow-md p-10 my-10 border">
       <h2 className="text-2xl font-medium mb-4 text-center">Banner Form</h2>
       {/* Display all the banners info from Database */}
-      <div className="mb-5 border h-36 bg-white">
+      <div className="mb-5 border bg-white text-sm">
         {/* Display all the banners info from Database */}
-        <div className="mb-5 border bg-white">
-          <div>
-            {/* Display all the banners info in a table */}
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+        <table className="divide-y divide-gray-200 font-medium w-full">
+          <thead className="bg-gray-50 uppercase text-gray-500 tracking-wider">
+            <tr>
+              <th scope="col" className="py-4 px-2">Event Title</th>
+              <th scope="col" className="py-4 px-2">Banner ImageURL</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-200">
+            {banners.map((banner, index) => (
+              <tr key={index}>
+                <td className="text-gray-900 py-4 px-2" onClick={handleClick}>
+                  {banner.eventTitle}
+                </td>
+                <td className="text-gray-500 py-4 px-2">
+                  <a
+                    href={banner.imageURL}
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    Event Title
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-                  >
-                    Banner ImageURL
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {banners.map((banner, index) => (
-                  <tr key={index}>
-                    <td
-                      className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-                      onClick={handleClick}
-                    >
-                      {banner.eventTitle}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      <a
-                        href={banner.imageURL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {banner.imageURL}
-                      </a>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+                    {banner.imageURL}
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
       <form id="banner-form" onSubmit={handleSubmit} className="space-y-4">
         {/* New Event input */}
