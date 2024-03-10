@@ -4,9 +4,19 @@ import PlayerInfo from "../components/Registration/PlayerInfo";
 import ParentInfo from "../components/Registration/ParentInfo";
 import Waiver from "../components/Registration/Waiver";
 import { sendEmail } from "../utils/emailService";
+import { validateDateOfBirthAgainstLevel } from "../utils/formValidation";
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
+};
+
+const validateFormData = (data) => {
+  // Validation logic here
+  const isValidAge = validateDateOfBirthAgainstLevel(
+    data.dateOfBirth,
+    data.level
+  );
+  return isValidAge;
 };
 
 const ResgistrationPage = () => {
@@ -18,20 +28,25 @@ const ResgistrationPage = () => {
     const form = event.target;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
-    console.log(data);
+    const isValidData = validateFormData(data);
 
-    try {
-      const response = await sendEmail(data);
-      if (response.success) {
-        alert(response.message);
-      } else {
-        alert(response.message);
+    if (isValidData) {
+      try {
+        console.log("data:", data);
+        const response = await sendEmail(data);
+        if (response.success) {
+          alert(response.message);
+        } else {
+          alert(response.message);
+        }
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        alert(
+          "An error occurred while submitting the form. Please try again later."
+        );
       }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      alert(
-        "An error occurred while submitting the form. Please try again later."
-      );
+    } else {
+      alert("Invalid form data. Please check the form and try again.");
     }
   };
 
