@@ -22,7 +22,7 @@ const sendEmail = async (data) => {
     return {
       success: false,
       message:
-        "An error occurred while submitting the form. Please try again later.",
+        "An error occurred while submitting the form to server. Please try again later.",
     };
   }
 };

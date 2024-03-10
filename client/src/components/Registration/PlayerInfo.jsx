@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolleyballBall } from "@fortawesome/free-solid-svg-icons";
+import {
+  getExpectedDateRange,
+  validateDateOfBirthAgainstLevel,
+} from "../../utils/formValidation";
 
 const fields = [
   { name: "firstName", label: "First name", required: true, type: "text" },
@@ -11,18 +15,81 @@ const fields = [
   { name: "phone", label: "Phone", required: false, type: "tel" },
 ];
 
-const levels = {
-  u17: "U17",
-  u16: "U16",
-  u14: "U14",
-  u13: "U13",
-  dev1: "DEV1",
-  dev2: "DEV2",
-};
-
 const PlayerInfo = ({ id }) => {
-  console.log(id);
-  const defaultLevel = levels[id];
+  // State additions
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [level, setLevel] = useState(id || ""); // Assuming `id` is the initial level ID
+  const [validationMessage, setValidationMessage] = useState("");
+
+  // Effect to run validation whenever dateOfBirth or level changes
+  useEffect(() => {
+    const isValidAge = validateDateOfBirthAgainstLevel(dateOfBirth, level);
+    const expectedDateRange = getExpectedDateRange(level);
+    setValidationMessage(
+      isValidAge
+        ? ""
+        : `For ${level.toUpperCase()}, the expected age range is between ${
+            expectedDateRange.start
+          } and ${expectedDateRange.end}`
+    );
+  }, [dateOfBirth, level]);
+
+  // Handle dateOfBirth and level change
+  const handleDateOfBirthChange = (e) => {
+    setDateOfBirth(e.target.value);
+  };
+
+  const handleLevelChange = (e) => {
+    setLevel(e.target.value);
+  };
+
+  const generateInputField = (field) => {
+    switch (field.type) {
+      case "select":
+        return (
+          <select
+            name={field.name}
+            required={field.required}
+            defaultValue=""
+            className="border p-2 rounded h-10"
+          >
+            <option value="" disabled>
+              Select one
+            </option>
+            <option value="female">Female</option>
+            <option value="male">Male</option>
+            <option value="preferNotToAnswer">Prefer not to answer</option>
+          </select>
+        );
+
+      case "date":
+        return (
+          <>
+            <input
+              type={field.type}
+              name={field.name}
+              required={field.required}
+              onChange={handleDateOfBirthChange}
+              className="border p-2 rounded h-10"
+            />
+            {validationMessage && (
+              <div className="text-red-500">{validationMessage}</div>
+            )}
+          </>
+        );
+
+      default:
+        return (
+          <input
+            type={field.type}
+            name={field.name}
+            required={field.required}
+            className="border p-2 rounded h-10"
+          />
+        );
+    }
+  };
+
   return (
     <div className="flex flex-col gap-2">
       {/* level dropdown */}
@@ -41,20 +108,21 @@ const PlayerInfo = ({ id }) => {
         {/* level choice */}
         <select
           name="level"
-          defaultValue={defaultLevel || ""}
+          defaultValue={level}
+          onChange={handleLevelChange}
           required
           className="border p-2 rounded h-10"
         >
           <option value="" disabled>
             Select one
           </option>
-          <option value="U17">U17 Competitive Team</option>
-          <option value="U16">U16 Competitive Team</option>
-          <option value="U14">U14 Competitive Team</option>
-          <option value="U13">U13 Competitive Team</option>
-          <option value="DEV1">Development 1 Team</option>
-          <option value="DEV2">Development 2 Team</option>
-          <option value="Tryout">Tryout</option>
+          <option value="u17">U17 Competitive Team</option>
+          <option value="u16">U16 Competitive Team</option>
+          <option value="u14">U14 Competitive Team</option>
+          <option value="u13">U13 Competitive Team</option>
+          <option value="dev1">Development 1 Team</option>
+          <option value="dev2">Development 2 Team</option>
+          <option value="tryout">Tryout</option>
         </select>
       </div>
       {/* player info title */}
@@ -72,28 +140,7 @@ const PlayerInfo = ({ id }) => {
                 <span className="text-gray-400"> (required)</span>
               )}
             </label>
-            {field.type === "select" ? (
-              <select
-                name={field.name}
-                required={field.required}
-                defaultValue=""
-                className="border p-2 rounded h-10"
-              >
-                <option value="" disabled>
-                  Select one
-                </option>
-                <option value="female">Female</option>
-                <option value="male">Male</option>
-                <option value="preferNotToAnswer">Prefer not to answer</option>
-              </select>
-            ) : (
-              <input
-                type={field.type}
-                name={field.name}
-                required={field.required}
-                className="border p-2 rounded h-10"
-              />
-            )}
+            {generateInputField(field)}
           </div>
         ))}
       </div>

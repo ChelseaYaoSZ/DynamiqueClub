@@ -1,0 +1,51 @@
+const levels = {
+  u17: { ageRange: { start: 16, end: 17 } },
+  u16: { ageRange: { start: 15, end: 16 } },
+  u14: { ageRange: { start: 13, end: 14 } },
+  u13: { ageRange: { start: 12, end: 13 } },
+  dev1: { ageRange: null },
+  dev2: { ageRange: null },
+};
+
+// Function to calculate expected start date and end date for the age range
+const getExpectedDateRange = (level) => {
+  if (!level) {
+    return null;
+  }
+
+  const ageRange = levels[level]?.ageRange;
+  if (!ageRange) {
+    return null;
+  }
+
+  const currentYear = new Date().getFullYear() - 1;
+  const startYear = currentYear - ageRange.end;
+  const endYear = currentYear - ageRange.start;
+  const expectedDateRange = {
+    start: `${startYear}-09-01`,
+    end: `${endYear}-08-31`,
+  };
+
+  return expectedDateRange;
+};
+
+// Validate age function adapted to handle both `dateOfBirth` and `level`
+const validateDateOfBirthAgainstLevel = (dateOfBirth, level) => {
+  if (!dateOfBirth || !level || dateOfBirth === "" || level === "") {
+    return true;
+  }
+
+  const expectedDateRange = getExpectedDateRange(level);
+  console.log("expectedDateRange:", expectedDateRange);
+
+  if (!expectedDateRange) {
+    return true;
+  }
+
+  const isValidAge =
+    dateOfBirth >= expectedDateRange.start &&
+    dateOfBirth <= expectedDateRange.end;
+  return isValidAge;
+};
+
+export { validateDateOfBirthAgainstLevel, getExpectedDateRange };

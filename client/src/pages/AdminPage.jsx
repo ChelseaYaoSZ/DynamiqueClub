@@ -76,7 +76,7 @@ const AdminPage = () => {
           ))}
         </div>
 
-        <div className="w-96 lg:w-[650px]">
+        <div className="w-auto lg:w-[700px]">
           {activeTab === "banner" && <BannerForm />}
           {activeTab === "note" && <NoteForm />}
           {activeTab === "program" && <ProgramForm />}
@@ -84,7 +84,7 @@ const AdminPage = () => {
         </div>
       </div>
 
-      <div className="flex pt-6 mb-11">
+      <div className="flex pt-6 mb-11 justify-end">
         <button
           onClick={handleLogOut}
           className="bg-darkBlue text-white text-xl w-20 py-1 rounded hover:font-bold hover:bg-red-800"
