@@ -12,7 +12,7 @@ const ClubName = () => {
               MTL
             </div>
             <div
-              style={{ textShadow: "0px 3px 0px #C00021", marginLeft: "-4px" }}
+              style={{ textShadow: "0px 2px 0px #C00021", marginLeft: "-4px" }}
               className="text-white font-semibold text-3xl"
             >
               Dynamique
