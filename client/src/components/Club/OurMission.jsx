@@ -21,15 +21,15 @@ const OurMission = () => {
             <div className="font-black text-darkBlue text-xl pl-5">
               <p>
                 The <span className="text-customYellow italic">dynamic</span>{" "}
-                place to be for young Volleyballers:
+                place to be for young volleyballers:
               </p>
             </div>
 
             <div className="text-sm pl-8">
               <ul className="list-disc">
-                <li>Foster Holistic Youth Development</li>
-                <li>Instill Love for Volleyball</li>
-                <li>Provide Safe and Inclusive Environment</li>
+                <li>Foster holistic youth development</li>
+                <li>Instill love for volleyball</li>
+                <li>Provide safe and inclusive environment</li>
                 <li>Equip for success in both volleyball and life</li>
               </ul>
             </div>
@@ -57,15 +57,15 @@ const OurMission = () => {
             <div className="font-black text-darkBlue  text-xl lg:text-2xl pl-5">
               <p>
                 The <span className="text-customYellow italic">dynamic</span>{" "}
-                place to be for young Volleyballers:
+                place to be for young volleyballers:
               </p>
             </div>
 
             <div className=" pl-8 pt-2">
               <ul className="list-disc">
-                <li>Foster Holistic Youth Development</li>
-                <li>Instill Love for Volleyball</li>
-                <li>Provide Safe and Inclusive Environment</li>
+                <li>Foster holistic youth development</li>
+                <li>Instill love for volleyball</li>
+                <li>Provide safe and inclusive environment</li>
                 <li>Equip for success in both volleyball and life</li>
               </ul>
             </div>

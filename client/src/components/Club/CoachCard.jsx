@@ -12,19 +12,22 @@ const CoachCard = ({ id, name, title, description, image }) => {
   );
 
   const extraDetails = (
-    <div
-    className="relative px-4 py-2 overflow-hidden h-[290px] lg:h-[354px] flex flex-col justify-center"
-  >
-    <div className="absolute inset-0 bg-no-repeat bg-contain z-0" style={{
-      backgroundImage: `url(${image})`,
-      opacity: 0.4,
-    }}></div>
-    <p className="text-white font-medium text-base lg:text-xl z-10 relative">
-      {description}
-    </p>
-
-  </div>
-  
+    <div className="relative px-4 py-2 overflow-hidden h-[290px] lg:h-[354px] flex flex-col justify-center">
+      <div
+        className="absolute inset-0 bg-no-repeat bg-contain z-0"
+        style={{
+          backgroundImage: `url(${image})`,
+          opacity: 0.4,
+        }}
+      ></div>
+      <div className=" text-[#060d30] font-medium text-base lg:text-lg z-10 relative text-left">
+        <ul className="list-disc list-outside pl-4">
+          {description.split(".").map((item, index) => (
+            <li key={index}>{item.trim()}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 
   return (
@@ -37,7 +40,7 @@ const CoachCard = ({ id, name, title, description, image }) => {
       {!isHovered ? coachImage : extraDetails}
 
       <div className="flex flex-col py-3 bg-customBlue">
-        <div className="font-extrabold text-2xl lg:text-3xl text-white">
+        <div className="font-extrabold text-2xl lg:text-3xl text-white font-inter">
           {name}
         </div>
         <p className="text-darkBlue text-xl lg:text-2xl font-semibold">

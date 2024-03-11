@@ -8,35 +8,31 @@ const coaches = [
     name: "Steven Sun",
     title: "HEAD COACH",
     description:
-      "Founder of Volleyball Dynamique club. Former student player of Dongbei university of Finance and Economics volleyball team, middle position. Bachelor of concordia university and Dongbei university of Finance and Economics. 6 years of coaching experience with youth. NCCP level 1 in progress.",
-    email: "stevenjoe@gmail.com",
+      "Founder of Volleyball Dynamique club. Former student player of Dongbei university of Finance and Economics volleyball team, middle position. 6 years of coaching experience with youth. NCCP level 1",
     image: stevenImage,
   },
   {
     id: 2,
     name: "Rui Zhang",
     title: "HEAD COACH",
-    email: "stevenjoe@gmail.com",
     description:
-      "Former student player of China Jilin sport university volleyball team, setter position. Bachelor of China Jilin university sport college. Represented university in local, provincial, and National Volleyball tournaments in China. Actively participate in various high level volleyball tournaments in Toronto. Over 30 years of playing experience. ",
+      "Former student player of China Jilin sport university volleyball team, setter position. Represented university in local, provincial, and National Volleyball tournaments in China. Actively participate in various high level volleyball tournaments in Toronto. Over 30 years of playing experience ",
     image: zhangImage,
   },
   {
     id: 3,
     name: "Zhuang Xiong",
     title: "HEAD COACH",
-    email: "stevenjoe@gmail.com",
     description:
-      "Zhuang Xiong is a former student player of China Kunming University of Science and Technology volleyball team, power position. Bachelor of China Kunming University of Science and Technology. Represented university in local, provincial, and National Volleyball tournaments in China. Actively participate in various high level volleyball tournaments in Toronto. Over 30 years of playing experience.",
+      "Former student player of China Kunming University of Science and Technology volleyball team, power position. Represented university in local, provincial, and National Volleyball tournaments in China. Actively participate in various high level volleyball tournaments in Toronto. Over 30 years of playing experience",
     image: stevenImage,
   },
   {
     id: 4,
     name: "Talia Lu",
     title: "ASSISTANT COACH",
-    email: "stevenjoe@gmail.com",
     description:
-      "Talia Lu is a student player of Royal West College , setter position.",
+      "Student player of Royal West College , setter position",
     image: TaliaImage,
   },
 ];

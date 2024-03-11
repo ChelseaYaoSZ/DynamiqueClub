@@ -28,7 +28,7 @@ const Introduce = () => {
           <div className="flex flex-col text-white bg-[#417999] px-4 py-4 lg:py-6 gap-4 rounded-sm">
             <h2 className=" font-bold font-inter text-xl lg:text-2xl 2xl:text-3xl">
               The <span className="text-customYellow italic">dynamic</span>{" "}
-              place to be for young Volleyballers:
+              place to be for young volleyballers:
             </h2>
             <p className="font-inter font-light text-base lg:text-lg">
               Since 2011, Dynamique Club has been dedicated to increasing the

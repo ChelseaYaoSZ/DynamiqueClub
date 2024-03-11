@@ -27,9 +27,9 @@ const OurSpirit = () => {
   
               <div className="text-sm pl-8">
                 <ul className="list-disc">
-                <li>Positive and Supportive Community</li>
-                <li>Culture of Inclusivity</li>
-                <li>Teamwork and Collaboration</li>
+                <li>Positive and supportive community</li>
+                <li>Culture of inclusivity</li>
+                <li>Teamwork and collaboration</li>
                 </ul>
               </div>
             </div>
@@ -59,9 +59,9 @@ const OurSpirit = () => {
 
             <div className=" pl-8 pt-2">
               <ul className="list-disc">
-                <li>Positive and Supportive Community</li>
-                <li>Culture of Inclusivity</li>
-                <li>Teamwork and Collaboration</li>
+                <li>Positive and supportive community</li>
+                <li>Culture of inclusivity</li>
+                <li>Teamwork and collaboration</li>
               </ul>
             </div>
           </div>
