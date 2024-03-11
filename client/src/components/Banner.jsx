@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import LatestNews from "./BN/LatestNews";
 import ClubName from "./BN/ClubName";
-import backgroundImage from "../assets/banner1.png";
 import Carousel from "nuka-carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import useFetchBanners from "../hooks/useFetchBanners";
 
 const Banner = () => {
-  const images = [
-    { id: 1, url: backgroundImage },
-    { id: 2, url: backgroundImage },
-    { id: 3, url: backgroundImage },
-  ];
+
+  const { banners, loading, error } = useFetchBanners();
+
+  useEffect(() => {
+    if (banners && banners.length > 0) {
+      console.log("Banners fetched successfully:", banners);
+    }
+  }, [banners]);
+
+  if (loading) return <p>Loading banners...</p>;
+  if (error) return <p></p>;
 
   const nextButtton = <FontAwesomeIcon icon={faChevronRight} />
   const prevButton = <FontAwesomeIcon icon={faChevronLeft} />
@@ -25,17 +31,17 @@ const Banner = () => {
         className="w-full"
         defaultControlsConfig={{ nextButtonText: nextButtton, prevButtonText: prevButton }}
       >
-        {images.map((image) => (
+        {banners.map((banner) => (
           <div
-            key={image.id}
+            key={banner._id}
             className="flex lg:justify-end bg-cover bg-no-repeat w-full h-96"
-            style={{ backgroundImage: `url(${image.url})` }}
+            style={{ backgroundImage: `url(${banner.imageURL})` }}
           >
             <div className="flex flex-col px-10 gap-3 lg:w-1/2 justify-center">
               <div className="hidden lg:block">
                 <ClubName />
               </div>
-              <LatestNews id={image.id} />
+              <LatestNews date={banner.updatedAt} eventTitle={banner.eventTitle} />
             </div>
           </div>
         ))}

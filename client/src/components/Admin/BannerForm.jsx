@@ -117,26 +117,26 @@ const BannerForm = () => {
         {/* New Event input */}
         <label className="block text-lg font-medium">
           Event title:
-          <input
-            name="eventTitle"
-            placeholder={currentBanner}
-            value={formData.eventTitle}
-            onChange={handleEventTitleChange}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-          />
         </label>
+        <input
+          name="eventTitle"
+          placeholder={currentBanner}
+          value={formData.eventTitle}
+          onChange={handleEventTitleChange}
+          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+        />
 
         {/* New Image URL input */}
         <label className="block text-lg font-medium">
           Banner ImageURL:
-          <input
-            name="imageURL"
-            placeholder={currentBannerImage}
-            value={formData.imageURL}
-            onChange={handleImageURLChange}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-          />
         </label>
+        <input
+          name="imageURL"
+          placeholder={currentBannerImage}
+          value={formData.imageURL}
+          onChange={handleImageURLChange}
+          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+        />
       </form>
       {/* Banner Image input */}
       {/* <label className="block text-lg font-medium">

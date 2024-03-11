@@ -1,45 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
-const LatestNews = ({ id }) => {
-  const newsEvents = [
-    {
-      id: 1,
-      date: "February 22, 2024",
-      event: "2024 Winter season & U16 tryout registration is open!",
-    },
-    {
-      id: 2,
-      date: "March 15, 2024",
-      event: "Spring Volleyball Camp registrations begin.",
-    },
-    {
-      id: 3,
-      date: "April 5, 2024",
-      event: "Join our Summer Volleyball league!",
-    },
-  ];
-
-  const { date, event } = newsEvents.find((news) => news.id === id);
+const LatestNews = ({ date, eventTitle }) => {
 
   return (
     <div
       className="flex flex-col justify-start px-8 py-6 rounded gap-4"
       style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
     >
-      <div key={id} className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3">
         <div className="flex flex-row gap-3">
           <div className="bg-customRed text-sm text-white px-2 rounded font-medium">
             THE LATEST NEWS
           </div>
-          <div className="text-sm text-white">{date}</div>
+          <div className="text-sm text-white">{moment(date).format("MMMM Do YYYY")}</div>
         </div>
         <div>
           <Link
             to="/schedule"
             className="text-white font-notable text-2xl lg:text-3xl hover:underline"
           >
-            {event}
+            {eventTitle}
           </Link>
         </div>
         <div className="flex justify-end">
