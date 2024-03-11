@@ -96,6 +96,12 @@ const Waiver = () => {
           conditions.
         </label>
       </div>
+      <div className="flex">
+        <input type="checkbox" name="subscribe" className="mr-2" />
+        <label className="flex items-center font-medium text-sm lg:text-base">
+          I would like to receive all the information regarding Dynamique Club.
+        </label>
+      </div>
     </div>
   );
 };
