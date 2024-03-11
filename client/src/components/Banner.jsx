@@ -31,7 +31,7 @@ const Banner = () => {
             className="flex lg:justify-end bg-cover bg-no-repeat w-full h-96"
             style={{ backgroundImage: `url(${image.url})` }}
           >
-            <div className="flex flex-col p-10 gap-4 lg:w-1/2 justify-center">
+            <div className="flex flex-col px-10 gap-3 lg:w-1/2 justify-center">
               <div className="hidden lg:block">
                 <ClubName />
               </div>

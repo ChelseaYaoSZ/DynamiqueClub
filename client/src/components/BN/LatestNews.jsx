@@ -24,12 +24,12 @@ const LatestNews = ({ id }) => {
 
   return (
     <div
-      className="flex flex-col justify-start p-8 rounded gap-4"
+      className="flex flex-col justify-start px-8 py-6 rounded gap-4"
       style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
     >
       <div key={id} className="flex flex-col gap-3">
         <div className="flex flex-row gap-3">
-          <div className="bg-customRed text-sm text-white px-2 py-0 rounded font-medium">
+          <div className="bg-customRed text-sm text-white px-2 rounded font-medium">
             THE LATEST NEWS
           </div>
           <div className="text-sm text-white">{date}</div>

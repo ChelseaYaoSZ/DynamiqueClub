@@ -3,7 +3,7 @@ import React from "react";
 const ClubName = () => {
     return (
         <div className="flex flex-row justify-start items-center">
-        <div className="flex items-baseline gap-4">
+        <div className="flex items-baseline gap-2">
           <div className="flex items-center">
             <div
               className="text-customRed font-bold"
@@ -12,7 +12,7 @@ const ClubName = () => {
               MTL
             </div>
             <div
-              style={{ textShadow: "0px 2px 0px #C00021", marginLeft: "-4px" }}
+              style={{ textShadow: "0px 1.5px 0px #C00021", marginLeft: "-4px" }}
               className="text-white font-semibold text-3xl"
             >
               Dynamique

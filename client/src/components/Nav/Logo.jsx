@@ -10,7 +10,7 @@ const Logo = () => {
       
       <span className="text-customRed font-bold" style={{ transform: 'rotate(270deg)' }}>MTL</span>
       
-      <span style={{ textShadow: "0px 2px 0px #C00021", marginLeft: '-8px' }} className="text-black font-semibold text-3xl">Dynamique</span>
+      <span style={{ textShadow: "1.5px 0px 0px #C00021", marginLeft: '-6px' }} className="text-black font-semibold text-3xl">Dynamique</span>
 
     </div>
   );
