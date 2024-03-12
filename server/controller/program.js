@@ -13,9 +13,9 @@ export const createProgram = async (req, res) => {
 //get one Program
 export const getProgramById = async (req, res) => {
   const programId = req.params.id;
-  console.log("-->getProgramById:", productId);
+  console.log("-->getProgramById:", programId);
   try {
-    const program = await Program.find({ level: productId });
+    const program = await Program.find({ id: programId });
 
     if (!program) {
       res.status(404).json({ message: "Program not found" });
@@ -30,7 +30,7 @@ export const getProgramById = async (req, res) => {
 export const updateProgram = async (req, res) => {
   const programId = req.params.id;
   try {
-    const updatedProgram = await Product.findOneAndUpdate(
+    const updatedProgram = await Program.findOneAndUpdate(
       { id: programId },
       {
         ...req.body,

@@ -1,19 +1,13 @@
 import mongoose, { Schema } from "mongoose";
 
 const programSchema = new Schema({
-  level: {
+  id: {
     type: String,
     required: true,
-    default: "U17 Competitive",
-    enum: [
-      "U17 Competitive",
-      "U16 Competitive",
-      "U14 Competitive",
-      "U13 Competitive",
-      "DEV1",
-      "DEV2",
-    ],
+    default: "U17",
+    enum: ["U17", "U16", "U14", "U13", "DEV2"],
   },
+
   schedule: { type: String, required: true },
   current_session: { type: String, required: true },
   cost: { type: String, required: true },

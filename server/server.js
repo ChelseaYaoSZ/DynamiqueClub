@@ -27,7 +27,7 @@ app.use(json());
 app.use("/api/email", emailRoutes);
 app.use("/api/banners", bannerRoutes);
 app.use("/api/notes", noteRoutes);
-app.use("api/programs", programRoutes);
+app.use("/api/programs", programRoutes);
 
 // Database connection
 mongoose
