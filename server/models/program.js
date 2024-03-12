@@ -7,6 +7,7 @@ const programSchema = new Schema({
     required: true,
     default: "U17 Competitive",
     enum: [
+      "U17 Competitive",
       "U16 Competitive",
       "U14 Competitive",
       "U13 Competitive",
@@ -15,7 +16,7 @@ const programSchema = new Schema({
     ],
   },
   schedule: { type: String, required: true },
-  current_session: { type: [String], required: true },
+  current_session: { type: String, required: true },
   cost: { type: String, required: true },
   dateCreated: {
     type: Date,
@@ -25,6 +26,11 @@ const programSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+});
+
+programSchema.pre("save", function (next) {
+  this.dateUpdated = Date.now();
+  next();
 });
 
 module.exports = mongoose.model("Program", programSchema);
