@@ -10,6 +10,7 @@ import mongoose from "mongoose";
 import emailRoutes from "./routes/emailRoutes.js";
 import bannerRoutes from "./routes/bannerRoutes.js";
 import noteRoutes from "./routes/noteRoutes.js";
+import programRoutes from "./routes/programRoutes.js";
 
 // Environment configuration
 dotenv.config();
@@ -26,12 +27,15 @@ app.use(json());
 app.use("/api/email", emailRoutes);
 app.use("/api/banners", bannerRoutes);
 app.use("/api/notes", noteRoutes);
+app.use("api/programs", programRoutes);
 
 // Database connection
 mongoose
-.connect(process.env.MONGO_URI)
-.then(() => {
+  .connect(process.env.MONGO_URI)
+  .then(() => {
     console.log("Connected to database");
-})
-.catch((err) => console.log(err))
-.finally(() => app.listen(PORT, () => console.log(`Server running on port ${PORT}`)));
+  })
+  .catch((err) => console.log(err))
+  .finally(() =>
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+  );

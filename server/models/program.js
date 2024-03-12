@@ -1,5 +1,4 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+import mongoose, { Schema } from "mongoose";
 
 const programSchema = new Schema({
   level: {
@@ -33,4 +32,6 @@ programSchema.pre("save", function (next) {
   next();
 });
 
-module.exports = mongoose.model("Program", programSchema);
+const Program = mongoose.model("Program", programSchema);
+
+export default Program;
