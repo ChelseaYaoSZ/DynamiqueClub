@@ -7,11 +7,13 @@ router.route("/").get((req, res) => {
 });
 
 import {
+  getAllPrograms,
   getProgramById,
   updateProgram,
   createProgram,
 } from "../controller/program.js";
 
+router.get("/all", getAllPrograms);
 router.get("/:id", getProgramById);
 router.patch("/:id", updateProgram);
 router.post("/", createProgram);
