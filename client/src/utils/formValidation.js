@@ -3,8 +3,8 @@ const levels = {
   u16: { ageRange: { start: 15, end: 16 } },
   u14: { ageRange: { start: 13, end: 14 } },
   u13: { ageRange: { start: 12, end: 13 } },
-  dev1: { ageRange: null },
-  dev2: { ageRange: null },
+  dev1: { ageRange: { start: 12, end: 18 } },
+  dev2: { ageRange: { start: 12, end: 18 } },
 };
 
 // Function to calculate expected start date and end date for the age range
@@ -18,7 +18,12 @@ const getExpectedDateRange = (level) => {
     return null;
   }
 
-  const currentYear = new Date().getFullYear() - 1;
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  const may31st = new Date(year, 4, 31); // Note: Months are 0-indexed in JavaScript, 4 = May
+
+  const currentYear = currentDate <= may31st ? year - 1 : year;
+
   const startYear = currentYear - ageRange.end;
   const endYear = currentYear - ageRange.start;
   const expectedDateRange = {

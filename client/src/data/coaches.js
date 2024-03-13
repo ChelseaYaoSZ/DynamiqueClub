@@ -32,7 +32,7 @@ const coaches = [
     name: "Talia Lu",
     title: "ASSISTANT COACH",
     description:
-      "Student player of Royal West College , setter position",
+      "Student player of Royal West College , setter position. Over 4 years of playing experience ",
     image: TaliaImage,
   },
 ];
