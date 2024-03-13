@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import Slider from "react-slick";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { FaVolleyballBall } from "react-icons/fa";
-import events from "../../data/events.js";
+import useFetchCarousels from "../../hooks/useFetchCarousels";
 
 // Settings for the react-slick carousel
 const settings = {
@@ -39,10 +39,8 @@ const settings = {
   ],
 };
 
-const getLatestEvents = () => {};
+const Carousels = () => {
 
-const Events = () => {
-  const allEvents = getLatestEvents() ? [...events, getLatestEvents()] : events;
   const sliderRef = useRef();
 
   // Function to go to the next slide
@@ -54,6 +52,17 @@ const Events = () => {
   const previous = () => {
     sliderRef.current.slickPrev();
   };
+
+  const { carousels, loading, error } = useFetchCarousels();
+
+  useEffect(() => {
+    if (carousels && carousels.length > 0) {
+      console.log("Carousels fetched successfully:", carousels);
+    }
+  }, [carousels]);
+
+  if (loading) return <p>Loading carousels...</p>;
+  if (error) return <p></p>;
 
   return (
     <div className="w-11/12  flex flex-col justify-center items-center max-w-screen-lg mx-auto my-10">
@@ -78,11 +87,11 @@ const Events = () => {
 
       <div className="w-11/12 2xl:w-full">
         <Slider ref={sliderRef} {...settings} className="">
-          {allEvents.map((e) => (
-            <div key={e.id} style={{ margin: "0 10px" }}>
+          {carousels.map((e) => (
+            <div key={e._id} style={{ margin: "0 10px" }}>
               <img
-                src={e.image}
-                alt={`event ${e.id}`}
+                src={e.imageURL}
+                alt={`carousel ${e._id}`}
                 className="border-8 border-primary rounded-2xl"
               />
             </div>
@@ -93,4 +102,4 @@ const Events = () => {
   );
 };
 
-export default Events;
+export default Carousels;

@@ -1,7 +1,7 @@
 import React from "react";
 
 import Introduce from "../components/Introduce";
-import Events from "../components/Events/Events";
+import Carousels from "../components/Events/Carousels";
 import MeetTheTeams from "../components/MeetTheTeams";
 
 import Banner from "../components/Banner";
@@ -12,7 +12,7 @@ const Homepage = () => {
       <Banner />
       <div className="w-full flex flex-col justify-center items-center">
         <Introduce />
-        <Events />
+        <Carousels />
         <MeetTheTeams />
       </div>
     </div>
