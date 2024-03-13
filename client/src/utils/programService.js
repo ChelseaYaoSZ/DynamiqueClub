@@ -11,7 +11,7 @@ const getAllPrograms = async () => {
 
 const updateProgram = async (id, programData) => {
   try {
-    console.log(`Attempting to save program ${id}:`, programData);
+    //console.log(`Attempting to save program ${id}:`, programData);
     const response = await axios.patch(`/api/programs/${id}`, programData);
 
     if (response.status === 200) {

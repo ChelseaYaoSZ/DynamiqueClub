@@ -11,11 +11,13 @@ import {
   getProgramById,
   updateProgram,
   createProgram,
+  deleteProgram,
 } from "../controller/program.js";
 
 router.get("/all", getAllPrograms);
 router.get("/:id", getProgramById);
 router.patch("/:id", updateProgram);
 router.post("/", createProgram);
+router.delete("/:id", deleteProgram);
 
 export default router;

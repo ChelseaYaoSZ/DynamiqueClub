@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import useFetchPrograms from "../../hooks/useFetchPrograms";
-import { getAllPrograms, updateProgram } from "../../utils/programService";
+import { updateProgram } from "../../utils/programService";
 
 const ProgramForm = () => {
   const { programs, loading, error } = useFetchPrograms();
   const [isToggled, setIsToggled] = useState(false); // false for "Turn off", true for "Turn on"
 
-  console.log(programs);
+  // console.log(programs);
   const handleToggle = () => {
     setIsToggled(!isToggled);
   };
@@ -23,12 +23,13 @@ const ProgramForm = () => {
   const [currentProgramSchedule, setCurrentProgramSchedule] = useState("");
   const [currentProgramSession, setCurrentProgramSession] = useState("");
   const [currentCost, setCurrentCost] = useState("");
+  const [registerDisplay, setRegisterDisplay] = useState(false);
 
-  useEffect(() => {
-    if (programs && programs.length > 0) {
-      console.log("Programs fetched successfully:", programs);
-    }
-  }, [programs]);
+  // useEffect(() => {
+  //   if (programs && programs.length > 0) {
+  //     console.log("Programs fetched successfully:", programs);
+  //   }
+  // }, [programs]);
 
   if (loading) return <p>Loading banners...</p>;
   if (error) return <p></p>;
@@ -79,18 +80,20 @@ const ProgramForm = () => {
   const handleClick = (e) => {
     const selectedProgramId = e.target.innerText;
     const selectedProgram = programs.find((p) => p.id === selectedProgramId);
-    console.log(selectedProgram.id);
+
     if (selectedProgram) {
       setCurrentProgramId(selectedProgram.id);
       setCurrentProgramSchedule(selectedProgram.schedule);
       setCurrentProgramSession(selectedProgram.current_session);
       setCurrentCost(selectedProgram.cost);
+      setRegisterDisplay(selectedProgram.registerDisplay);
 
       setFormData({
         id: selectedProgram.id,
         schedule: selectedProgram.schedule,
         current_session: selectedProgram.current_session,
         cost: selectedProgram.cost,
+        registerDisplay: selectedProgram.registerDisplay,
       });
     }
   };

@@ -13,7 +13,7 @@ export const createProgram = async (req, res) => {
 //get one Program
 export const getProgramById = async (req, res) => {
   const programId = req.params.id;
-  console.log("-->getProgramById:", programId);
+
   try {
     const program = await Program.find({ id: programId });
 
@@ -49,6 +49,19 @@ export const updateProgram = async (req, res) => {
     }
 
     res.status(200).json(updatedProgram);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+//delete a program with its mongodb _id
+export const deleteProgram = async (req, res) => {
+  const programId = req.params.id;
+  try {
+    const program = await Program.findByIdAndDelete(programId);
+    if (!program) {
+      res.status(400).json({ message: "Program not found" });
+    }
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

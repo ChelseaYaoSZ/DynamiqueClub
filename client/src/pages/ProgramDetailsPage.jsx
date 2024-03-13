@@ -7,11 +7,18 @@ import { CgGirl } from "react-icons/cg";
 import { TbLocationCheck } from "react-icons/tb";
 import contact from "../assets/contact.png";
 import data from "../data/program.json";
+import useFetchPrograms from "../hooks/useFetchPrograms";
 
 const ProgramDetailsPage = () => {
   const { programId } = useParams();
   let currP = data.programs.find((p) => p.id === programId);
 
+  const { programs, loading, error } = useFetchPrograms();
+  let DBdata = programs.find((p) => p.id.toLowerCase() === programId);
+  //console.log(DBdata);
+
+  if (loading) return <p>Loading banners...</p>;
+  if (error) return <p></p>;
   return (
     <div className="w-full flex flex-col items-center">
       <div>
@@ -57,7 +64,7 @@ const ProgramDetailsPage = () => {
               <FiClock />
               <p className="mx-2 text-darkBlue font-medium">Schedule :</p>
             </div>
-            <p>{currP.schedule}</p>
+            <p>{DBdata.schedule}</p>
           </div>
 
           <div className="flex w-full mb-2">
@@ -67,19 +74,20 @@ const ProgramDetailsPage = () => {
                 Current Session :
               </p>
             </div>
-            <p>{currP.current_session}</p>
+            <p>{DBdata.current_session}</p>
           </div>
 
           <div className="flex flex-col w-full mb-2">
             <div className="flex flex-row items-center">
               <SiWebmoney />
               <p className="mx-2  text-darkBlue font-medium">Cost :</p>
-              <p>N/A</p>
+              <p>{DBdata.cost}</p>
             </div>
-
-            <p className="mx-5">
-              <span className="text-customRed">*</span> {currP.otherCost}
-            </p>
+            {DBdata.id !== "DEV1" && DBdata.id !== "DEV2" && (
+              <p className="mx-5">
+                <span className="text-customRed">*</span> {currP.otherCost}
+              </p>
+            )}
           </div>
 
           <div className="flex flex-col md:flex-row w-full mb-2">
@@ -99,11 +107,14 @@ const ProgramDetailsPage = () => {
           </div>
         </div>
 
-        <p className="my-5">
-          <span className="text-customRed font-semibold mr-2">!</span>It is
-          possible to join the program at any time! Contact us for checking
-          available spots.
-        </p>
+        <div className="my-8">
+          <Link
+            to={`https://drive.google.com/file/d/1jZe8RfRJZGtUQi8ocLbqG_jwRnP4KOr-/view?usp=sharing`}
+            className="bg-customRed text-white font-medium rounded px-3 py-1 mb-10 hover:font-bold hover:bg-red-800"
+          >
+            Check Club Full Schedule
+          </Link>
+        </div>
       </div>
     </div>
   );
