@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import BannerForm from "../components/Admin/BannerForm";
 import NoteForm from "../components/Admin/NoteForm";
+import CarouselForm from "../components/Admin/CarouselForm";
 import ProgramForm from "../components/Admin/ProgramForm";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/config";
 
-const tabTypes = ["banner", "note", "program"]; // Add more form types as needed
+const tabTypes = ["banner", "carousel","note", "program"]; // Add more form types as needed
 
 const allowedEmail = "jennifer.melanie.fan@gmail.com";
 const allowedEmail2 = "szyao416@gmail.com";
@@ -16,7 +17,7 @@ const AdminPage = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
-  const [activeTab, setActiveTab] = useState("banner"); // "banner" or "user"
+  const [activeTab, setActiveTab] = useState("banner"); // Set default active tab
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -78,6 +79,7 @@ const AdminPage = () => {
 
         <div className="w-auto lg:w-[700px]">
           {activeTab === "banner" && <BannerForm />}
+          {activeTab === "carousel" && <CarouselForm />}
           {activeTab === "note" && <NoteForm />}
           {activeTab === "program" && <ProgramForm />}
           {/* Handle additional form components as needed based on the active tab */}

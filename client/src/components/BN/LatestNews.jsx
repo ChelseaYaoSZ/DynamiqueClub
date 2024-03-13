@@ -6,8 +6,7 @@ const LatestNews = ({ date, eventTitle }) => {
 
   return (
     <div
-      className="flex flex-col justify-start px-8 py-6 rounded gap-4"
-      style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
+      className="flex flex-col justify-start px-8 py-6 rounded gap-4 bg-darkBlue bg-opacity-25"
     >
       <div className="flex flex-col gap-3">
         <div className="flex flex-row gap-3">

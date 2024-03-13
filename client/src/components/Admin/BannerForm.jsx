@@ -118,7 +118,7 @@ const BannerForm = () => {
         <label className="block text-lg font-medium">
           Event title:
         </label>
-        <input
+        <textarea
           name="eventTitle"
           placeholder={currentBanner}
           value={formData.eventTitle}
@@ -130,7 +130,7 @@ const BannerForm = () => {
         <label className="block text-lg font-medium">
           Banner ImageURL:
         </label>
-        <input
+        <textarea
           name="imageURL"
           placeholder={currentBannerImage}
           value={formData.imageURL}
