@@ -99,7 +99,7 @@ const Waiver = () => {
       <div className="flex">
         <input type="checkbox" name="subscribe" className="mr-2" />
         <label className="flex items-center font-medium text-sm lg:text-base">
-          I would like to receive all the information regarding Dynamique Club by email. (optional)
+          <p>I would like to receive all the information regarding Dynamique Club by email. <span className="text-gray-400"> (optional)</span></p>
         </label>
       </div>
     </div>

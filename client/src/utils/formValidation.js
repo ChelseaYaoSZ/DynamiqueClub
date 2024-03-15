@@ -3,8 +3,8 @@ const levels = {
   u16: { ageRange: { start: 15, end: 16 } },
   u14: { ageRange: { start: 13, end: 14 } },
   u13: { ageRange: { start: 12, end: 13 } },
-  dev1: { ageRange: { start: 12, end: 18 } },
-  dev2: { ageRange: { start: 12, end: 18 } },
+  dev1: { ageRange: { start: 10, end: 17 } },
+  dev2: { ageRange: { start: 10, end: 17 } },
 };
 
 // Function to calculate expected start date and end date for the age range
