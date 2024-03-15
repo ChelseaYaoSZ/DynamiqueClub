@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import PlayerInfo from "../components/Registration/PlayerInfo";
 import ParentInfo from "../components/Registration/ParentInfo";
 import Waiver from "../components/Registration/Waiver";
-import { sendEmail } from "../utils/emailService";
+import { sendRegistrationEmail, sendSubscriptionEmail } from "../utils/emailService";
 import { validateDateOfBirthAgainstLevel } from "../utils/formValidation";
 
 const useQuery = () => {
@@ -28,21 +28,46 @@ const ResgistrationPage = () => {
     const form = event.target;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
+    
     const isValidData = validateFormData(data);
 
     if (isValidData) {
       try {
         console.log("data:", data);
-        const response = await sendEmail(data);
+        const response = await sendRegistrationEmail({
+          ...data,
+          emailType: "registration",
+        });
+        
         if (response.success) {
           alert(response.message);
         } else {
           alert(response.message);
         }
       } catch (error) {
-        console.error("Error submitting form:", error);
+        console.error("Error submitting registration:", error);
         alert(
-          "An error occurred while submitting the form. Please try again later."
+          "An error occurred while submitting the registration. Please try again later."
+        );
+      }
+
+      try {
+        const response = await sendSubscriptionEmail({
+          email: data.parentEmail,
+          name: data.firstName,
+          parentName: data.parentFirstName,
+          emailType: "subscription",
+        });
+        
+        if (response.success) {
+          alert(response.message);
+        } else {
+          alert(response.message);
+        }
+      } catch (error) {
+        console.error("Error submitting subscription:", error);
+        alert(
+          "An error occurred while submitting the subscription. Please try again later."
         );
       }
     } else {

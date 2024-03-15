@@ -1,17 +1,10 @@
-const API_URL = "/api/email/send";
-const API_HEADERS = {
-  "Content-Type": "application/json",
-};
+import axios from "axios";
 
-const sendEmail = async (data) => {
+const sendRegistrationEmail = async (data) => {
   try {
-    const response = await fetch(API_URL, {
-      method: "POST",
-      headers: API_HEADERS,
-      body: JSON.stringify(data),
-    });
+    const response = await axios.post("/api/email/register", data);
 
-    if (response.ok) {
+    if (response.status === 200) {
       return { success: true, message: "Form submitted successfully" };
     } else {
       const errorMessage = await response.text();
@@ -27,4 +20,24 @@ const sendEmail = async (data) => {
   }
 };
 
-export { sendEmail };
+const sendSubscriptionEmail = async (data) => {
+  try {
+    const response = await axios.post("/api/email/subscribe", data);
+
+    if (response.status === 200) {
+      return { success: true, message: "Form submitted successfully" };
+    } else {
+      const errorMessage = await response.text();
+      throw new Error(`Failed to submit form: ${errorMessage}`);
+    }
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    return {
+      success: false,
+      message:
+        "An error occurred while submitting the form to server. Please try again later.",
+    };
+  }
+};
+
+export { sendRegistrationEmail, sendSubscriptionEmail };

@@ -1,12 +1,8 @@
 "use strict";
 
 // External imports
-import dotenv from "dotenv";
 import retry from "retry";
 import sgMail from "@sendgrid/mail";
-
-// Environment configuration
-dotenv.config();
 
 const convertToCSV = (objArray) => {
   try {
@@ -27,19 +23,8 @@ const convertToCSV = (objArray) => {
 };
 
 const generateHtmlContent = (data) => {
-  try {
-    // Ensure that all required fields are present in the data object
-    const requiredFields = [
-      "dateOfBirth",
-      "firstName",
-      "gender",
-      "lastName",
-      "level",
-      "parentEmail",
-      "parentFirstName",
-      "parentLastName",
-      "parentPhone",
-    ];
+  if (data.emailType === "subscription") {
+    const requiredFields = ["email", "name", "parentName"];
     requiredFields.forEach((field) => {
       if (!(field in data)) {
         throw new Error(`Missing required field: ${field}`);
@@ -47,25 +32,52 @@ const generateHtmlContent = (data) => {
     });
 
     return `
-      <p>Here is the form submission for ${data.firstName} ${data.lastName}.</p>
-      <p>First Name: ${data.firstName}</p>
-      <p>Last Name: ${data.lastName}</p>
-      <p>Date of Birth: ${data.dateOfBirth}</p>
-      <p>Gender: ${data.gender}</p>
-      <p>Email: ${data.email}</p>
-      <p>Phone: ${data.phone}</p>
-      <p>Parent First Name: ${data.parentFirstName}</p>
-      <p>Parent Last Name: ${data.parentLastName}</p>
-      <p>Parent Email: ${data.parentEmail}</p>
-      <p>Parent Phone: ${data.parentPhone}</p>
-    `;
-  } catch (error) {
-    console.error("Error generating HTML content:", error);
-    return ""; // Return empty string or handle the error as appropriate
+      <p>${data.parentName} (${data.email}) is subscribed to the newsletter.</p>
+      `
   }
+  else if (data.emailType === "registration") {
+    try {
+      // Ensure that all required fields are present in the data object
+      const requiredFields = [
+        "dateOfBirth",
+        "firstName",
+        "gender",
+        "lastName",
+        "level",
+        "parentEmail",
+        "parentFirstName",
+        "parentLastName",
+        "parentPhone",
+      ];
+      requiredFields.forEach((field) => {
+        if (!(field in data)) {
+          throw new Error(`Missing required field: ${field}`);
+        }
+      });
+  
+      return `
+        <p>Here is the form submission for ${data.firstName} ${data.lastName}.</p>
+        <p>First Name: ${data.firstName}</p>
+        <p>Last Name: ${data.lastName}</p>
+        <p>Date of Birth: ${data.dateOfBirth}</p>
+        <p>Gender: ${data.gender}</p>
+        <p>Email: ${data.email}</p>
+        <p>Phone: ${data.phone}</p>
+        <p>Parent First Name: ${data.parentFirstName}</p>
+        <p>Parent Last Name: ${data.parentLastName}</p>
+        <p>Parent Email: ${data.parentEmail}</p>
+        <p>Parent Phone: ${data.parentPhone}</p>
+      `;
+    } catch (error) {
+      console.error("Error generating HTML content:", error);
+      return ""; // Return empty string or handle the error as appropriate
+    }
+  }
+
+  
 };
 
-const generateMessage = (data, csvData, htmlContent) => {
+const generateMessage = (email, data, csvData, htmlContent) => {
   try {
     if (!data || !csvData || !htmlContent) {
       throw new Error("Invalid input data");
@@ -73,8 +85,8 @@ const generateMessage = (data, csvData, htmlContent) => {
 
     const currentDate = new Date().toLocaleString();
     return {
-      to: process.env.EMAIL_ACCOUNT,
-      from: process.env.EMAIL_ACCOUNT,
+      to: email,
+      from: email,
       subject: `Form Submission - ${data.firstName} ${data.lastName} - ${currentDate}`,
       text: "Here is the form submission.",
       html: htmlContent, // HTML version of the message
@@ -110,7 +122,7 @@ const getRetryOperation = (
   });
 };
 
-const sendEmailWithRetry = (data) => {
+const sendEmailWithRetry = (email, data, apiKey) => {
   // Convert form data to CSV
   const csvData = convertToCSV([data]);
   console.log("CSV data generated:", csvData);
@@ -120,7 +132,7 @@ const sendEmailWithRetry = (data) => {
   console.log("HTML content generated:", htmlContent);
 
   // Configure email options
-  const message = generateMessage(data, csvData, htmlContent);
+  const message = generateMessage(email, data, csvData, htmlContent);
   console.log("Message generated:", message);
 
   // Initialize retry operation
@@ -130,7 +142,7 @@ const sendEmailWithRetry = (data) => {
   return new Promise((resolve, reject) => {
     operation.attempt(async (currentAttempt) => {
       try {
-        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+        sgMail.setApiKey(apiKey);
         const info = await sgMail.send(message);
         console.log("Email sent successfully");
         resolve(info);
