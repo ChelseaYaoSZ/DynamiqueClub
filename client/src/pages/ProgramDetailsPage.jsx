@@ -38,12 +38,21 @@ const ProgramDetailsPage = () => {
             <p className="text-lg text-darkBlue text-center font-semibold mt-6 mb-5 sm:text-xl">
               {currP.grade}
             </p>
-            <Link
-              to={`/registration?programId=${currP.id}`}
-              className="bg-customRed text-white font-medium rounded px-3 py-1 mb-10 hover:font-bold hover:bg-red-800"
-            >
-              Register now
-            </Link>
+            {DBdata.registerDisplay ? (
+              <Link
+                to={`/registration?programId=${currP.id}`}
+                className="bg-customRed text-white font-medium rounded px-3 py-1 mb-10 hover:font-bold hover:bg-red-800"
+              >
+                Register now
+              </Link>
+            ) : (
+              <Link
+                to={``}
+                className="bg-gray-500 text-white font-medium rounded px-3 py-1 mb-10 hover:font-bold hover:bg-gray-400"
+              >
+                Registration Closed
+              </Link>
+            )}
           </div>
 
           <div className="flex flex-col items-start lg:ml-5">

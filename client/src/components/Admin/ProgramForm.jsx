@@ -3,11 +3,10 @@ import useFetchPrograms from "../../hooks/useFetchPrograms";
 import { updateProgram } from "../../utils/programService";
 
 const ProgramForm = () => {
-  let registerStatus;
   const { programs, loading, error } = useFetchPrograms();
-  const [isToggled, setIsToggled] = useState(false); // false for "Turn off", true for "Turn on"
+  const [isToggled, setIsToggled] = useState(true); // false for "Is Full", true for "Register Open"
 
-  // console.log(programs);
+  console.log(programs);
   const handleToggle = () => {
     setIsToggled(!isToggled);
   };
@@ -24,13 +23,7 @@ const ProgramForm = () => {
   const [currentProgramSchedule, setCurrentProgramSchedule] = useState("");
   const [currentProgramSession, setCurrentProgramSession] = useState("");
   const [currentCost, setCurrentCost] = useState("");
-  const [registerDisplay, setRegisterDisplay] = useState(false);
-
-  // useEffect(() => {
-  //   if (programs && programs.length > 0) {
-  //     console.log("Programs fetched successfully:", programs);
-  //   }
-  // }, [programs]);
+  const [registerDisplay, setRegisterDisplay] = useState(isToggled);
 
   if (loading) return <p>Loading banners...</p>;
   if (error) return <p></p>;
@@ -42,8 +35,14 @@ const ProgramForm = () => {
       alert("Please select a program to update");
       return;
     }
+
+    const programToUpdate = {
+      ...formData,
+      registerDisplay: isToggled,
+    };
+
     try {
-      const response = await updateProgram(currentProgramId, formData);
+      const response = await updateProgram(currentProgramId, programToUpdate);
       if (response) {
         console.log("Program update successfully:", response);
         alert("Program update successfully");
@@ -201,7 +200,7 @@ const ProgramForm = () => {
             </div>
             {/* Label */}
             <div className="ml-3 text-font-medium">
-              {(registerStatus = isToggled ? "Register open" : "Is full")}
+              {isToggled ? "Register open" : "Is full"}
             </div>
           </label>
         </div>
