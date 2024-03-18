@@ -13,6 +13,7 @@ import ClubPage from "./pages/ClubPage";
 import ThankyouPage from "./pages/ThankyouPage";
 import ScrollToTop from "./components/ScrollToTop";
 import AdminPage from "./pages/AdminPage";
+import UnsubscribePage from "./pages/UnsubscribePage";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/club" element={<ClubPage />} />
           <Route path="/thankyou" element={<ThankyouPage />} />
+          <Route path="/unsubscribe" element={<UnsubscribePage />} />
           <Route path="/admin" element={<AdminPage />} />
         </Route>
       </Routes>
