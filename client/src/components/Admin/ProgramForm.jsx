@@ -3,6 +3,7 @@ import useFetchPrograms from "../../hooks/useFetchPrograms";
 import { updateProgram } from "../../utils/programService";
 
 const ProgramForm = () => {
+  let registerStatus;
   const { programs, loading, error } = useFetchPrograms();
   const [isToggled, setIsToggled] = useState(false); // false for "Turn off", true for "Turn on"
 
@@ -137,7 +138,11 @@ const ProgramForm = () => {
           ))}
         </tbody>
       </table>
-      <form onSubmit={handleSubmit} id="program-form" className="space-y-4">
+      <form
+        onSubmit={handleSubmit}
+        id="program-form"
+        className="space-y-4 mt-5"
+      >
         <label className="block text-lg font-medium">
           Program Level:
           <input
@@ -196,7 +201,7 @@ const ProgramForm = () => {
             </div>
             {/* Label */}
             <div className="ml-3 text-font-medium">
-              {isToggled ? "Register open" : "Is full"}
+              {(registerStatus = isToggled ? "Register open" : "Is full")}
             </div>
           </label>
         </div>

@@ -11,6 +11,11 @@ const programSchema = new Schema({
   schedule: { type: String, required: true },
   current_session: { type: String, required: true },
   cost: { type: String, required: true },
+  registerDisplay: {
+    type: Boolean,
+    required: true,
+    default: true, // Or false, depending on your default state
+  },
   dateCreated: {
     type: Date,
     default: Date.now,
