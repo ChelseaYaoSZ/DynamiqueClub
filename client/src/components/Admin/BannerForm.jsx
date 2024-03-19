@@ -108,13 +108,7 @@ const BannerForm = () => {
                   {banner.eventTitle}
                 </td>
                 <td className="text-gray-500 py-4 px-2">
-                  <a
-                    href={banner.imageURL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {banner.imageURL}
-                  </a>
+                  <img src={banner.imageURL} alt={banner.eventTitle} />
                 </td>
               </tr>
             ))}

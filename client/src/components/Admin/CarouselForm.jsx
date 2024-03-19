@@ -107,13 +107,7 @@ const CarouselForm = () => {
                   {carousel.num}
                 </td>
                 <td className="text-gray-500 py-4 px-2 ">
-                  <a
-                    href={carousel.imageURL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {carousel.imageURL}
-                  </a>
+                  <img src={carousel.imageURL} alt={carousel.num} />
                 </td>
               </tr>
             ))}

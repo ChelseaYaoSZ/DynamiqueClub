@@ -38,7 +38,7 @@ router.post("/", upload.single("image"), (req, res) => {
   }
 
   // If file is uploaded successfully
-  const imageURL = `${process.env.DOMAIN_NAME}/public/images/${req.file.filename}`;
+  const imageURL = `public/images/${req.file.filename}`;
   res.status(200).json({
     success: true,
     message: "Image uploaded successfully.",
