@@ -148,4 +148,4 @@ dist
 .svelte-kit
 
 # My App - server
-server/public
+server/upload

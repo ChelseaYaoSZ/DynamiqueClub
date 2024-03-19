@@ -24,7 +24,7 @@ const PORT = process.env.PORT || 9000;
 // Global middleware
 app.use(cors());
 app.use(json());
-app.use("/public", express.static("public"));
+app.use("/upload", express.static("upload"));
 
 // Routes
 app.use("/api/email", emailRoutes);
