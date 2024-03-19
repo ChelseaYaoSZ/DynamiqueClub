@@ -27,10 +27,10 @@ const OurMission = () => {
 
             <div className="text-sm pl-8">
               <ul className="list-disc">
-                <li>Foster holistic youth development</li>
-                <li>Instill love for volleyball</li>
-                <li>Provide safe and inclusive environment</li>
-                <li>Equip for success in both volleyball and life</li>
+                <li>Fostering holistic youth development</li>
+                <li>Instilling a love for volleyball</li>
+                <li>Providing safe and inclusive environment</li>
+                <li>Equipping for success in both volleyball and life</li>
               </ul>
             </div>
           </div>
@@ -63,10 +63,10 @@ const OurMission = () => {
 
             <div className=" pl-8 pt-2">
               <ul className="list-disc">
-                <li>Foster holistic youth development</li>
-                <li>Instill love for volleyball</li>
-                <li>Provide safe and inclusive environment</li>
-                <li>Equip for success in both volleyball and life</li>
+                <li>Fostering holistic youth development</li>
+                <li>Instilling a love for volleyball</li>
+                <li>Providing safe and inclusive environment</li>
+                <li>Equipping for success in both volleyball and life</li>
               </ul>
             </div>
           </div>

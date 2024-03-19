@@ -15,7 +15,7 @@ const MeetTheTeams = () => {
       <div className="w-11/12 max-w-screen-lg mb-3 shadow-md shadow-gray-400 text-base lg:text-2xl text-white bg-customRed py-3 sm:py-5 px-2 sm:px-16 rounded ">
         <p>
           Based in Montreal, Dynamique Volleyball Club offers quality volleyball
-          training for boys and girls ages from 11 to 18.
+          training for boys and girls ages from 11 to 17 in Montreal.
         </p>
       </div>
 
