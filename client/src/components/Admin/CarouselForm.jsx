@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { updateCarousel } from "../../utils/carouselService";
+import { uploadImage } from "../../utils/imageUploadService";
 import useFetchCarousels from "../../hooks/useFetchCarousels";
 
 const CarouselForm = () => {
@@ -8,11 +9,10 @@ const CarouselForm = () => {
     imageURL: "",
   });
 
-  const { carousels, loading, error } = useFetchCarousels();
+  const { carousels, loading, error, reloadCarousels } = useFetchCarousels();
 
   const [currentCarouselId, setCurrentCarouselId] = useState("");
   const [currentCarousel, setCurrentCarousel] = useState("");
-  const [currentCarouselImage, setCurrentCarouselImage] = useState("");
 
   useEffect(() => {
     if (carousels && carousels.length > 0) {
@@ -23,28 +23,21 @@ const CarouselForm = () => {
   if (loading) return <p>Loading carousels...</p>;
   if (error) return <p></p>;
 
-  // Update for consistency
-  // const handleImageChange = (e) => {
-  //   const carouselImage = e.target.files[0];
-  //   setFormData((prevFormData) => ({
-  //     ...prevFormData,
-  //     carouselImage: carouselImage,
-  //   }));
-  //   console.log(carouselImage);
-  // };
+  // Handle image upload
+  const handleImageUpload = (e) => {
+    const carouselImage = e.target.files[0];
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      carouselImage: carouselImage,
+    }));
+    console.log(carouselImage);
+  };
 
   // Handle other inputs
   const handleNumChange = (event) => {
     setFormData({
       ...formData,
       num: event.target.value,
-    });
-  };
-
-  const handleImageURLChange = (event) => {
-    setFormData({
-      ...formData,
-      imageURL: event.target.value,
     });
   };
 
@@ -55,7 +48,6 @@ const CarouselForm = () => {
     console.log("Carousel clicked:", carousel);
     setCurrentCarouselId(carousel._id);
     setCurrentCarousel(carousel.num);
-    setCurrentCarouselImage(carousel.imageURL);
     setFormData({ num: carousel.num, imageURL: carousel.imageURL });
   };
 
@@ -68,12 +60,22 @@ const CarouselForm = () => {
     }
 
     try {
-      const response = await updateCarousel(currentCarouselId, formData);
-      if (response) {
-        console.log("Carousel saved successfully:", response);
-        alert("Carousel saved successfully");
-      } else {
-        alert("Failed to save carousel");
+      const uploadResponse = await uploadImage(
+        currentCarouselId,
+        formData.carouselImage
+      );
+
+      if (uploadResponse.success) {
+        console.log("New carousel image uploaded:", uploadResponse.data.imageURL)
+        const updateResponse = await updateCarousel(currentCarouselId, {
+          num: formData.num,
+          imageURL: uploadResponse.data.imageURL,
+        });
+
+        reloadCarousels();
+
+        console.log("Carousel saved successfully:", updateResponse);
+        alert("Carousel saved successfully"); 
       }
     } catch (error) {
       console.error("Failed to save carousel:", error);
@@ -90,8 +92,12 @@ const CarouselForm = () => {
         <table className="divide-y divide-gray-200 font-medium w-full">
           <thead className="bg-gray-50 uppercase text-gray-500 tracking-wider">
             <tr>
-              <th scope="col" className="py-4 px-2">Number</th>
-              <th scope="col" className="py-4 px-2">Carousel ImageURL</th>
+              <th scope="col" className="py-4 px-2">
+                Number
+              </th>
+              <th scope="col" className="py-4 px-2">
+                Carousel ImageURL
+              </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 text-center">
@@ -116,9 +122,7 @@ const CarouselForm = () => {
       </div>
       <form id="carousel-form" onSubmit={handleSubmit} className="space-y-4">
         {/* New Event input */}
-        <label className="block text-lg font-medium">
-          Number:
-        </label>
+        <label className="block text-lg font-medium">Number:</label>
         <input
           name="num"
           placeholder={currentCarousel}
@@ -126,29 +130,16 @@ const CarouselForm = () => {
           onChange={handleNumChange}
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
         />
-
-        {/* New Image URL input */}
-        <label className="block text-lg font-medium">
-          Carousel ImageURL:
-        </label>
+        {/* Carousel Image input */}
+        <label className="block text-lg font-medium">Carousel Image:</label>
         <input
-          name="imageURL"
-          placeholder={currentCarouselImage}
-          value={formData.imageURL}
-          onChange={handleImageURLChange}
+          type="file"
+          name="carouselImage"
+          onChange={handleImageUpload}
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
         />
       </form>
-      {/* Carousel Image input */}
-      {/* <label className="block text-lg font-medium">
-          Carousel Image:
-          <input
-            type="file"
-            name="carouselImage"
-            onChange={handleImageChange}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-          />
-        </label> */}
+
       <div className="flex justify-center gap-10 pt-6">
         <button
           type="submit"

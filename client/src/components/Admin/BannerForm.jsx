@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { updateBanner } from "../../utils/bannerService";
+import { uploadImage } from "../../utils/imageUploadService";
 import useFetchBanners from "../../hooks/useFetchBanners";
 
 const BannerForm = () => {
@@ -8,11 +9,10 @@ const BannerForm = () => {
     imageURL: "",
   });
 
-  const { banners, loading, error } = useFetchBanners();
+  const { banners, loading, error, reloadBanners } = useFetchBanners();
 
   const [currentBannerId, setCurrentBannerId] = useState("");
   const [currentBanner, setCurrentBanner] = useState("");
-  const [currentBannerImage, setCurrentBannerImage] = useState("");
 
   useEffect(() => {
     if (banners && banners.length > 0) {
@@ -24,14 +24,14 @@ const BannerForm = () => {
   if (error) return <p></p>;
 
   // Update for consistency
-  // const handleImageChange = (e) => {
-  //   const bannerImage = e.target.files[0];
-  //   setFormData((prevFormData) => ({
-  //     ...prevFormData,
-  //     bannerImage: bannerImage,
-  //   }));
-  //   console.log(bannerImage);
-  // };
+  const handleImageUpload = (e) => {
+    const bannerImage = e.target.files[0];
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      bannerImage: bannerImage,
+    }));
+    console.log(bannerImage);
+  };
 
   // Handle other inputs
   const handleEventTitleChange = (event) => {
@@ -41,20 +41,14 @@ const BannerForm = () => {
     });
   };
 
-  const handleImageURLChange = (event) => {
-    setFormData({
-      ...formData,
-      imageURL: event.target.value,
-    });
-  };
-
   const handleClick = (event) => {
     const banner = banners.find(
       (banner) => banner.eventTitle === event.target.innerText
     );
+    console.log("Banner clicked:", banner);
+
     setCurrentBannerId(banner._id);
     setCurrentBanner(banner.eventTitle);
-    setCurrentBannerImage(banner.imageURL);
     setFormData({ eventTitle: banner.eventTitle, imageURL: banner.imageURL });
   };
 
@@ -67,12 +61,22 @@ const BannerForm = () => {
     }
 
     try {
-      const response = await updateBanner(currentBannerId, formData);
-      if (response) {
-        console.log("Banner saved successfully:", response);
+      const uploadResponse = await uploadImage(
+        currentBannerId, 
+        formData.bannerImage,
+      );
+      
+      if (uploadResponse.success) {
+        console.log("New banner image uploaded:", uploadResponse.data.imageURL)
+        const updateResponse = await updateBanner(currentBannerId, {
+          eventTitle: formData.eventTitle,
+          imageURL: uploadResponse.data.imageURL,
+        });
+
+        reloadBanners();
+
+        console.log("Banner saved successfully:", updateResponse);
         alert("Banner saved successfully");
-      } else {
-        alert("Failed to save banner");
       }
     } catch (error) {
       console.error("Failed to save banner:", error);
@@ -89,8 +93,12 @@ const BannerForm = () => {
         <table className="divide-y divide-gray-200 font-medium w-full">
           <thead className="bg-gray-50 uppercase text-gray-500 tracking-wider">
             <tr>
-              <th scope="col" className="py-4 px-2">Event Title</th>
-              <th scope="col" className="py-4 px-2">Banner ImageURL</th>
+              <th scope="col" className="py-4 px-2">
+                Event Title
+              </th>
+              <th scope="col" className="py-4 px-2">
+                Banner ImageURL
+              </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
@@ -115,9 +123,7 @@ const BannerForm = () => {
       </div>
       <form id="banner-form" onSubmit={handleSubmit} className="space-y-4">
         {/* New Event input */}
-        <label className="block text-lg font-medium">
-          Event title:
-        </label>
+        <label className="block text-lg font-medium">Event title:</label>
         <textarea
           name="eventTitle"
           placeholder={currentBanner}
@@ -125,29 +131,16 @@ const BannerForm = () => {
           onChange={handleEventTitleChange}
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
         />
-
-        {/* New Image URL input */}
-        <label className="block text-lg font-medium">
-          Banner ImageURL:
-        </label>
-        <textarea
-          name="imageURL"
-          placeholder={currentBannerImage}
-          value={formData.imageURL}
-          onChange={handleImageURLChange}
+        {/* Banner Image input */}
+        <label className="block text-lg font-medium">Banner Image:</label>
+        <input
+          type="file"
+          name="bannerImage"
+          onChange={handleImageUpload}
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
         />
       </form>
-      {/* Banner Image input */}
-      {/* <label className="block text-lg font-medium">
-          Banner Image:
-          <input
-            type="file"
-            name="bannerImage"
-            onChange={handleImageChange}
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
-          />
-        </label> */}
+
       <div className="flex justify-center gap-10 pt-6">
         <button
           type="submit"

@@ -12,6 +12,7 @@ import bannerRoutes from "./routes/bannerRoutes.js";
 import noteRoutes from "./routes/noteRoutes.js";
 import carouselRoutes from "./routes/carouselRoutes.js";
 import programRoutes from "./routes/programRoutes.js";
+import imageUploadRoutes from "./routes/imageUploadRoutes.js";
 
 // Environment configuration
 dotenv.config();
@@ -23,7 +24,7 @@ const PORT = process.env.PORT || 9000;
 // Global middleware
 app.use(cors());
 app.use(json());
-app.use(express.static('public'))
+app.use("/public", express.static("public"));
 
 // Routes
 app.use("/api/email", emailRoutes);
@@ -31,6 +32,7 @@ app.use("/api/banners", bannerRoutes);
 app.use("/api/notes", noteRoutes);
 app.use("/api/carousels", carouselRoutes);
 app.use("/api/programs", programRoutes);
+app.use("/api/upload", imageUploadRoutes);
 
 // Database connection
 mongoose
