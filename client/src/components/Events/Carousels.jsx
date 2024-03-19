@@ -92,7 +92,7 @@ const Carousels = () => {
               <img
                 src={e.imageURL}
                 alt={`carousel ${e._id}`}
-                className="border-8 border-primary rounded-2xl"
+                className="border-8 border-primary rounded-xl h-60 w-96"
               />
             </div>
           ))}
