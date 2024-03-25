@@ -6,6 +6,8 @@ import {
   validateDateOfBirthAgainstLevel,
 } from "../../utils/formValidation";
 
+import useFetchPrograms from "../../hooks/useFetchPrograms";
+
 const fields = [
   { name: "firstName", label: "First name", required: true, type: "text" },
   { name: "lastName", label: "Last name", required: true, type: "text" },
@@ -15,7 +17,20 @@ const fields = [
   { name: "phone", label: "Phone", required: false, type: "tel" },
 ];
 
+const levelOptions = [
+  { value: "u17", label: "U17 Competitive Team" },
+  { value: "u16", label: "U16 Competitive Team" },
+  { value: "u14", label: "U14 Competitive Team" },
+  { value: "u13", label: "U13 Competitive Team" },
+  { value: "dev1", label: "Development 1 Team" },
+  { value: "dev2", label: "Development 2 Team" },
+  { value: "tryout", label: "Tryout" },
+];
+
 const PlayerInfo = ({ id }) => {
+  const { programs, loading, error } = useFetchPrograms();
+  const disactiveProgrames = programs.filter((p) => !p.registerDisplay);
+  console.log(disactiveProgrames);
   // State additions
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [level, setLevel] = useState(id || ""); // Assuming `id` is the initial level ID
@@ -116,13 +131,20 @@ const PlayerInfo = ({ id }) => {
           <option value="" disabled>
             Select one
           </option>
-          <option value="u17">U17 Competitive Team</option>
-          <option value="u16">U16 Competitive Team</option>
-          <option value="u14">U14 Competitive Team</option>
-          <option value="u13">U13 Competitive Team</option>
-          <option value="dev1">Development 1 Team</option>
-          <option value="dev2">Development 2 Team</option>
-          <option value="tryout">Tryout</option>
+          {levelOptions.map((option) => (
+            <option
+              key={option.value}
+              value={option.value}
+              disabled={disactiveProgrames.some(
+                (p) => p.id.toLowerCase() === option.value
+              )}
+              className={disactiveProgrames.some((p) =>
+                p.id.toLowerCase() === option.value ? "text-gray-400" : ""
+              )}
+            >
+              {option.label}
+            </option>
+          ))}
         </select>
       </div>
       {/* player info title */}
