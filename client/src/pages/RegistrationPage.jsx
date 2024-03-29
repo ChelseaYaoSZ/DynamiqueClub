@@ -36,7 +36,6 @@ const ResgistrationPage = () => {
         console.log("data:", data);
         const response = await sendRegistrationEmail({
           ...data,
-          emailType: "registration",
         });
         
         if (response.success) {
@@ -54,9 +53,6 @@ const ResgistrationPage = () => {
       try {
         const response = await sendSubscriptionEmail({
           email: data.parentEmail,
-          name: data.firstName,
-          parentName: data.parentFirstName,
-          emailType: "subscription",
         });
         
         if (response.success) {
