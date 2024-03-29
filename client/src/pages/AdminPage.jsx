@@ -7,10 +7,12 @@ import ProgramForm from "../components/Admin/ProgramForm";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase/config";
 
-const tabTypes = ["banner", "carousel","note", "program"]; // Add more form types as needed
+const tabTypes = ["banner", "carousel", "note", "program"]; // Add more form types as needed
 
 const allowedEmail = "jennifer.melanie.fan@gmail.com";
 const allowedEmail2 = "szyao416@gmail.com";
+const adminEmail = "volleydynamique@gmail.com";
+const adminBackup = "vb.dynamique.info@gmail.com";
 
 const AdminPage = () => {
   const [user, setUser] = useState(null);
@@ -22,7 +24,12 @@ const AdminPage = () => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        if (user.email === allowedEmail || user.email === allowedEmail2) {
+        if (
+          user.email === adminEmail ||
+          user.email === adminBackup ||
+          user.email === allowedEmail ||
+          user.email === allowedEmail2
+        ) {
           setUser(user);
         } else {
           alert("Admin Dashboard access restricted to specific email account.");
