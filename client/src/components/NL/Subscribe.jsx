@@ -41,7 +41,7 @@ const Subscribe = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-      </form>
+      
       <button
         type="submit"
         form="subscribe-form"
@@ -49,6 +49,7 @@ const Subscribe = () => {
       >
         Subscribe
       </button>
+      </form>
     </div>
   );
 };
