@@ -75,6 +75,11 @@ const ContactPage = () => {
               value="https://test.volleyballdynamique.ca/thankyou"
             ></input>
             <input type="hidden" name="_captcha" value="false"></input>
+            <input
+              type="hidden"
+              name="_subject"
+              value="New Message from Contact Us Page"
+            ></input>
             <button
               className="w-full h-[45px] bg-customRed rounded-lg text-white font-semibold text-2xl my-5"
               type="submit"
