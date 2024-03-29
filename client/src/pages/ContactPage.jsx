@@ -38,7 +38,7 @@ const ContactPage = () => {
         <div className="w-4/5 xl:w-full flex flex-col lg:flex-row mx-auto justify-between lg:gap-5 xl:gap-10  my-10">
           <form
             className="w-full flex flex-col max-w-lg text-lg mx-auto"
-            action="https://formsubmit.co/jennifer.melanie.fan@gmail.com"
+            action="https://formsubmit.co/volleyballdynamique@gmail.com"
             method="POST"
           >
             <div className="flex flex-col sm:flex-row sm:gap-2">
