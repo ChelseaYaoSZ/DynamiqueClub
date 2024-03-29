@@ -4,7 +4,7 @@ import { faVolleyballBall } from "@fortawesome/free-solid-svg-icons";
 
 const Waiver = () => {
   return (
-    <div className="flex flex-col gap-2">
+    <>
       <div className="flex justify-start items-center gap-2">
         <FontAwesomeIcon icon={faVolleyballBall} className="text-customRed" />
         <h2 className="text-xl lg:text-2xl font-medium">
@@ -96,13 +96,7 @@ const Waiver = () => {
           conditions.
         </label>
       </div>
-      <div className="flex">
-        <input type="checkbox" name="subscribe" className="mr-2" />
-        <label className="flex items-center font-medium text-sm lg:text-base">
-          <p>I would like to receive all the information regarding Dynamique Club by email. <span className="text-gray-400"> (optional)</span></p>
-        </label>
-      </div>
-    </div>
+    </>
   );
 };
 

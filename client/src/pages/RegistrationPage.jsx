@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import PlayerInfo from "../components/Registration/PlayerInfo";
 import ParentInfo from "../components/Registration/ParentInfo";
 import Waiver from "../components/Registration/Waiver";
-import { sendRegistrationEmail, sendSubscriptionEmail } from "../utils/emailService";
+import {
+  sendRegistrationEmail,
+  sendSubscriptionEmail,
+} from "../utils/emailService";
 import { validateDateOfBirthAgainstLevel } from "../utils/formValidation";
 
 const useQuery = () => {
@@ -23,22 +26,24 @@ const ResgistrationPage = () => {
   const query = useQuery();
   const programId = query.get("programId");
 
+  const [checked, setChecked] = useState(false);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
-    
+
     const isValidData = validateFormData(data);
 
     if (isValidData) {
+      
       try {
         console.log("data:", data);
         const response = await sendRegistrationEmail({
           ...data,
-          emailType: "registration",
         });
-        
+
         if (response.success) {
           alert(response.message);
         } else {
@@ -51,25 +56,25 @@ const ResgistrationPage = () => {
         );
       }
 
-      try {
-        const response = await sendSubscriptionEmail({
-          email: data.parentEmail,
-          name: data.firstName,
-          parentName: data.parentFirstName,
-          emailType: "subscription",
-        });
-        
-        if (response.success) {
-          alert(response.message);
-        } else {
-          alert(response.message);
+      if (checked) {
+        try {
+          const response = await sendSubscriptionEmail({
+            email: data.parentEmail,
+          });
+  
+          if (response.success) {
+            alert(response.message);
+          } else {
+            alert(response.message);
+          }
+        } catch (error) {
+          console.error("Error submitting subscription:", error);
+          alert(
+            "An error occurred while submitting the subscription. Please try again later."
+          );
         }
-      } catch (error) {
-        console.error("Error submitting subscription:", error);
-        alert(
-          "An error occurred while submitting the subscription. Please try again later."
-        );
       }
+      
     } else {
       alert("Invalid form data. Please check the form and try again.");
     }
@@ -88,7 +93,25 @@ const ResgistrationPage = () => {
         >
           <PlayerInfo id={programId} />
           <ParentInfo />
-          <Waiver />
+          <div div className="flex flex-col gap-2">
+            <Waiver />
+            <div className="flex">
+              <input
+                type="checkbox"
+                name="subscribe"
+                checked={checked}
+                onChange={(e) => setChecked(e.target.checked)}
+                className="mr-2"
+              />
+              <label className="flex items-center font-medium text-sm lg:text-base">
+                <p>
+                  I would like to receive all the information regarding
+                  Dynamique Club by email.{" "}
+                  <span className="text-gray-400"> (optional)</span>
+                </p>
+              </label>
+            </div>
+          </div>
         </form>
         <button
           className="bg-customRed text-white py-2 px-4 rounded-lg max-w-28 hover:font-bold hover:bg-customBlue"
