@@ -27,6 +27,19 @@
       "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"
     },
     {
+      "id" : "u15",
+      "title": "U15 Competitive",
+      "desc" : "This program is designed for girls who are experienced players, such as those who have been promoted from our club's development program or have played on their school volleyball team. Participants in this program will represent the club in various tournaments and friendly matches throughout the season.",
+      "age":"14-15 years old",
+      "grade": "Secondary 2-3 (Grade 8-9)",
+      "schedule": "Sunday 4pm-6pm ",
+      "current_session": "January 7 2024 - June 16 2024",
+      "cost": "N/A",
+      "otherCost": "Tournaments cost extra upon participation.",
+      "admision": "14-15 years old depending on date of birth",
+      "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"
+    },
+    {
       "id" : "u14",
       "title": "U14 Competitive",
       "desc" : "This program is designed for girls who are experienced players, such as those who have been promoted from our club's development program or have played on their school volleyball team. Participants in this program will represent the club in various tournaments and friendly matches throughout the season.",
@@ -53,25 +66,13 @@
       "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"
     },
     {
-      "id" : "dev1",
-      "title": "DEV 1",
+      "id" : "dev",
+      "title": "DEV",
       "desc" : "This program is primarily for young athletes who are willing to try a new sport in a supportive, non-competitive environment. Players will be trained in the fundamentals of volleyball skills. The focus of the program is to prepare participants for school team selections and enable them to join one of our club's competitive teams.",
       "age":"10-17 years old",
       "grade": "Grade 4-11",
       "schedule": "Saturday 4pm-6pm",
       "current_session": "January 6 2024 - June 15 2024",
-      "cost": "N/A",
-      "admision": "10-17 years old",
-      "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"
-    },
-    {
-      "id" : "dev2",
-      "title": "DEV 2",
-      "desc" : "This program is primarily for young athletes who are willing to try a new sport in a supportive, non-competitive environment. Players will be trained in the fundamentals of volleyball skills. The focus of the program is to prepare participants for school team selections and enable them to join one of our club's competitive teams.",
-      "age":"10-17 years old",
-      "grade": "Grade 4-11",
-      "schedule": "Saturday 6:30pm-8:30pm",
-      "current_session": "January 6 2024 - April 13 2024",
       "cost": "N/A",
       "admision": "10-17 years old",
       "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"

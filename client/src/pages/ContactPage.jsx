@@ -30,7 +30,7 @@ const ContactPage = () => {
               <span>
                 <FiMail />
               </span>
-              <p className="ml-5">volleyballdynamique@gmail.com</p>
+              <p className="ml-5">volleydynamique@gmail.com</p>
             </div>
           </div>
         </title>
@@ -38,7 +38,7 @@ const ContactPage = () => {
         <div className="w-4/5 xl:w-full flex flex-col lg:flex-row mx-auto justify-between lg:gap-5 xl:gap-10  my-10">
           <form
             className="w-full flex flex-col max-w-lg text-lg mx-auto"
-            action="https://formsubmit.co/volleyballdynamique@gmail.com"
+            action="https://formsubmit.co/volleydynamique@gmail.com"
             method="POST"
           >
             <div className="flex flex-col sm:flex-row sm:gap-2">
@@ -72,7 +72,7 @@ const ContactPage = () => {
             <input
               type="hidden"
               name="_next"
-              value="https://test.volleyballdynamique.ca/thankyou"
+              value="https://test.volleydynamique.ca/thankyou"
             ></input>
             <input type="hidden" name="_captcha" value="false"></input>
             <input

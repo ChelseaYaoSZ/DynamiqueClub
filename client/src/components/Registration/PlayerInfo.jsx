@@ -20,10 +20,10 @@ const fields = [
 const levelOptions = [
   { value: "u17", label: "U17 Competitive Team" },
   { value: "u16", label: "U16 Competitive Team" },
+  { value: "u15", label: "U15 Competitive Team" },
   { value: "u14", label: "U14 Competitive Team" },
   { value: "u13", label: "U13 Competitive Team" },
-  { value: "dev1", label: "Development 1 Team" },
-  { value: "dev2", label: "Development 2 Team" },
+  { value: "dev", label: "Development Team" },
   { value: "tryout", label: "Tryout" },
 ];
 

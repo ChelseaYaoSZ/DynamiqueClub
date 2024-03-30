@@ -82,17 +82,20 @@ const generateHtmlContent = (data) => {
     });
 
     return `
-        <p>Here is the form submission for ${data.firstName} ${data.lastName}.</p>
-        <p>First Name: ${data.firstName}</p>
-        <p>Last Name: ${data.lastName}</p>
-        <p>Date of Birth: ${data.dateOfBirth}</p>
-        <p>Gender: ${data.gender}</p>
-        <p>Email: ${data.email}</p>
-        <p>Phone: ${data.phone}</p>
-        <p>Parent First Name: ${data.parentFirstName}</p>
-        <p>Parent Last Name: ${data.parentLastName}</p>
-        <p>Parent Email: ${data.parentEmail}</p>
-        <p>Parent Phone: ${data.parentPhone}</p>
+    <div style="padding: 16px; background-color: #f8fafc; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+    <p style="font-weight: bold; font-size: 24px; margin-bottom: 8px; color: #1e40af;">Here is the form submission for ${data.firstName} ${data.lastName}.</p>
+    <p><style="font-weight: semibold; color: #ef4444;">Level: ${data.level}</p>
+    <p><span style="font-weight: semibold; background-color: #f8fafc;">First Name:</span> ${data.firstName}</p>
+    <p><span style="font-weight: semibold; background-color: #f8fafc;">Last Name:</span> ${data.lastName}</p>
+    <p><span style="font-weight: semibold; background-color: #f8fafc;">Date of Birth:</span> ${data.dateOfBirth}</p>
+    <p><span style="font-weight: semibold; background-color: #f8fafc;">Gender:</span> ${data.gender}</p>
+    <p><span style="font-weight: semibold; background-color: #f8fafc;">Email:</span> ${data.email}</p>
+    <p><span style="font-weight: semibold; background-color: #f8fafc;">Phone:</span> ${data.phone}</p>
+    <p><span style="font-weight: semibold; background-color: #f8fafc;">Parent First Name:</span> ${data.parentFirstName}</p>
+    <p><span style="font-weight: semibold; background-color: #f8fafc;">Parent Last Name:</span> ${data.parentLastName}</p>
+    <p><span style="font-weight: semibold; background-color: #f8fafc;">Parent Email:</span> ${data.parentEmail}</p>
+    <p><span style="font-weight: semibold; background-color: #f8fafc;">Parent Phone:</span> ${data.parentPhone}</p>
+  </div>
       `;
   } catch (error) {
     console.error("Error generating HTML content:", error);

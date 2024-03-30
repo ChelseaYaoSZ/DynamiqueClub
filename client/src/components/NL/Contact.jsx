@@ -7,7 +7,7 @@ const Contact = () => {
         CONTACT
       </div>
       <div className="text-white text-lg">
-        514-402-3979 <br /> volleyballdynamique@gmail.com
+        514-402-3979 <br /> volleydynamique@gmail.com
       </div>
     </div>
   );

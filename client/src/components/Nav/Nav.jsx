@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom";
 const programs = [
   { name: "U17 Competitive", path: "/program/u17" },
   { name: "U16 Competitive", path: "/program/u16" },
+  { name: "U15 Competitive", path: "/program/u15" },
   { name: "U14 Competitive", path: "/program/u14" },
   { name: "U13 Competitive", path: "/program/u13" },
-  { name: "DEV1", path: "/program/dev1" },
-  { name: "DEV2", path: "/program/dev2" },
+  { name: "DEV", path: "/program/dev" },
 ];
 
 const Nav = ({ isDropdown = false }) => {

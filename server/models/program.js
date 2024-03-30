@@ -5,7 +5,7 @@ const programSchema = new Schema({
     type: String,
     required: true,
     default: "U17",
-    enum: ["U17", "U16", "U14", "U13", "DEV2", "DEV1"],
+    enum: ["U17", "U16", "U15","U14", "U13", "DEV"],
   },
 
   schedule: { type: String, required: true },
