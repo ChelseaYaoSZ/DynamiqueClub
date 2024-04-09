@@ -1,6 +1,7 @@
 import stevenImage from "../assets/Steven.png";
 import zhangImage from "../assets/Zhang.png";
 import TaliaImage from "../assets/Talia.png";
+import XiongImage from "../assets/Xiong.png";
 
 const coaches = [
   {
@@ -25,7 +26,7 @@ const coaches = [
     title: "HEAD COACH",
     description:
       "Played in China Kunming University of Science and Technology volleyball team as Power position. Represented the university team to compete in local, provincial, and national volleyball tournaments in China. Playing in various high level volleyball tournaments in Toronto. Over 30 years of volleyball sport experiences",
-    image: stevenImage,
+    image: XiongImage,
   },
   {
     id: 4,
