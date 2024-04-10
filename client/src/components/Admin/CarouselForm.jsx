@@ -26,6 +26,11 @@ const CarouselForm = () => {
   // Handle image upload
   const handleImageUpload = (e) => {
     const carouselImage = e.target.files[0];
+    // validate bannerImage file type to be PNG
+    if (carouselImage.type !== "image/png") {
+      alert("Please upload a PNG file");
+      return;
+    }
     setFormData((prevFormData) => ({
       ...prevFormData,
       carouselImage: carouselImage,

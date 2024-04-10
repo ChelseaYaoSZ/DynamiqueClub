@@ -26,6 +26,11 @@ const BannerForm = () => {
   // Update for consistency
   const handleImageUpload = (e) => {
     const bannerImage = e.target.files[0];
+    // validate bannerImage file type to be PNG
+    if (bannerImage.type !== "image/png") {
+      alert("Please upload a PNG file");
+      return;
+    }
     setFormData((prevFormData) => ({
       ...prevFormData,
       bannerImage: bannerImage,
@@ -60,28 +65,49 @@ const BannerForm = () => {
       return;
     }
 
-    try {
-      const uploadResponse = await uploadImage(
-        currentBannerId, 
-        formData.bannerImage,
-      );
-      
-      if (uploadResponse.success) {
-        console.log("New banner image uploaded:", uploadResponse.data.imageURL)
+    // if no image provided, only update the event title
+    console.log("Form data:", formData)
+    if (!formData.bannerImage) {
+      try {
         const updateResponse = await updateBanner(currentBannerId, {
-          eventTitle: formData.eventTitle,
-          imageURL: uploadResponse.data.imageURL,
+          eventTitle: formData.eventTitle.trim(),
+          imageURL: formData.imageURL,
         });
-
-        reloadBanners();
 
         console.log("Banner saved successfully:", updateResponse);
         alert("Banner saved successfully");
+        return;
+      } catch (error) {
+        console.error("Failed to save banner:", error);
+        alert("Failed to save banner");
+        return;
       }
-    } catch (error) {
-      console.error("Failed to save banner:", error);
-      alert("Failed to save banner");
+    } else {
+      try {
+        const uploadResponse = await uploadImage(
+          currentBannerId,
+          formData.bannerImage
+        );
+
+        if (uploadResponse.success) {
+          console.log(
+            "New banner image uploaded:",
+            uploadResponse.data.imageURL
+          );
+          const updateResponse = await updateBanner(currentBannerId, {
+            eventTitle: formData.eventTitle.trim(),
+            imageURL: uploadResponse.data.imageURL,
+          });
+
+          console.log("Banner saved successfully:", updateResponse);
+          alert("Banner saved successfully");
+        }
+      } catch (error) {
+        console.error("Failed to save banner:", error);
+        alert("Failed to save banner");
+      }
     }
+    reloadBanners();
   };
 
   return (

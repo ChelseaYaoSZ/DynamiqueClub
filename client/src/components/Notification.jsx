@@ -38,7 +38,7 @@ const Notification = () => {
       </div>
 
       <div className="w-full text-start text-xl font-monomaniac text-customRed pt-4 scroll-text">
-        <span className="scroll-animation-lg">
+        <span className="scroll-animation-lg whitespace-pre-line">
           {" "}
           <FontAwesomeIcon icon={faBullhorn} className="mr-2" />
           {note}

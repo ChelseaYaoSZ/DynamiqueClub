@@ -43,7 +43,10 @@ const NoteForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await updateNote(currentNoteId, formData);
+      const response = await updateNote(currentNoteId, {
+        note: formData.note.trim(),
+        buttonDisplay: formData.buttonDisplay,
+      });
       if (response) {
         console.log("Note saved successfully:", response);
         alert("Note saved successfully");
@@ -61,14 +64,13 @@ const NoteForm = () => {
       <h2 className="text-2xl font-medium mb-4 text-center">Note Form</h2>
       <h3 className="block text-lg font-medium">Current Note:</h3>
       <div className="mt-1 block w-full h-32 border border-gray-300 rounded-md shadow-sm p-2">
-        <p className="text-lg">{currentNote}</p>
+        <p className="text-lg whitespace-pre-line">{currentNote}</p>
       </div>
       {/* Display specific Note from Database */}
       <form onSubmit={handleSubmit} id="note-form" className="space-y-4">
         <label className="block text-lg font-medium">
           New Note:
           <textarea
-            placeholder={currentNote}
             value={formData.note}
             onChange={handleNoteChange}
             name="note"
