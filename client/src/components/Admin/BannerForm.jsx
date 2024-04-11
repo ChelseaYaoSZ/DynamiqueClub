@@ -46,9 +46,9 @@ const BannerForm = () => {
     });
   };
 
-  const handleClick = (event) => {
+  const handleClick = (eventTitle) => {
     const banner = banners.find(
-      (banner) => banner.eventTitle === event.target.innerText
+      (banner) => banner.eventTitle === eventTitle
     );
     console.log("Banner clicked:", banner);
 
@@ -130,10 +130,10 @@ const BannerForm = () => {
           <tbody className="divide-y divide-gray-200">
             {banners.map((banner, index) => (
               <tr key={index}>
-                <td className="text-gray-900 py-4 px-2" onClick={handleClick}>
+                <td className="text-gray-900 py-4 px-2" onClick={() => handleClick(banner.eventTitle)}>
                   {banner.eventTitle}
                 </td>
-                <td className="text-gray-500 py-4 px-2">
+                <td className="text-gray-500 py-4 px-2" onClick={() => handleClick(banner.eventTitle)}>
                   <img src={banner.imageURL} alt={banner.eventTitle} />
                 </td>
               </tr>

@@ -5,7 +5,7 @@ import useFetchCarousels from "../../hooks/useFetchCarousels";
 
 const CarouselForm = () => {
   const [formData, setFormData] = useState({
-    num: "",
+    num: 0,
     imageURL: "",
   });
 
@@ -46,9 +46,9 @@ const CarouselForm = () => {
     });
   };
 
-  const handleClick = (event) => {
+  const handleClick = (num) => {
     const carousel = carousels.find(
-      (carousel) => carousel.num.toString() === event.target.innerText
+      (carousel) => carousel.num === num
     );
     console.log("Carousel clicked:", carousel);
     setCurrentCarouselId(carousel._id);
@@ -108,10 +108,10 @@ const CarouselForm = () => {
           <tbody className="divide-y divide-gray-200 text-center">
             {carousels.map((carousel, index) => (
               <tr key={index}>
-                <td className="text-gray-900 py-4 px-2" onClick={handleClick}>
+                <td className="text-gray-900 py-4 px-2" onClick={() => handleClick(carousel.num)}>
                   {carousel.num}
                 </td>
-                <td className="text-gray-500 py-4 px-2 ">
+                <td className="text-gray-500 py-4 px-2" onClick={() => handleClick(carousel.num)}>
                   <img src={carousel.imageURL} alt={carousel.num} />
                 </td>
               </tr>
