@@ -63,7 +63,7 @@ const NoteForm = () => {
     <div className="w-full bg-bgWhite rounded shadow-md p-10 my-10 border">
       <h2 className="text-2xl font-medium mb-4 text-center">Note Form</h2>
       <h3 className="block text-lg font-medium">Current Note:</h3>
-      <div className="mt-1 block w-full h-32 border border-gray-300 rounded-md shadow-sm p-2">
+      <div className="mt-1 block w-full h-auto border border-gray-300 rounded-md shadow-sm p-2">
         <p className="text-lg whitespace-pre-line">{currentNote}</p>
       </div>
       {/* Display specific Note from Database */}
