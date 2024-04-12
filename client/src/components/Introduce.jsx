@@ -31,7 +31,7 @@ const Introduce = () => {
               place to be for young volleyballers:
             </h2>
             <p className="font-inter font-light text-base lg:text-lg">
-              Since 2011, Dynamique Club has been dedicated to increasing the
+              Since 2022, Dynamique Club has been dedicated to increasing the
               popularity and the caliber of competitive volleyball in the
               Montreal area. We provide coaching services for all skill levels
               and field high-level competitive teams across various age groups.
