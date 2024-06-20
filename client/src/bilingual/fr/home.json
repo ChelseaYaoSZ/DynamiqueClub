@@ -1,0 +1,19 @@
+{
+    "banner": {
+        "subtitle": "NOS DERNIÈRES NOUVELLES",
+        "register": "S’inscrire maintenant "
+    },
+    "introduce":{
+        "title": "PRÉSENTATION DE NOTRE CLUB",
+        "subtitle":"Le lieu <span class=\"text-customYellow italic\">dynamique</span> pour les jeunes joueurs de volley-ball:",
+        "text": "Depuis 2022, le Club Dynamique s'engage à accroître la popularité et le niveau de compétition du volley-ball dans la région de Montréal. Nous offrons des services d'entraînement pour tous les niveaux de compétence et formons des équipes compétitives de haut niveau dans différentes catégories d'âge. ",
+        "button": "En savoir plus"
+    },
+    "carousel":{
+        "title": "DERNIERS ÉVÉNEMENTS & VIDÉOS"
+    },
+    "meet_the_team":{
+        "title": "RENCONTREZ NOS ÉQUIPES",
+        "text": "Basé à Montréal, le Club de Volleyball Dynamique offre un entraînement de qualité en volleyball pour les garçons et les filles âgés de 11 à 17 ans à Montréal."
+    }
+}

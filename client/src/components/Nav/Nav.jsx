@@ -1,23 +1,26 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const programs = [
-  { name: "U17 Competitive", path: "/program/u17" },
-  { name: "U16 Competitive", path: "/program/u16" },
-  { name: "U15 Competitive", path: "/program/u15" },
-  { name: "U14 Competitive", path: "/program/u14" },
-  { name: "U13 Competitive", path: "/program/u13" },
-  { name: "DEV", path: "/program/dev" },
+  { name: "u17", path: "/program/u17" },
+  { name: "u16", path: "/program/u16" },
+  { name: "u15", path: "/program/u15" },
+  { name: "u14", path: "/program/u14" },
+  { name: "u13", path: "/program/u13" },
+  { name: "dev", path: "/program/dev" },
 ];
 
 const Nav = ({ isDropdown = false }) => {
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Program", path: "/program", dropdown: true },
-    { name: "Registration", path: "/registration" },
-    { name: "Schedule", path: "/schedule" },
-    { name: "About Us", path: "/club" },
-    { name: "Contact", path: "/contact" },
+  const { t } = useTranslation();
+  
+  const links = [
+    { name: "home", path: "/" },
+    { name: "program", path: "/program", dropdown: true },
+    { name: "registration", path: "/registration" },
+    { name: "schedule", path: "/schedule" },
+    { name: "about_us", path: "/club" },
+    { name: "contact", path: "/contact" },
   ];
 
   const containerClasses = isDropdown
@@ -28,7 +31,7 @@ const Nav = ({ isDropdown = false }) => {
 
   return (
     <nav className={`bg-customRed flex ${containerClasses} p-3 text-xl h-full`}>
-      {navLinks.map((link) => (
+      {links.map((link) => (
         <div className="group" key={link.name}>
           <NavLink
             to={link.path}
@@ -43,7 +46,7 @@ const Nav = ({ isDropdown = false }) => {
               textShadow: isActive ? "0px 1px 0px #ffffff" : "none",
             })}
           >
-            {link.name}
+            {t(`common.nav.${link.name}`)}
           </NavLink>
           {link.dropdown && (
             <div className="lg:absolute hidden group-hover:block bg-customRed text-black lg:text-white mt-2">
@@ -53,7 +56,7 @@ const Nav = ({ isDropdown = false }) => {
                   to={program.path}
                   className="block pl-6 lg:pl-2 pr-4 py-2 lg:py-3 text-left text-base lg:text-xl hover:font-medium hover:bg-gray-200 lg:hover:bg-customRed hover:text-customRed  lg:hover:text-customYellow"
                 >
-                  {program.name}
+                  {t(`common.program.${program.name}`)}
                 </NavLink>
               ))}
             </div>

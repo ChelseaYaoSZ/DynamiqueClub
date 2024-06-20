@@ -1,4 +1,5 @@
 import "./App.css";
+import './i18n';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import SchedulePage from "./pages/SchedulePage";

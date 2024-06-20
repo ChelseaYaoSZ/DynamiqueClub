@@ -1,8 +1,10 @@
-import React from "react";
+import React from 'react';
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
 const LatestNews = ({ date, eventTitle }) => {
+  const { t } = useTranslation();
 
   return (
     <div
@@ -11,7 +13,7 @@ const LatestNews = ({ date, eventTitle }) => {
       <div className="flex flex-col gap-3">
         <div className="flex flex-row gap-3">
           <div className="bg-customRed text-sm text-white px-2 rounded font-medium">
-            THE LATEST NEWS
+            {t('home.banner.subtitle')}
           </div>
           <div className="text-sm text-white">{moment(date).format("MMMM Do YYYY")}</div>
         </div>
@@ -28,7 +30,7 @@ const LatestNews = ({ date, eventTitle }) => {
             to="/registration"
             className="bg-customRed text-white font-medium rounded px-3 py-1 hover:font-bold hover:bg-red-800"
           >
-            Register now
+            {t('home.banner.register')}
           </Link>
         </div>
       </div>

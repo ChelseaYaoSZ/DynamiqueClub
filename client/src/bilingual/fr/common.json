@@ -1,0 +1,34 @@
+{
+    "nav": {
+        "home": "Accueil",
+        "program": "Programme",
+        "registration": "Inscription",
+        "schedule": "Horaire",
+        "contact": "Contact",
+        "about_us": "Club"
+    },
+    "program": {
+        "u17": "Compétitif U17",
+        "u16": "Compétitif U16",
+        "u15": "Compétitif U15",
+        "u14": "Compétitif U14",
+        "u13": "Compétitif U13",
+        "dev": "Récréatif"
+    },
+    "newsletter":{
+        "contact": "NOUS JOINDRE",
+        "location": "ADRESSE",
+        "follow_us": "SUIVEZ-NOUS",
+        "newsletter": "Restez informé sur toutes nos actualités",
+        "email": "Courriel",
+        "subscribe": "S'abonner"
+    },
+    "footer": {
+        "privacy": "Politique de confidentialité",
+        "terms": "Conditions d'utilisation |"
+    },
+    "allert": {
+        "success": "Succès",
+        "error": "Une erreur s'est produite lors de la soumission de l'abonnement. Veuillez réessayer plus tard."
+    }
+}

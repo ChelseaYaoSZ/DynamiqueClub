@@ -1,9 +1,11 @@
 import { signInWithPopup } from "firebase/auth";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { auth, googleAuthProvider } from "../firebase/config";
 
 const Footer = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const handleGoogleSignIn = async () => {
@@ -22,11 +24,11 @@ const Footer = () => {
     <footer className="bg-customRed text-white text-center p-4">
       © MTL Dynamique 2024 |{" "}
       <a href="/privacy-policy" className="">
-        Privacy Policy
+        {t("common.footer.privacy")}
       </a>{" "}
       |{" "}
       <a href="/terms-of-use" className="">
-        Terms of Use |{" "}
+        {t("common.footer.terms")}{" "}
       </a>
       <Link onClick={handleGoogleSignIn} to="" className="">
         Admin

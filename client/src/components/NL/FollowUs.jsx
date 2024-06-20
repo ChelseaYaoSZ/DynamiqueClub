@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
@@ -16,10 +17,11 @@ const socialMediaLinks = [
 ];
 
 const FollowUs = () => {
+  const { t } = useTranslation();
   return (
     <div className="flex flex-col items-start">
       <div className="font-semibold text-darkBlue text-xl text-center">
-        FOLLOW US
+        {t('common.newsletter.follow_us')}
       </div>
       <div className="flex justify-center items-center text-xl">
         {socialMediaLinks.map((social) => (

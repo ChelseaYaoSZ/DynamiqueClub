@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import Nav from "./Nav";
 import SocialMedia from "./SocialMedia";
+import LanguageSwitcher from "./LanguageSwitcher";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
@@ -68,6 +69,10 @@ const Sidebar = () => {
 
             <div className="flex justify-start">
               <SocialMedia />
+            </div>
+
+            <div className="flex justify-start pl-2">
+              <LanguageSwitcher />
             </div>
 
             <button

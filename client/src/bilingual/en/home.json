@@ -1,0 +1,19 @@
+{
+    "banner": {
+        "subtitle": "THE LATEST NEWS",
+        "register": "Register now"
+    },
+    "introduce":{
+        "title": "INTRODUCING OUR CLUB",
+        "subtitle":"The <span class=\"text-customYellow italic\">dynamic</span> place to be for young volleyballers:",
+        "text": "Since 2022, Dynamique Club has been dedicated to increasing the popularity and the caliber of competitive volleyball in the Montreal area. We provide coaching services for all skill levels and field high-level competitive teams across various age groups.",
+        "button": "Learn more"
+    },
+    "carousel":{
+        "title": "LATEST EVENTS & VIDEOS"
+    },
+    "meet_the_team":{
+        "title": "MEET THE TEAM",
+        "text": "Based in Montreal, Dynamique Volleyball Club offers quality volleyball training for boys and girls ages from 11 to 17 in Montreal."
+    }
+}

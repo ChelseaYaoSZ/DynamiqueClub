@@ -4,6 +4,7 @@ import Logo from "./Nav/Logo";
 import Nav from "./Nav/Nav";
 import SocialMedia from "./Nav/SocialMedia";
 import Sidebar from "./Nav/Sidebar";
+import LanguageSwitcher from "./Nav/LanguageSwitcher";
 
 const Navbar = () => {
   return (
@@ -16,7 +17,7 @@ const Navbar = () => {
           <Nav isDropdown={false} />
         </div>
         <div className="flex-grow hidden lg:block">
-          <SocialMedia />
+          <LanguageSwitcher />
         </div>
         <Sidebar />
       </div>

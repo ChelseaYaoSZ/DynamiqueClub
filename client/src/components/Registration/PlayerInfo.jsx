@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faVolleyballBall } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -9,12 +10,12 @@ import {
 import useFetchPrograms from "../../hooks/useFetchPrograms";
 
 const fields = [
-  { name: "firstName", label: "First name", required: true, type: "text" },
-  { name: "lastName", label: "Last name", required: true, type: "text" },
-  { name: "dateOfBirth", label: "Date of Birth", required: true, type: "date" },
-  { name: "gender", label: "Gender", required: true, type: "select" },
-  { name: "email", label: "Email", required: false, type: "email" },
-  { name: "phone", label: "Phone", required: false, type: "tel" },
+  { name: "firstName", label: "first_name", required: true, type: "text" },
+  { name: "lastName", label: "last_name", required: true, type: "text" },
+  { name: "dateOfBirth", label: "birth", required: true, type: "date" },
+  { name: "gender", label: "gender", required: true, type: "select" },
+  { name: "email", label: "email", required: false, type: "email" },
+  { name: "phone", label: "phone", required: false, type: "tel" },
 ];
 
 const levelOptions = [
@@ -28,6 +29,7 @@ const levelOptions = [
 ];
 
 const PlayerInfo = ({ id }) => {
+  const { t } = useTranslation();
   const { programs, loading, error } = useFetchPrograms();
   const disactiveProgrames = programs.filter((p) => !p.registerDisplay);
   console.log(disactiveProgrames);
@@ -69,11 +71,11 @@ const PlayerInfo = ({ id }) => {
             className="border p-2 rounded h-10"
           >
             <option value="" disabled>
-              Select one
+            {t('registration.button.select')}
             </option>
-            <option value="female">Female</option>
-            <option value="male">Male</option>
-            <option value="preferNotToAnswer">Prefer not to answer</option>
+            <option value="female">{t('registration.gender.female')}</option>
+            <option value="male">{t('registration.gender.male')}</option>
+            <option value="preferNotToAnswer">{t('registration.gender.other')}</option>
           </select>
         );
 
@@ -113,10 +115,10 @@ const PlayerInfo = ({ id }) => {
         <div className="flex justify-start items-center gap-2">
           <FontAwesomeIcon icon={faVolleyballBall} className="text-customRed" />
           <h2 className="text-xl lg:text-2xl font-medium">
-            LEVEL OF PLAYER:
+          {t('registration.subtitle.level')}
             <span className="text-base lg:text-lg text-gray-400">
               {" "}
-              (required)
+               {t('registration.option.required')}
             </span>
           </h2>
         </div>
@@ -129,7 +131,7 @@ const PlayerInfo = ({ id }) => {
           className="border p-2 rounded h-10"
         >
           <option value="" disabled>
-            Select one
+            {t('registration.button.select')}
           </option>
           {levelOptions.map((option) => (
             <option
@@ -150,16 +152,16 @@ const PlayerInfo = ({ id }) => {
       {/* player info title */}
       <div className="flex justify-start items-center gap-2">
         <FontAwesomeIcon icon={faVolleyballBall} className="text-customRed" />
-        <h2 className="text-xl lg:text-2xl font-medium">PLAYER INFORMATION:</h2>
+        <h2 className="text-xl lg:text-2xl font-medium">{t('registration.subtitle.player_info')}</h2>
       </div>
       {/* player info */}
       <div className="grid grid-cols lg:grid-cols-2 gap-2 lg:gap-5">
         {fields.map((field, index) => (
           <div key={index} className="flex flex-col">
             <label className="block text-base lg:text-lg text-gray-700">
-              {field.label}
+              {t(`registration.info.${field.label}`)}
               {field.required && (
-                <span className="text-gray-400"> (required)</span>
+                <span className="text-gray-400">  {t('registration.option.required')}</span>
               )}
             </label>
             {generateInputField(field)}

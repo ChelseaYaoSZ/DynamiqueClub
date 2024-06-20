@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -40,6 +41,7 @@ const settings = {
 };
 
 const Carousels = () => {
+  const { t } = useTranslation();
 
   const sliderRef = useRef();
 
@@ -69,7 +71,7 @@ const Carousels = () => {
       <div className="w-11/12 xl:w-full max-w-screen-lg flex items-center text-customRed  gap-3 mb-4">
         <FaVolleyballBall className="text-base lg:text-lg " />
         <h2 className="text-lg lg:text-xl font-semibold  text-darkBlue">
-          LATEST EVENTS & VIDEOS
+          {t("home.carousel.title")}
         </h2>
 
         <hr className="flex-grow border-t border-customRed border-[1px]" />

@@ -1,0 +1,41 @@
+{
+    "title":"Formulaire d’inscription",
+    "subtitle":{
+        "level":"NIVEAU DU JOUEUR:",
+        "player_info":"INFORMATION DU JOUEUR:",
+        "parent_info":"INFORMATION DU PARENT:",
+        "assumption":"ASSOMPTION DES RISQUES ET RENONCIATION À LA RESPONSABILITÉ:"
+    },
+    "info":{
+        "first_name":"Prénom",
+        "last_name":"Nom",
+        "email":"Courriel",
+        "phone":"Téléphone",
+        "birth":"Date de Naissance",
+        "gender":"Genre"
+    },
+    "gender":{
+        "female":"Femme",
+        "male":"Homme",
+        "other":"Préfère ne pas répondre"
+    },
+    "waiver":{
+        "text_1":"Je/nous soussigné(s), certifie/certifions par la présente que je (nous) suis(sommes) le(s) parent(s) ou tuteur(s) légal(aux) de l'enfant participant. En considération de la participation à l'entraînement de volleyball de Dynamique Volleyball, je (nous) déclare/déclarons comprendre la nature de ces activités et que moi-même (mon enfant) suis(sommes) qualifié(s), en bonne santé, et en condition physique adéquate pour participer à un tel entraînement. Je (nous) reconnais(reconnaissons) que si je (nous) estime(ons) que les conditions de l'événement ne sont pas sécuritaires, je (nous) cesserai(cesserons) immédiatement de participer à l'entraînement.",
+        "text_2":"Je (nous) comprends parfaitement que l'entraînement de volley-ball comporte des risques de blessures corporelles graves, y compris des handicaps permanents, des paralysies et la mort, pouvant être causées par les actions ou inactions de l'enfant participant, celles des autres participants à l'événement, les conditions dans lesquelles l'événement a lieu, et qu'il peut y avoir d'autres risques non connus de moi (nous) ou non facilement prévisibles à ce moment ; et j'accepte(j'acceptons) pleinement et assume(assumons) tous ces risques ainsi que toute responsabilité pour les pertes, coûts et dommages encourus résultant de la participation de mon enfant à l'entraînement.",
+        "text_3":"Je (nous) libérons(libérons) par la présente, de manière inconditionnelle, de toute responsabilité, réclamation, demande, pertes ou dommages sur mon compte causés ou prétendument provoqués en totalité ou en partie par la négligence de l'enfant participant ou autrement, y compris les opérations de secours négligentes, tous les organisateurs de l'entraînement de volleyball de Dynamique Volleyball, y compris son propriétaire, ses entraîneurs, l'installation sportive, ainsi que les administrateurs, directeurs, bénévoles, employés, autres participants, sponsors, annonceurs, et, le cas échéant, autres propriétaires et bailleurs des locaux où se déroule l'entraînement. De plus, je (nous) conviens(convenons) que si, malgré cette LIBÉRATION ET RENONCIATION À LA RESPONSABILITÉ, ASSUMPTION DES RISQUES ET ACCORD D'INDEMNISATION, moi (nous) ou quiconque agissant en notre nom formule une réclamation contre l'un des participants, j'indemniserai(indemniserons), sauverai(sauverons) et dégagerai(dégagerons) de toute perte, responsabilité, dommage ou coût que l'un des participants pourrait encourager à la suite d'une telle réclamation.",
+        "text_4":"Renonciation supplémentaire, libération, indemnité, reconnaissance ",
+        "text_5":"LIBÉRATION DES MÉDIAS/PHOTOGRAPHIES.",
+        "text_6":"Je (nous) donne/donnons la permission à Dynamique Volleyball d'utiliser les photographies prises du(des) enfant(s) participant(s) à des fins promotionnelles sur son site web, Facebook, Instagram et WeChat. Je (nous) conviens(convenons) de libérer, de défendre et d'exonérer Dynamique Volleyball, son personnel, ses directeurs, entraîneurs, employés, représentants et successeurs de toute réclamation, dommage ou responsabilité découlant de l'utilisation des photographies à des fins promotions.",
+        "text_7":"Je/nous, soussigné(s), comprends(comprenons) et reconnaissance(reconnaissons) que la participation à un entraînement récréatif peut être dangereuse et je (nous) réalise(réalisons) que personne ne devrait participer à un entraînement récréatif à moins que le participant soit médicalement capable. Je (nous) assume(assumons) tous les risques associés à cela, y compris, mais sans s'y limiter : les chutes, les contacts avec d'autres participants ou l'équipement, les effets météorologiques, les défaillances de l'équipement et l'état du terrain de jeu. Je (nous) comprends (comprenons) pleinement que c'est ma (notre) responsabilité de déterminer si cet entraînement spécifique comporte d'autres éléments de risque qui pourraient s'avérer dangereux pour un participant. Ayant lu cette renonciation et en considération de l'acceptation de l'inscription au programme, moi-même et toute personne ayant le droit d'agir en mon nom, renonce et libère Dynamique Volley-ball, ses sponsors et successeurs, ainsi que leurs représentants, de toutes réclamations et responsabilités de toute nature découlant de la participation de mon enfant à cet entraînement.",
+        "check":"En cochant cette case, je reconnais et j'accepte les termes et conditions susmentionnés.",
+        "subscribe":"J'aimerais recevoir toutes les informations concernant le Club Dynamique par courriel électronique. "
+    },
+    "option":{
+        "required":"(obligatoire)",
+        "optional":"(optionnel)"
+    },
+    "button":{
+        "register":"S'inscrire",
+        "select":"Choisir un"
+    }
+}

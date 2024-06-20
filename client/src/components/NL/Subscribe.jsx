@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { useTranslation } from 'react-i18next';
 import { sendSubscriptionEmail } from "../../utils/emailService";
 
 const Subscribe = () => {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
 
   const handleSubmit = async (event) => {
@@ -19,9 +21,7 @@ const Subscribe = () => {
       }
     } catch (error) {
       console.error("Error submitting subscription:", error);
-      alert(
-        "An error occurred while submitting the subscription. Please try again later."
-      );
+      alert(t('common.allert.error'));
     }
     // Reset email input after submission
     setEmail("");
@@ -30,12 +30,12 @@ const Subscribe = () => {
   return (
     <div className="flex flex-col gap-2 lg:flex-row lg:items-center lg:justify-center lg:space-x-4 lg:mt-8">
       <span className="text-xl text-darkBlue font-semibold">
-        GET ALL THE LATEST ON US
+        {t('common.newsletter.newsletter')}
       </span>
       <form className="flex" onSubmit={handleSubmit} id="subscribe-form">
         <input
           type="email"
-          placeholder="Email"
+          placeholder={t('common.newsletter.email')}
           className="p-2  lg:w-60 rounded-l focus:outline-none focus:border-gray-500"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -47,7 +47,7 @@ const Subscribe = () => {
         form="subscribe-form"
         className="bg-white font-semibold text-customRed px-4 rounded-r -ml-1 hover:font-bold hover:text-red-800"
       >
-        Subscribe
+        {t('common.newsletter.subscribe')}
       </button>
       </form>
     </div>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useLocation } from "react-router-dom";
 import PlayerInfo from "../components/Registration/PlayerInfo";
 import ParentInfo from "../components/Registration/ParentInfo";
@@ -23,6 +24,7 @@ const validateFormData = (data) => {
 };
 
 const ResgistrationPage = () => {
+  const { t } = useTranslation();
   const query = useQuery();
   const programId = query.get("programId");
 
@@ -83,7 +85,7 @@ const ResgistrationPage = () => {
   return (
     <div className="flex flex-col justify-center items-center py-8 lg:p-20 gap-4">
       <div className="text-3xl lg:text-4xl font-semibold text-center lg:mb-6">
-        <h2>Registration Form</h2>
+        <h2>{t('registration.title')}</h2>
       </div>
       <div className="flex flex-col gap-4 lg:gap-8 max-w-[950px] bg-bgWhite p-10">
         <form
@@ -105,9 +107,8 @@ const ResgistrationPage = () => {
               />
               <label className="flex items-center font-medium text-sm lg:text-base">
                 <p>
-                  I would like to receive all the information regarding
-                  Dynamique Club by email.{" "}
-                  <span className="text-gray-400"> (optional)</span>
+                  {t('registration.waiver.subscribe')}{" "}
+                  <span className="text-gray-400"> {t('registration.option.optional')}</span>
                 </p>
               </label>
             </div>
@@ -118,7 +119,7 @@ const ResgistrationPage = () => {
           type="submit"
           form="registration-form"
         >
-          Register
+          {t('registration.button.register')}
         </button>
       </div>
     </div>
