@@ -8,6 +8,8 @@ import en_home from "./bilingual/en/home.json";
 import fr_home from "./bilingual/fr/home.json";
 import en_registration from "./bilingual/en/registration.json";
 import fr_registration from "./bilingual/fr/registration.json";
+import en_club from "./bilingual/en/club.json";
+import fr_club from "./bilingual/fr/club.json";
 
 i18n
   // .use(HttpBackend) // loads translations from your server, e.g., /public/locales/en/translation.json
@@ -28,14 +30,16 @@ i18n
         translation: {
           common: en_common,
           home: en_home,
-          registration: en_registration
+          registration: en_registration,
+          club: en_club
         }
       },
       fr: {
         translation: {
           common: fr_common,
           home: fr_home,
-          registration: fr_registration
+          registration: fr_registration,
+          club: fr_club
         }
       }
     }

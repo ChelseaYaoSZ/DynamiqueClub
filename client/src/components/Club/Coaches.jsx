@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -40,6 +41,7 @@ const settings = {
 };
 
 const Coaches = () => {
+  const { t } = useTranslation();
   const sliderRef = useRef();
 
   // Function to go to the next slide
@@ -57,7 +59,7 @@ const Coaches = () => {
       {/* Title Section */}
       <div className="flex items-center text-customRed w-full gap-3 mb-4">
         <FontAwesomeIcon icon={faVolleyballBall} className="text-base lg:text-lg" />
-        <h2 className="text-lg lg:text-xl font-semibold">Meet Our Coaches</h2>
+        <h2 className="text-lg lg:text-xl font-semibold">{t('club.coaches.title')}</h2>
         <hr className="flex-grow border-t border-customRed border-[1px]" />
         <FontAwesomeIcon
           icon={faChevronCircleLeft}

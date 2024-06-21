@@ -1,0 +1,30 @@
+{
+    "title":"CLUB & COACHING",
+    "mission":{
+        "title":"Our Mission",
+        "text":"The <span class=\"text-customYellow italic\">dynamic</span> place to be for young volleyballers:",
+        "1":"Fostering holistic youth development",
+        "2":"Instilling a love for volleyball",
+        "3":"Providing safe and inclusive environment",
+        "4":"Equipping for success in both volleyball and life"
+    },
+    "coaches":{
+        "title":"Meet Our Coaches",
+        "coach":{
+            "steven":{
+                "name":"Steven",
+                "role":"Head Coach",
+                "description":"Steven is a former national volleyball player and has been coaching for over 10 years. He is passionate about developing young volleyballers and has a knack for bringing out the best in them."
+            }
+        }
+    },
+    "spirit":{
+        "title":"Our Spirit",
+        "text":"Dynamique is a club created and managed by a group passionate about volleyball and the sport.",
+        "content":{
+            "1":"Positive and supportive community",
+            "2":"Culture of inclusivity",
+            "3":"Teamwork and collaboration"
+        }
+    }
+}
