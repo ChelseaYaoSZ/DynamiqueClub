@@ -39,6 +39,11 @@
             "email": "Courriel"
         },
         "button": "Envoyer"
+    },
+    "schedule":{
+        "title": "HORAIRE D'ENTRAÎNEMENTS ET DE MATCHS",
+        "subtitle": "NOTE IMPORTANTE!",
+        "button":"S'inscrire maintenant"
     }
     
 }

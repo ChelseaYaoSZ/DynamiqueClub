@@ -39,6 +39,11 @@
             "email":"Email"
         },
         "button": "Submit"
+    },
+    "schedule":{
+        "title": "PRACTICE & GAME SCHEDULE",
+        "subtitle": "NOTE IMPORTANT!",
+        "button":"Register now"
     }
     
 }
