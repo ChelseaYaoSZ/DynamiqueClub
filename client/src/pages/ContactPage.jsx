@@ -1,10 +1,12 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import contact from "../assets/contact.png";
 
 import { FiPhone } from "react-icons/fi";
 import { FiMail } from "react-icons/fi";
 
 const ContactPage = () => {
+  const { t } = useTranslation();
   return (
     // <div className="w-screen mx-auto sm:w-4/5">
     <div className="w-full flex flex-col items-center">
@@ -19,7 +21,7 @@ const ContactPage = () => {
       <div className="w-full max-w-screen-lg flex flex-col  items-center  sm:my-10 ">
         <title className="w-full flex flex-col items-center  gap-x-5">
           <h3 className="text-3xl text-customRed text-center font-semibold sm:text-4xl">
-            Contact Us
+            {t("common.contact.title")}
           </h3>
           <div className="flex flex-col sm:flex-row justify-around items-center text-base gap-5 mt-10 sm:my-10">
             <div className="flex items-center justify-center text-base sm:text-xl">
@@ -45,20 +47,20 @@ const ContactPage = () => {
               <input
                 type="text"
                 name="full_name"
-                placeholder="Full Name"
+                placeholder={t("common.contact.content.name")}
                 className="w-full mb-3 rounded-sm"
               />
               <input
                 type="text"
                 name="phone"
-                placeholder="Phone(Optional)"
+                placeholder={t("common.contact.content.phone")}
                 className="w-full mb-3 rounded-sm"
               />
             </div>
             <input
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder={t("common.contact.content.email")}
               className="mb-3 rounded-sm"
             />
             <textarea
@@ -84,7 +86,7 @@ const ContactPage = () => {
               className="w-full h-[45px] bg-customRed rounded-lg text-white font-semibold text-2xl my-5"
               type="submit"
             >
-              Submit
+              {t("common.contact.button")}
             </button>
           </form>
 

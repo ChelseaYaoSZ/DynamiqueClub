@@ -30,5 +30,15 @@
     "allert": {
         "success": "Succès",
         "error": "Une erreur s'est produite lors de la soumission de l'abonnement. Veuillez réessayer plus tard."
+    },
+    "contact": {
+        "title": "Nous Joindre",
+        "content": {
+            "name": "Nom au complet",
+            "phone": "Téléphone(optionnel)",
+            "email": "Courriel"
+        },
+        "button": "Envoyer"
     }
+    
 }

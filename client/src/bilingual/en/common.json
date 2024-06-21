@@ -30,6 +30,15 @@
     "allert": {
         "success": "Success",
         "error": "An error occurred while submitting the subscription. Please try again later."
+    },
+    "contact":{
+        "title": "Contact Us",
+        "content": {
+            "name":"Full Name",
+            "phone":"Phone(Optional)",
+            "email":"Email"
+        },
+        "button": "Submit"
     }
     
 }
