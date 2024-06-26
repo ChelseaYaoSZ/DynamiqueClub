@@ -14,6 +14,15 @@
         "birth":"Date of Birth",
         "gender":"Gender"       
     },
+    "level":{
+        "u17":"U17 Competitive Team",
+        "u16": "U16 Competitive Team",
+        "u15": "U15 Competitive Team",
+        "u14": "U14 Competitive Team",
+        "u13": "U13 Competitive Team",
+        "dev": "Development Team",
+        "tryout": "Tryout"
+    },
     "gender":{
         "female":"Female",
         "male":"Male",

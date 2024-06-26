@@ -14,6 +14,15 @@
         "birth":"Date de Naissance",
         "gender":"Genre"
     },
+    "level":{
+        "u17": "Compétitif U17",
+        "u16": "Compétitif U16",
+        "u15": "Compétitif U15",
+        "u14": "Compétitif U14",
+        "u13": "Compétitif U13",
+        "dev": "Récréatif",
+        "tryout": "Essais"
+    },
     "gender":{
         "female":"Femme",
         "male":"Homme",
