@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const TeamCard = ({ program }) => {
+  const { t } = useTranslation();
   return (
     <Link
       to={`/program/${program.id}`}
@@ -21,7 +23,7 @@ const TeamCard = ({ program }) => {
 
           <div className="w-[80px] h-[7px] sm:w-[161px] sm:h-[14px] text-[5px] font-bold rounded-md bg-customRed text-customRed transform -translate-y-3 group-hover:h-[15px] sm:group-hover:h-[20px] group-hover:text-[8px] sm:group-hover:text-sm text-center  group-hover:text-white">
             <p className="group-hover:mt-[0.5px] sm:group-hover:mt-0">
-              MEET THE TEAM
+              {t("common.program.button")}
             </p>
           </div>
         </div>
@@ -29,7 +31,7 @@ const TeamCard = ({ program }) => {
 
       <div className="h-[38px] sm:h-[75px] text-sm sm:text-2xl mt-2 text-darkBlue flex flex-col justify-around">
         <p>{program.age}</p>
-        <p>{program.grade}</p>
+        <p className="text-sm sm:text-xl">{program.grade}</p>
       </div>
     </Link>
   );

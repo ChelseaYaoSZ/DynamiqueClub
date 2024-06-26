@@ -6,12 +6,24 @@ import { SiWebmoney } from "react-icons/si";
 import { CgGirl } from "react-icons/cg";
 import { TbLocationCheck } from "react-icons/tb";
 import contact from "../assets/contact.png";
-import data from "../data/program.json";
+import programData from "../data/programData";
 import useFetchPrograms from "../hooks/useFetchPrograms";
+import { useTranslation } from "react-i18next";
 
 const ProgramDetailsPage = () => {
+  const { t } = useTranslation();
   const { programId } = useParams();
-  let currP = data.programs.find((p) => p.id === programId);
+  let program = programData.find((p) => p.id === programId);
+  const currP = program ? {
+    ...program,
+    title: t(program.title),
+    age: t(program.age),
+    grade: t(program.grade),
+    desc: t(program.desc),
+    admision: t(program.admision),
+    address: t(program.address),
+    otherCost: t(program.otherCost)
+  } : null;
 
   const { programs, loading, error } = useFetchPrograms();
   let DBdata = programs.find((p) => p.id.toLowerCase() === programId);
@@ -32,10 +44,10 @@ const ProgramDetailsPage = () => {
       <div className="w-10/12 flex flex-col justify-center items-center max-w-screen-lg mx-auto my-10">
         <div className="flex flex-col lg:flex-row lg:justify-between pb-10 border-b-2 border-customRed">
           <div className="w-full flex flex-col items-start">
-            <h3 className="text-2xl text-customRed text-center font-semibold mt-0 sm:mt-5 sm:text-3xl">
+            <h3 className="text-2xl text-customRed font-semibold mt-0 sm:mt-5 sm:text-3xl">
               {currP.title}
             </h3>
-            <p className="text-lg text-darkBlue text-center font-semibold mt-6 mb-5 sm:text-xl">
+            <p className="text-lg text-darkBlue font-semibold mt-6 mb-5 sm:text-xl">
               {currP.grade}
             </p>
             {DBdata.registerDisplay ? (
@@ -43,21 +55,21 @@ const ProgramDetailsPage = () => {
                 to={`/registration?programId=${currP.id}`}
                 className="bg-customRed text-white font-medium rounded px-3 py-1 mb-10 hover:font-bold hover:bg-red-800"
               >
-                Register now
+                {t("program.page.subtitle.register_button")}
               </Link>
             ) : (
               <Link
                 to={``}
                 className="bg-gray-500 text-white font-medium rounded px-3 py-1 mb-10 hover:font-bold hover:bg-gray-400"
               >
-                Registration Closed
+                {t("program.page.subtitle.close_button")}
               </Link>
             )}
           </div>
 
           <div className="flex flex-col items-start lg:ml-5">
             <h4 className="text-lg text-darkBlue text-center font-semibold mt-0 sm:mt-5 sm:text-xl">
-              Age: {currP.age}
+              {t("program.page.subtitle.age")}{currP.age}
             </h4>
             <p className="text-base md:text-xl mt-5">{currP.desc}</p>
           </div>
@@ -65,13 +77,13 @@ const ProgramDetailsPage = () => {
 
         <div className="w-full flex flex-col justify-between">
           <h3 className="text-2xl text-customRed font-semibold mt-10 mb-6 sm:text-3xl">
-            Information
+            {t("program.page.subtitle.information")}
           </h3>
 
           <div className="flex w-full mb-2">
             <div className="flex flex-row items-center">
               <FiClock />
-              <p className="mx-2 text-darkBlue font-medium">Schedule :</p>
+              <p className="mx-2 text-darkBlue font-medium">{t("program.page.subtitle.schedule")}</p>
             </div>
             <p>{DBdata.schedule}</p>
           </div>
@@ -80,7 +92,7 @@ const ProgramDetailsPage = () => {
             <div className="flex flex-row items-center">
               <PiScreencastLight />
               <p className="mx-2  text-darkBlue font-medium">
-                Current Session :
+                {t("program.page.subtitle.current_session")}
               </p>
             </div>
             <p>{DBdata.current_session}</p>
@@ -89,7 +101,7 @@ const ProgramDetailsPage = () => {
           <div className="flex flex-col w-full mb-2">
             <div className="flex flex-row items-center">
               <SiWebmoney />
-              <p className="mx-2  text-darkBlue font-medium">Cost :</p>
+              <p className="mx-2  text-darkBlue font-medium">{t("program.page.subtitle.cost")}</p>
               <p>{DBdata.cost}</p>
             </div>
             {DBdata.id !== "DEV1" && DBdata.id !== "DEV2" && (
@@ -102,7 +114,7 @@ const ProgramDetailsPage = () => {
           <div className="flex flex-col md:flex-row w-full mb-2">
             <div className="flex flex-row items-center">
               <CgGirl />
-              <p className="mx-2  text-darkBlue font-medium">Admission :</p>
+              <p className="mx-2  text-darkBlue font-medium">{t("program.page.subtitle.admission")}</p>
             </div>
             <p>{currP.admision}</p>
           </div>
@@ -110,7 +122,7 @@ const ProgramDetailsPage = () => {
           <div className="flex flex-col md:flex-row w-full mb-2">
             <div className="flex flex-row items-center">
               <TbLocationCheck />
-              <p className="mx-2  text-darkBlue font-medium">Address :</p>
+              <p className="mx-2  text-darkBlue font-medium">{t("program.page.subtitle.address")}</p>
             </div>
             <p>{currP.address}</p>
           </div>
@@ -121,7 +133,7 @@ const ProgramDetailsPage = () => {
             to={`https://drive.google.com/file/d/1jZe8RfRJZGtUQi8ocLbqG_jwRnP4KOr-/view?usp=sharing`}
             className="bg-customRed text-white font-medium rounded px-3 py-1 mb-10 hover:font-bold hover:bg-red-800"
           >
-            Check Club Full Schedule
+            {t("program.page.subtitle.check_button")}
           </Link>
         </div>
       </div>

@@ -1,0 +1,71 @@
+{
+  "u17": {
+    "title": "U17 Competitive",
+    "desc": "This program is designed for girls who are experienced players, such as those who have been promoted from our club's development program or have played on their school volleyball team. Participants in this program will represent the club in various tournaments and friendly matches throughout the season.",
+    "age": "16-17 years old",
+    "grade": "Grade 10-11/Sec. 4-5",
+    "otherCost": "Tournaments cost extra upon participation.",
+    "admision": "16-17 years old depending on date of birth",
+    "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"
+  },
+  "u16": {
+    "title": "U16 Competitive",
+    "desc": "This program is designed for girls who are experienced players, such as those who have been promoted from our club's development program or have played on their school volleyball team. Participants in this program will represent the club in various tournaments and friendly matches throughout the season.",
+    "age": "15-16 years old",
+    "grade": "Grade 9-10/Sec. 3-4",
+    "otherCost": "Tournaments cost extra upon participation.",
+    "admision": "15-16 years old depending on date of birth",
+    "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"
+  },
+  "u15": {
+    "title": "U15 Competitive",
+    "desc": "This program is designed for girls who are experienced players, such as those who have been promoted from our club's development program or have played on their school volleyball team. Participants in this program will represent the club in various tournaments and friendly matches throughout the season.",
+    "age": "15 years old",
+    "grade": "Grade 8-9/Sec. 2-3",
+    "otherCost": "Tournaments cost extra upon participation.",
+    "admision": "14-15 years old depending on date of birth",
+    "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"
+  },
+  "u14": {
+    "title": "U14 Competitive",
+    "desc": "This program is designed for girls who are experienced players, such as those who have been promoted from our club's development program or have played on their school volleyball team. Participants in this program will represent the club in various tournaments and friendly matches throughout the season.",
+    "age": "13-14 years old",
+    "grade": "Grade 7-8/Sec. 1-2",
+    "otherCost": "Tournaments cost extra upon participation.",
+    "admision": "13-14 years old depending on date of birth",
+    "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"
+  },
+  "u13": {
+    "title": "U13 Competitive",
+    "desc": "This program is designed for girls who are experienced players, such as those who have been promoted from our club's development program or have played on their school volleyball team. Participants in this program will represent the club in various tournaments and friendly matches throughout the season.",
+    "age": "13 years old",
+    "grade": "Grade 7/Sec. 1",
+    "otherCost": "Tournaments cost extra upon participation.",
+    "admision": "13 years old depending on date of birth",
+    "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"
+  },
+  "dev": {
+    "title": "Development",
+    "desc": "This program is primarily for young athletes who are willing to try a new sport in a supportive, non-competitive environment. Players will be trained in the fundamentals of volleyball skills. The focus of the program is to prepare participants for school team selections and enable them to join one of our club's competitive teams.",
+    "age": "10-17 years old",
+    "grade": "Grade 4-11",
+    "admision": "10-17 years old",
+    "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"
+  },
+  "page": {
+    "title": "Program",
+    "desc": "Our training programs cater to athletes of all skill level from 11 to 18 years old, offering opportunities to enhance volleyball abilities with guidance from our seasoned coaches.",
+    "subtitle":{
+      "age": "Age:",
+      "register_button": "Register Now",
+      "close_button": "Registration Closed",
+      "information":"Infomation",
+      "schedule":"Schedule:",
+      "current_session":"Current Session:",
+      "cost":"Cost:",
+      "admission":"Admission:",
+      "address":"Address:",
+      "check_button":"Check Club Full Schedule"
+    }
+  }
+}

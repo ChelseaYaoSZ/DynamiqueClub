@@ -12,6 +12,8 @@ import en_club from "./bilingual/en/club.json";
 import fr_club from "./bilingual/fr/club.json";
 import en_coach from "./bilingual/en/coach.json";
 import fr_coach from "./bilingual/fr/coach.json";
+import en_program from "./bilingual/en/program.json";
+import fr_program from "./bilingual/fr/program.json";
 
 i18n
   // .use(HttpBackend) // loads translations from your server, e.g., /public/locales/en/translation.json
@@ -34,7 +36,8 @@ i18n
           home: en_home,
           registration: en_registration,
           club: en_club,
-          coach: en_coach
+          coach: en_coach,
+          program: en_program
         }
       },
       fr: {
@@ -43,7 +46,8 @@ i18n
           home: fr_home,
           registration: fr_registration,
           club: fr_club,
-          coach: fr_coach
+          coach: fr_coach,
+          program: fr_program
         }
       }
     }

@@ -1,0 +1,71 @@
+{
+  "u17": {
+    "title": "Compétitif U17",
+    "desc": "Ce programme est conçu pour les filles qui sont des joueuses expérimentées, telles que celles qui ont été promues depuis le programme de développement de notre club ou qui ont joué dans l'équipe de volley-ball de leur école. Les participantes à ce programme représentent le club lors de divers tournois et matchs amicaux tout au long de la saison.",
+    "age": "16-17 ans",
+    "grade": "Secondaire 4-5 (10e-11e année)",
+    "otherCost": "Les tournois nécessiteront des frais supplémentaires lors de la participation.",
+    "admision": "16-17 ans selon la date de naissance",
+    "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"
+  },
+  "u16": {
+    "title": "Compétitif U16",
+    "desc": "Ce programme est conçu pour les filles qui sont des joueuses expérimentées, telles que celles qui ont été promues depuis le programme de développement de notre club ou qui ont joué dans l'équipe de volley-ball de leur école. Les participantes à ce programme représentent le club lors de divers tournois et matchs amicaux tout au long de la saison.",
+    "age": "15-16 ans",
+    "grade": "Secondaire 3-4 (9e-10e année) ",
+    "otherCost": "Les tournois nécessiteront des frais supplémentaires lors de la participation.",
+    "admision": "15-16 ans selon la date de naissance",
+    "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"
+  },
+  "u15": {
+    "title": "Compétitif U15",
+    "desc": "Ce programme est conçu pour les filles qui sont des joueuses expérimentées, telles que celles qui ont été promues depuis le programme de développement de notre club ou qui ont joué dans l'équipe de volley-ball de leur école. Les participantes à ce programme représentent le club lors de divers tournois et matchs amicaux tout au long de la saison.",
+    "age": "15 ans",
+    "grade": "U15 Secondaire 2-3 (8e-9e année) ",
+    "otherCost": "Les tournois nécessiteront des frais supplémentaires lors de la participation.",
+    "admision": "14-15 ans selon la date de naissance",
+    "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"
+  },
+  "u14": {
+    "title": "Compétitif U14",
+    "desc": "Ce programme est conçu pour les filles qui sont des joueuses expérimentées, telles que celles qui ont été promues depuis le programme de développement de notre club ou qui ont joué dans l'équipe de volley-ball de leur école. Les participantes à ce programme représentent le club lors de divers tournois et matchs amicaux tout au long de la saison.",
+    "age": "13-14 ans",
+    "grade": "Secondaire 1-2 (7e-8e année)",
+    "otherCost": "Les tournois nécessiteront des frais supplémentaires lors de la participation.",
+    "admision": "13-14 ans selon la date de naissance",
+    "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"
+  },
+  "u13": {
+    "title": "Compétitif U13",
+    "desc": "Ce programme est conçu pour les filles qui sont des joueuses expérimentées, telles que celles qui ont été promues depuis le programme de développement de notre club ou qui ont joué dans l'équipe de volley-ball de leur école. Les participantes à ce programme représentent le club lors de divers tournois et matchs amicaux tout au long de la saison.",
+    "age": "13 ans",
+    "grade": "Secondaire 1 (7e année) ",
+    "otherCost": "Les tournois nécessiteront des frais supplémentaires lors de la participation.",
+    "admision": "13 ans selon la date de naissance",
+    "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"
+  },
+  "dev": {
+    "title": "Récréatif",
+    "desc": "Ce programme s'adresse principalement aux jeunes athlètes qui souhaitent essayer un nouveau sport dans un environnement de soutien et non compétitif. Les joueurs seront formés aux fondamentaux du volley-ball. L'objectif du programme est de préparer les participants aux sélections des équipes scolaires et de leur permettre de rejoindre l'une de nos équipes compétitives du club.",
+    "age": "10-17 ans",
+    "grade": "4 année à 11e année",
+    "admision": "10-17 ans",
+    "address": "4901 Rue du Collège - Beaubois, Pierrefonds, QC H8Y 3T4"
+  },
+  "page": {
+    "title": "Programme",
+    "desc": "Nos programmes d'entraînement s'adressent aux athlètes de tous niveaux, âgés de 11 à 18 ans, offrant des opportunités d'améliorer leurs compétences en volley-ball sous la direction de nos entraîneurs expérimentés.",
+    "subtitle":{
+      "age": "Âge:",
+      "register_button": "S’inscrire Maintenant",
+      "close_button":"Inscription Clôturée",
+      "information":"Informations",
+      "schedule":"Horaire:",
+      "current_session":"Session Actuelle:",
+      "cost":"Coût:",
+      "admission":"Âge d’admissio:",
+      "address":"Adresse:",
+      "check_button":"Consultez l’horaire complet du club"
+    }
+  }
+}
