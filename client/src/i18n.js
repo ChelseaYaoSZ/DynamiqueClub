@@ -10,6 +10,8 @@ import en_registration from "./bilingual/en/registration.json";
 import fr_registration from "./bilingual/fr/registration.json";
 import en_club from "./bilingual/en/club.json";
 import fr_club from "./bilingual/fr/club.json";
+import en_coach from "./bilingual/en/coach.json";
+import fr_coach from "./bilingual/fr/coach.json";
 
 i18n
   // .use(HttpBackend) // loads translations from your server, e.g., /public/locales/en/translation.json
@@ -31,7 +33,8 @@ i18n
           common: en_common,
           home: en_home,
           registration: en_registration,
-          club: en_club
+          club: en_club,
+          coach: en_coach
         }
       },
       fr: {
@@ -39,7 +42,8 @@ i18n
           common: fr_common,
           home: fr_home,
           registration: fr_registration,
-          club: fr_club
+          club: fr_club,
+          coach: fr_coach
         }
       }
     }

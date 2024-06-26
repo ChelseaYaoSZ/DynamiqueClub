@@ -1,0 +1,23 @@
+{
+    "id_1": {
+      "name": "Steven Sun",
+      "title": "COACH PRINCIPAL",
+      "description": "Fondateur de l’équipe Dynamique. A joué dans l'équipe de volley-ball de l'Université de Finance et d'Économie de Dongbei à la position de centre. 6 ans d’expérience d’entraîneur chez les jeunes. Programme national de certification des entraîneurs (PNCE)"
+    },
+    "id_2": {
+      "name": "Rui Zhang",
+      "title": "COACH PRINCIPAL",
+      "description": "A joué dans l'équipe de volley-ball de l'Université des Sports de Jilin en tant que passeur. A représenté l'équipe universitaire lors de compétitions locales, provinciales et nationales de volley-ball en Chine. Participe à divers tournois de volley-ball de haut niveau à Toronto. Plus de 30 ans d'expériences sportives en volley-ball"
+    },
+    "id_3": {
+      "name": "Zhuang Xiong",
+      "title": "COACH PRINCIPAL",
+      "description": "A joué dans l’équipe de volley-ball à l'Université de Kunming en Chine en tant qu’ailier gauche. A représenté l'équipe universitaire pour participer à des tournois de volley-ball locaux, provinciaux et nationaux en Chine. Participe à divers tournois de volley-ball de haut niveau à Toronto. Plus de 30 ans d'expériences sportives en volley-ball"
+    },
+    "id_4": {
+      "name": "Talia Lu",
+      "title": "COACH SSISTANTE",
+      "description": "Joueuse étudiante au Royal West College en tant que passeuse. Plus de 4 ans d'expériences sportives en volley-ball"
+    }
+  }
+  

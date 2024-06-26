@@ -8,7 +8,7 @@ import {
   faChevronCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
 import CoachCard from "./CoachCard";
-import coaches from "../../data/coaches";
+import coachesData from "../../data/coachesData";
 
 // Settings for the react-slick carousel
 const settings = {
@@ -43,6 +43,13 @@ const settings = {
 const Coaches = () => {
   const { t } = useTranslation();
   const sliderRef = useRef();
+
+  const coaches = coachesData.map(coach => ({
+    ...coach,
+    name: t(coach.name),
+    title: t(coach.title),
+    description: t(coach.description)
+  }));
 
   // Function to go to the next slide
   const next = () => {
