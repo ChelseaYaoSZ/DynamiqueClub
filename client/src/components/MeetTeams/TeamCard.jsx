@@ -22,11 +22,11 @@ const TeamCard = ({ program }) => {
           </p>
         </div>
       </div>
-      <div className="w-full flex justify-between items-center text-darkBlue mt-2 px-4">
-        <h2 className="text-darkBlue text-lg sm:text-3xl font-monomaniac">
+      <div className="w-full flex md:flex-col justify-between items-center md:items-start text-darkBlue mt-2 px-4 gap-2">
+      <h2 className="text-4xl md:text-5xl font-monomaniac bg-gradient-to-r from-customRed to-darkBlue text-transparent bg-clip-text drop-shadow-lg animate-pulse">
           {program.highlighter}
         </h2>
-        <p className="text-sm sm:text-xl underline underline-offset-4 decoration-customYellow">{program.grade}</p>
+        <p className="text-sm sm:text-xl underline underline-offset-4 md:no-underline decoration-customYellow">{program.grade}</p>
       </div>
     </Link>
   );
