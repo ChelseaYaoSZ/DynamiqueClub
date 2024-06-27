@@ -14,7 +14,7 @@ const MeetTheTeams = () => {
         </h2>
         <hr className="flex-grow border-t border-customRed border-[1px]" />
       </div>
-      <div className="max-w-screen-lg mb-3 shadow-md shadow-gray-400 text-base lg:text-2xl text-white bg-customRed py-3 px-2 lg:px-16 rounded ">
+      <div className="w-11/12 xl:w-full mb-3 shadow-md shadow-gray-400 text-base lg:text-2xl text-white bg-customRed py-3 px-4 lg:px-16 rounded ">
         <p>
           {t("home.meet_the_team.text")}
         </p>
