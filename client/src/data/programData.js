@@ -1,9 +1,9 @@
-import team1 from "../assets/team1.png";
-import team2 from "../assets/team2.png";
-import team3 from "../assets/team3.png";
-import team4 from "../assets/team4.png";
-import team5 from "../assets/team5.png";
-import team6 from "../assets/team6.png";
+import team1 from "../assets/team1.jpg";
+import team2 from "../assets/team2.jpg";
+import team3 from "../assets/team3.jpg";
+import team4 from "../assets/team4.jpg";
+import team5 from "../assets/team5.jpg";
+import team6 from "../assets/team6.jpg";
 
 const programData = [
   {

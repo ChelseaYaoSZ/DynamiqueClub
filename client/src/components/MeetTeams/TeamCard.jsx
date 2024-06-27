@@ -7,31 +7,26 @@ const TeamCard = ({ program }) => {
   return (
     <Link
       to={`/program/${program.id}`}
-      className="relative w-[180px] h-[249px] card:w-[190px] card:h-[250px] sm:w-[270px] sm:h-[380px] md:w-[300px] md:h-[415px] xl:w-[324px] xl:h-[450px] mb-2  sm:border-spacing-x-20 border-12 sm:border-15 border-primary shadow-md shadow-slate-300"
+      className="relative w-full mb-2 border-12 border-primary shadow-md shadow-slate-300 group"
     >
-      <div className="w-full flex flex-col justify-center items-center">
-        <img src={program.image} alt="team" />
-        <div className="absolute flex flex-col items-center justify-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-14  sm:-translate-y-24 group ease-in-out duration-700 delay-150">
-          <div className="flex flex-col justify-center items-center transition-all group-hover:-translate-y-5">
-            {/* <p className="text-white text-xs sm:text-2xl font-jetBrains font-extrabold transform translate-y-7 sm:translate-y-10">
-              UNDER
-            </p> */}
-            <h2 className="text-customYellow text-5xl my-5 sm:text-110 font-monomaniac text-center">
-              {program.highlighter}
-            </h2>
-          </div>
-
-          <div className="w-[80px] h-[7px] sm:w-[161px] sm:h-[14px] text-[5px] font-bold rounded-md bg-customRed text-customRed transform -translate-y-3 group-hover:h-[15px] sm:group-hover:h-[20px] group-hover:text-[8px] sm:group-hover:text-sm text-center  group-hover:text-white">
-            <p className="group-hover:mt-[0.5px] sm:group-hover:mt-0">
-              {t("common.program.button")}
-            </p>
-          </div>
+      <div className="w-full relative">
+        <img
+          src={program.image}
+          alt="team"
+          className="w-full object-cover"
+          style={{ height: "auto" }}
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 flex items-center justify-center transition duration-300">
+          <p className="text-white text-sm sm:text-lg opacity-0 group-hover:opacity-100 transition duration-300 px-4 py-2 bg-customRed rounded-full">
+            {t("common.program.button")}
+          </p>
         </div>
       </div>
-
-      <div className="h-[38px] sm:h-[75px] text-sm sm:text-2xl mt-2 text-darkBlue flex flex-col justify-around">
-        <p>{program.age}</p>
-        <p className="text-sm sm:text-xl">{program.grade}</p>
+      <div className="w-full flex justify-between items-center text-darkBlue mt-2 px-4">
+        <h2 className="text-darkBlue text-lg sm:text-3xl font-monomaniac">
+          {program.highlighter}
+        </h2>
+        <p className="text-sm sm:text-xl underline underline-offset-4 decoration-customYellow">{program.grade}</p>
       </div>
     </Link>
   );
