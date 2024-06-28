@@ -7,17 +7,24 @@ import useFetchNotes from "../hooks/useFetchNotes";
 import moment from "moment";
 
 const Notification = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  const currentLang = i18n.language;
   const { notes, loading, error } = useFetchNotes();
 
   const isNotesAvailable = notes && notes.length > 0;
   const [firstNote, setFirstNote] = useState("No notes available.");
+  const [firstNote_fr, setFirstNote_fr] = useState("No notes available.");
   const [buttonDisplay, setButtonDisplay] = useState(false);
+
+  const displayNote = currentLang === 'fr' ? firstNote_fr : firstNote;
+
 
   useEffect(() => {
     if (isNotesAvailable) {
       console.log("Notes fetched successfully:", notes);
       setFirstNote(notes[0].note);
+      setFirstNote_fr(notes[0].note_fr);
       setButtonDisplay(notes[0].buttonDisplay);
     }
   }, [notes]);
@@ -38,7 +45,7 @@ const Notification = () => {
         <span className="scroll-animation-lg whitespace-pre-line">
           {" "}
           <FontAwesomeIcon icon={faBullhorn} className="mr-2" />
-          {firstNote}
+          {displayNote}
         </span>
       </div>
       <div className="flex justify-end pt-4">

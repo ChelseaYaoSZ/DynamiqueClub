@@ -42,8 +42,8 @@ const Banner = () => {
               </div>
               <LatestNews 
                 date={banner.updatedAt}
-                eventTitle={banner.eventTitle} // Assuming English title is eventTitle_en
-                eventTitle_fr={banner.eventTitle_fr} // Assuming French title is eventTitle_fr
+                eventTitle={banner.eventTitle} 
+                eventTitle_fr={banner.eventTitle_fr} 
               />
             </div>
           </div>

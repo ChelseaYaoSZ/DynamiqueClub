@@ -5,6 +5,10 @@ const noteSchema = new Schema({
     type: String,
     required: true,
   },
+  note_fr: {
+    type: String,
+    required: true,
+  },
   buttonDisplay: {
     type: Boolean, 
     required: true,

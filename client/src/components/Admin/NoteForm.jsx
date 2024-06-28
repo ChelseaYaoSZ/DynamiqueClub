@@ -5,6 +5,7 @@ import useFetchNotes from "../../hooks/useFetchNotes";
 const NoteForm = () => {
   const [formData, setFormData] = useState({
     note: "",
+    note_fr: "",
     buttonDisplay: false,
   });
 
@@ -12,6 +13,7 @@ const NoteForm = () => {
 
   const [currentNoteId, setCurrentNoteId] = useState("");
   const [currentNote, setCurrentNote] = useState("");
+  const [currentNote_fr, setCurrentNote_fr] = useState("");
   const [buttonDisplay, setButtonDisplay] = useState(false);
 
   useEffect(() => {
@@ -19,8 +21,9 @@ const NoteForm = () => {
       const note = notes[0];
       setCurrentNoteId(note._id);
       setCurrentNote(note.note);
+      setCurrentNote_fr(note.note_fr);
       setButtonDisplay(note.buttonDisplay);
-      setFormData({ note: note.note, buttonDisplay: note.buttonDisplay });
+      setFormData({ note: note.note, note_fr:note.note_fr, buttonDisplay: note.buttonDisplay });
       console.log("Notes fetched successfully:", note);
     }
   }, [notes]);
@@ -40,11 +43,19 @@ const NoteForm = () => {
     });
   };
 
+  const handleNoteFrChange = (event) => {
+    setFormData({
+      ...formData,
+      note_fr: event.target.value,
+    });
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const response = await updateNote(currentNoteId, {
         note: formData.note.trim(),
+        note_fr: formData.note_fr.trim(),
         buttonDisplay: formData.buttonDisplay,
       });
       if (response) {
@@ -72,7 +83,7 @@ const NoteForm = () => {
         Current Note: (French version)
       </h3>
       <div className="mt-1 block w-full h-auto border border-gray-300 rounded-md shadow-sm p-2">
-        <p className="text-lg whitespace-pre-line">{currentNote}</p>
+        <p className="text-lg whitespace-pre-line">{currentNote_fr}</p>
       </div>
       <br></br>
       {/* Display specific Note from Database */}
@@ -91,9 +102,9 @@ const NoteForm = () => {
             New Note: (French version)
           </h3>
           <textarea
-            value={formData.note}
-            onChange={handleNoteChange}
-            name="note"
+            value={formData.note_fr}
+            onChange={handleNoteFrChange}
+            name="note_fr"
             className="mt-1 block w-full h-32 border border-gray-300 rounded-md shadow-sm p-2"
           ></textarea>
           <div className="w-full bg-bgWhite rounded py-4">

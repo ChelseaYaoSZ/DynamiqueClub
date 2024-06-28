@@ -13,10 +13,14 @@ router.route("/").get((req, res) => {
 // POST: Create a new note, endpoint: /api/notes/add
 router.route("/add").post(async (req, res) => {
   console.log(req.body);
-  const { note, buttonDisplay } = req.body;
-  console.log(note, buttonDisplay);
+  const { note, note_fr, buttonDisplay } = req.body;
+  console.log(note, note_fr, buttonDisplay);
   try {
-    const newNote = new Note({ note: note, buttonDisplay: buttonDisplay });
+    const newNote = new Note({
+      note: note,
+      note_fr: note_fr,
+      buttonDisplay: buttonDisplay,
+    });
     console.log(newNote);
     await newNote.save();
     res.status(201).json(newNote);
@@ -26,7 +30,7 @@ router.route("/add").post(async (req, res) => {
 });
 
 // GET: Fetch all notes
-router.route("/getAll").get( async (req, res) => {
+router.route("/getAll").get(async (req, res) => {
   try {
     const notes = await Note.find();
     res.json(notes);
@@ -40,12 +44,12 @@ router.route("/getAll").get( async (req, res) => {
 // P0ST: Update an existing note by ID, endpoint: /api/notes/update/:id
 router.route("/update/:id").put(async (req, res) => {
   const { id } = req.params;
-  const { note, buttonDisplay } = req.body;
+  const { note, note_fr, buttonDisplay } = req.body;
 
   try {
     const updatedNote = await Note.findByIdAndUpdate(
       id,
-      { note: note, buttonDisplay: buttonDisplay },
+      { note: note, note_fr: note_fr, buttonDisplay: buttonDisplay },
       { new: true }
     );
     if (!updatedNote) {
