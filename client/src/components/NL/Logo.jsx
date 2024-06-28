@@ -5,7 +5,7 @@ const Logo = () => {
     return (
       <div className="flex lg:flex-col items-center ">
         <div className="mb-2">
-        <img src={logoImage} alt="Logo" className="h-24" /> 
+        <img src={logoImage} alt="Logo" className="h-24 hover:animate-bounce" /> 
         </div>  
         <div className="flex flex-col items-center">
           <div className="flex items-center">

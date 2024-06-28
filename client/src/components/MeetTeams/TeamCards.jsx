@@ -7,7 +7,7 @@ import programData from "../../data/programData";
 const TeamCards = () => {
   const { t } = useTranslation();
   return (
-    <div className="w-11/12 mx-auto xl:w-full mb-10">
+    <div className="w-11/12 mx-auto xl:w-full max-w-screen-xl mb-10">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3  lg:grid-cols-3 lg:gap-x-15 lg:gap-y-5 justify-items-center">
         {programData.map((program) => (
           <TeamCard key={program.id} program={{
