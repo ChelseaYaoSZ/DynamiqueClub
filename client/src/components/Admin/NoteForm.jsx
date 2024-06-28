@@ -62,14 +62,34 @@ const NoteForm = () => {
   return (
     <div className="w-full bg-bgWhite rounded shadow-md p-10 my-10 border">
       <h2 className="text-2xl font-medium mb-4 text-center">Note Form</h2>
-      <h3 className="block text-lg font-medium">Current Note:</h3>
+      <h3 className="block text-lg font-semibold text-blue-700">
+        Current Note: (English version)
+      </h3>
       <div className="mt-1 block w-full h-auto border border-gray-300 rounded-md shadow-sm p-2">
         <p className="text-lg whitespace-pre-line">{currentNote}</p>
       </div>
+      <h3 className="block text-lg font-semibold text-red-600">
+        Current Note: (French version)
+      </h3>
+      <div className="mt-1 block w-full h-auto border border-gray-300 rounded-md shadow-sm p-2">
+        <p className="text-lg whitespace-pre-line">{currentNote}</p>
+      </div>
+      <br></br>
       {/* Display specific Note from Database */}
       <form onSubmit={handleSubmit} id="note-form" className="space-y-4">
-        <label className="block text-lg font-medium">
-          New Note:
+        <label>
+          <h3 className="block text-lg font-semibold text-blue-700">
+            New Note: (English version)
+          </h3>
+          <textarea
+            value={formData.note}
+            onChange={handleNoteChange}
+            name="note"
+            className="mt-1 block w-full h-32 border border-gray-300 rounded-md shadow-sm p-2"
+          ></textarea>
+          <h3 className="block text-lg font-semibold text-red-600">
+            New Note: (French version)
+          </h3>
           <textarea
             value={formData.note}
             onChange={handleNoteChange}

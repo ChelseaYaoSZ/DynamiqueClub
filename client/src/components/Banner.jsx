@@ -3,11 +3,10 @@ import LatestNews from "./BN/LatestNews";
 import ClubName from "./BN/ClubName";
 import Carousel from "nuka-carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import useFetchBanners from "../hooks/useFetchBanners";
 
 const Banner = () => {
-
   const { banners, loading, error } = useFetchBanners();
 
   useEffect(() => {
@@ -17,7 +16,7 @@ const Banner = () => {
   }, [banners]);
 
   if (loading) return <p>Loading banners...</p>;
-  if (error) return <p></p>;
+  if (error) return <p>Error loading banners.</p>;
 
   const nextButtton = <FontAwesomeIcon icon={faChevronRight} />
   const prevButton = <FontAwesomeIcon icon={faChevronLeft} />
@@ -41,7 +40,11 @@ const Banner = () => {
               <div className="hidden lg:block">
                 <ClubName />
               </div>
-              <LatestNews date={banner.updatedAt} eventTitle={banner.eventTitle} />
+              <LatestNews 
+                date={banner.updatedAt}
+                eventTitle={banner.eventTitle} // Assuming English title is eventTitle_en
+                eventTitle_fr={banner.eventTitle_fr} // Assuming French title is eventTitle_fr
+              />
             </div>
           </div>
         ))}

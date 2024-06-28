@@ -17,11 +17,12 @@ router.route("/").get((req, res) => {
 // Create a new banner
 router.route("/add").post(async (req, res) => {
   console.log(req.body);
-  const { eventTitle, imageURL } = req.body;
-  console.log(eventTitle, imageURL);
+  const { eventTitle,eventTitle_fr, imageURL } = req.body;
+  console.log(eventTitle,eventTitle_fr,imageURL);
   try {
     const newBanner = new Banner({
       eventTitle: eventTitle,
+      eventTitle_fr: eventTitle_fr,
       imageURL: imageURL,
     });
     console.log(newBanner);
@@ -45,12 +46,12 @@ router.route("/getAll").get(async (req, res) => {
 // Update banner by id
 router.route("/update/:id").put(async (req, res) => {
   const { id } = req.params;
-  const { eventTitle, imageURL } = req.body;
+  const { eventTitle,eventTitle_fr,imageURL } = req.body;
 
   try {
     const updateBanner = await Banner.findByIdAndUpdate(
       id,
-      { eventTitle: eventTitle, imageURL: imageURL },
+      { eventTitle: eventTitle, eventTitle_fr: eventTitle_fr,imageURL: imageURL },
       { new: true }
     );
 

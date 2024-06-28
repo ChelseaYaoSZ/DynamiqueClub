@@ -9,6 +9,10 @@ const bannerSchema = new Schema(
       type: String,
       required: true,
     },
+    eventTitle_fr: {
+      type: String,
+      required: true,
+    },
     imageURL: {
       type: String,
       required: true,

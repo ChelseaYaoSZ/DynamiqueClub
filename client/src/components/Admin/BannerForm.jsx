@@ -6,6 +6,7 @@ import useFetchBanners from "../../hooks/useFetchBanners";
 const BannerForm = () => {
   const [formData, setFormData] = useState({
     eventTitle: "",
+    eventTitle_fr: "",
     imageURL: "",
   });
 
@@ -13,6 +14,7 @@ const BannerForm = () => {
 
   const [currentBannerId, setCurrentBannerId] = useState("");
   const [currentBanner, setCurrentBanner] = useState("");
+  const [currentBanner_fr, setCurrentBanner_fr] = useState("");
 
   useEffect(() => {
     if (banners && banners.length > 0) {
@@ -46,6 +48,14 @@ const BannerForm = () => {
     });
   };
 
+   // Handle fr inputs
+   const handleEventTitleFrChange = (event) => {
+    setFormData({
+      ...formData,
+      eventTitle_fr: event.target.value,
+    });
+  };
+
   const handleClick = (eventTitle) => {
     const banner = banners.find(
       (banner) => banner.eventTitle === eventTitle
@@ -54,7 +64,8 @@ const BannerForm = () => {
 
     setCurrentBannerId(banner._id);
     setCurrentBanner(banner.eventTitle);
-    setFormData({ eventTitle: banner.eventTitle, imageURL: banner.imageURL });
+    setCurrentBanner_fr(banner.eventTitle_fr);
+    setFormData({ eventTitle: banner.eventTitle, eventTitle_fr:banner.eventTitle_fr, imageURL: banner.imageURL });
   };
 
   const handleSubmit = async (event) => {
@@ -71,6 +82,7 @@ const BannerForm = () => {
       try {
         const updateResponse = await updateBanner(currentBannerId, {
           eventTitle: formData.eventTitle.trim(),
+          eventTitle_fr: formData.eventTitle_fr.trim(),
           imageURL: formData.imageURL,
         });
 
@@ -96,6 +108,7 @@ const BannerForm = () => {
           );
           const updateResponse = await updateBanner(currentBannerId, {
             eventTitle: formData.eventTitle.trim(),
+            eventTitle_fr: formData.eventTitle_fr.trim(),
             imageURL: uploadResponse.data.imageURL,
           });
 
@@ -120,7 +133,10 @@ const BannerForm = () => {
           <thead className="bg-gray-50 uppercase text-gray-500 tracking-wider">
             <tr>
               <th scope="col" className="py-4 px-2">
-                Event Title
+                Event Title(English Version)
+              </th>
+              <th scope="col" className="py-4 px-2">
+                Event Title(French Version)
               </th>
               <th scope="col" className="py-4 px-2">
                 Banner ImageURL
@@ -133,6 +149,9 @@ const BannerForm = () => {
                 <td className="text-gray-900 py-4 px-2" onClick={() => handleClick(banner.eventTitle)}>
                   {banner.eventTitle}
                 </td>
+                <td className="text-gray-900 py-4 px-2" onClick={() => handleClick(banner.eventTitle_fr)}>
+                  {banner.eventTitle_fr}
+                </td>
                 <td className="text-gray-500 py-4 px-2" onClick={() => handleClick(banner.eventTitle)}>
                   <img src={banner.imageURL} alt={banner.eventTitle} />
                 </td>
@@ -143,7 +162,7 @@ const BannerForm = () => {
       </div>
       <form id="banner-form" onSubmit={handleSubmit} className="space-y-4">
         {/* New Event input */}
-        <label className="block text-lg font-medium">Event title:</label>
+        <label className="block text-lg font-medium text-blue-700">Event title:(English Version)</label>
         <textarea
           name="eventTitle"
           placeholder={currentBanner}
@@ -151,6 +170,15 @@ const BannerForm = () => {
           onChange={handleEventTitleChange}
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
         />
+        <label className="block text-lg font-medium  text-red-600">Event title:(French Version)</label>
+        <textarea
+          name="eventTitle_fr"
+          placeholder={currentBanner_fr}
+          value={formData.eventTitle_fr}
+          onChange={handleEventTitleFrChange}
+          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+        />
+
         {/* Banner Image input */}
         <label className="block text-lg font-medium">Banner Image:</label>
         <input

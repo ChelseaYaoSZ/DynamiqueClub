@@ -11,7 +11,7 @@ const ClubPage = () => {
       <div className="text-3xl lg:text-4xl font-semibold text-center lg:mb-6 text-[#060d30] ">
         <h2>{t('club.title')}</h2>
       </div>
-      <div className="flex flex-col gap-4 lg:gap-12 max-w-72 sm:max-w-screen-sm lg:max-w-screen-lg">
+      <div className="flex flex-col gap-4 lg:gap-16 max-w-72 sm:max-w-screen-sm lg:max-w-screen-lg">
         <OurMission />       
         <Coaches />
         <OurSpirit />

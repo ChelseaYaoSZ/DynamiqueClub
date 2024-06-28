@@ -3,8 +3,14 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import moment from "moment";
 
-const LatestNews = ({ date, eventTitle }) => {
-  const { t } = useTranslation();
+const LatestNews = ({ date, eventTitle, eventTitle_fr }) => {
+  const { t, i18n } = useTranslation();
+
+  // Get the current language
+  const currentLang = i18n.language;
+
+  // Determine which title to display based on the current language
+  const displayTitle = currentLang === 'fr' ? eventTitle_fr : eventTitle;
 
   return (
     <div
@@ -22,7 +28,7 @@ const LatestNews = ({ date, eventTitle }) => {
             to="/schedule"
             className="text-white font-notable text-2xl lg:text-3xl hover:underline"
           >
-            {eventTitle}
+            {displayTitle}
           </Link>
         </div>
         <div className="flex justify-end">
