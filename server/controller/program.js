@@ -28,7 +28,7 @@ export const getProgramById = async (req, res) => {
 
 //get all Programs
 export const getAllPrograms = async (req, res) => {
-  const programs = await Program.find({}).sort({ createdAt: -1 });
+  const programs = await Program.find().sort({ createdAt: -1 });
   res.status(200).json(programs);
 };
 //update one program

@@ -14,8 +14,11 @@ const ProgramForm = () => {
   const [formData, setFormData] = useState({
     id: "",
     schedule: "",
+    schedule_fr: "",
     current_session: "",
+    current_session_fr: "",
     cost: "",
+    cost_fr: "",
     registerDisplay: "",
   });
 
@@ -23,6 +26,9 @@ const ProgramForm = () => {
   const [currentProgramSchedule, setCurrentProgramSchedule] = useState("");
   const [currentProgramSession, setCurrentProgramSession] = useState("");
   const [currentCost, setCurrentCost] = useState("");
+  const [currentProgramScheduleFr, setCurrentProgramScheduleFr] = useState("");
+  const [currentProgramSessionFr, setCurrentProgramSessionFr] = useState("");
+  const [currentCostFr, setCurrentCostFr] = useState("");
   const [registerDisplay, setRegisterDisplay] = useState(isToggled);
 
   if (loading) return <p>Loading banners...</p>;
@@ -77,6 +83,27 @@ const ProgramForm = () => {
     });
   };
 
+  const handleScheduleFrChange = (event) => {
+    setFormData({
+      ...formData,
+      schedule: event.target.value,
+    });
+  };
+
+  const handleCurrentSessionFrChange = (event) => {
+    setFormData({
+      ...formData,
+      current_session: event.target.value,
+    });
+  };
+
+  const handleCostFrChange = (event) => {
+    setFormData({
+      ...formData,
+      cost: event.target.value,
+    });
+  };
+
   const handleClick = (e) => {
     const selectedProgramId = e.target.innerText;
     const selectedProgram = programs.find((p) => p.id === selectedProgramId);
@@ -86,6 +113,9 @@ const ProgramForm = () => {
       setCurrentProgramSchedule(selectedProgram.schedule);
       setCurrentProgramSession(selectedProgram.current_session);
       setCurrentCost(selectedProgram.cost);
+      setCurrentProgramScheduleFr(selectedProgram.schedule_fr);
+      setCurrentProgramSessionFr(selectedProgram.current_session_fr);
+      setCurrentCostFr(selectedProgram.cost_fr);
       setRegisterDisplay(selectedProgram.registerDisplay);
 
       setFormData({
@@ -93,6 +123,9 @@ const ProgramForm = () => {
         schedule: selectedProgram.schedule,
         current_session: selectedProgram.current_session,
         cost: selectedProgram.cost,
+        schedule_fr: selectedProgram.schedule_fr,
+        current_session_fr: selectedProgram.current_session_fr,
+        cost_fr: selectedProgram.cost_fr,
         registerDisplay: selectedProgram.registerDisplay,
       });
     }
@@ -112,10 +145,19 @@ const ProgramForm = () => {
               Schedule
             </th>
             <th scope="col" className="py-4 px-2">
+              Schedule_fr
+            </th>
+            <th scope="col" className="py-4 px-2">
               Current Session
             </th>
             <th scope="col" className="py-4 px-2">
+              Current Session_fr
+            </th>
+            <th scope="col" className="py-4 px-2">
               Cost
+            </th>
+            <th scope="col" className="py-4 px-2">
+              Cost_fr
             </th>
           </tr>
         </thead>
@@ -127,12 +169,15 @@ const ProgramForm = () => {
               </td>
 
               <td className="text-gray-900 py-4 px-2">{program.schedule}</td>
-
+              <td className="text-gray-900 py-4 px-2">{program.schedule_fr}</td>
               <td className="text-gray-900 py-4 px-2">
                 {program.current_session}
               </td>
-
+              <td className="text-gray-900 py-4 px-2">
+                {program.current_session_fr}
+              </td>
               <td className="text-gray-900 py-4 px-2">{program.cost}</td>
+              <td className="text-gray-900 py-4 px-2">{program.cost_fr}</td>
             </tr>
           ))}
         </tbody>
@@ -150,34 +195,64 @@ const ProgramForm = () => {
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
           ></input>
         </label>
-        <label className="block text-lg font-medium">
-          Schedule:
+        <label className="block text-lg font-medium text-blue-700">
+          Schedule:(English version)
           <input
             onChange={handleScheduleChange}
             placeholder={currentProgramSchedule}
             value={formData.schedule}
             name="schedule"
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-gray-800"
           ></input>
         </label>
-        <label className="block text-lg font-medium">
-          Current Session:
+        <label className="block text-lg font-medium text-red-600">
+          Schedule:(French version)
+          <input
+            onChange={handleScheduleFrChange}
+            placeholder={currentProgramScheduleFr}
+            value={formData.schedule_fr}
+            name="schedule_fr"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-gray-800"
+          ></input>
+        </label>
+        <label className="block text-lg font-medium text-blue-700">
+          Current Session:(English version)
           <input
             onChange={handleCurrentSessionChange}
             placeholder={currentProgramSession}
             value={formData.current_session}
             name="current_session"
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-gray-800"
           ></input>
         </label>
-        <label className="block text-lg font-medium">
-          Cost:
+        <label className="block text-lg font-medium text-red-600">
+          Current Session:(French version)
+          <input
+            onChange={handleCurrentSessionFrChange}
+            placeholder={currentProgramSessionFr}
+            value={formData.current_session_fr}
+            name="current_session_fr"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-gray-800"
+          ></input>
+        </label>
+        <label className="block text-lg font-medium text-blue-700">
+          Cost:(English version)
           <input
             onChange={handleCostChange}
             placeholder={currentCost}
             value={formData.cost}
             name="cost"
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-gray-800"
+          ></input>
+        </label>
+        <label className="block text-lg font-medium text-red-600">
+          Cost:(French version)
+          <input
+            onChange={handleCostFrChange}
+            placeholder={currentCostFr}
+            value={formData.cost_fr}
+            name="cost_fr"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 text-gray-800"
           ></input>
         </label>
         <div className="w-full bg-bgWhite text-lg font-medium rounded">

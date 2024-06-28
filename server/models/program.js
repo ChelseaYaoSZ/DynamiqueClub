@@ -9,8 +9,11 @@ const programSchema = new Schema({
   },
 
   schedule: { type: String, required: true },
+  schedule_fr: { type: String, required: true },
   current_session: { type: String, required: true },
+  current_session_fr: { type: String, required: true },
   cost: { type: String, required: true },
+  cost_fr: { type: String, required: true },
   registerDisplay: {
     type: Boolean,
     required: true,

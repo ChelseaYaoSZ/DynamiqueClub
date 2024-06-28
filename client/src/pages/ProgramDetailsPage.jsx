@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { FiClock } from "react-icons/fi";
 import { PiScreencastLight } from "react-icons/pi";
@@ -11,7 +11,8 @@ import useFetchPrograms from "../hooks/useFetchPrograms";
 import { useTranslation } from "react-i18next";
 
 const ProgramDetailsPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language;
   const { programId } = useParams();
   let program = programData.find((p) => p.id === programId);
   const currP = program ? {
@@ -27,10 +28,34 @@ const ProgramDetailsPage = () => {
 
   const { programs, loading, error } = useFetchPrograms();
   let DBdata = programs.find((p) => p.id.toLowerCase() === programId);
-  //console.log(DBdata);
+  console.log(programs, DBdata)
+  // State initialization with safe fallbacks
+  const [schedule, setSchedule] = useState(DBdata ? DBdata.schedule : "");
+  const [schedule_fr, setSchedule_fr] = useState(DBdata ? DBdata.schedule_fr : "");
+  const [current_session, setCurrentSession] = useState(DBdata ? DBdata.current_session : "");
+  const [current_session_fr, setCurrentSession_fr] = useState(DBdata ? DBdata.current_session_fr : "");
+  const [cost, setCost] = useState(DBdata ? DBdata.cost : "");
+  const [cost_fr, setCost_fr] = useState(DBdata ? DBdata.cost_fr : "");
 
-  if (loading) return <p>Loading banners...</p>;
-  if (error) return <p></p>;
+  useEffect(() => {
+    if (DBdata) {
+      setSchedule(DBdata.schedule);
+      setSchedule_fr(DBdata.schedule_fr);
+      setCurrentSession(DBdata.current_session);
+      setCurrentSession_fr(DBdata.current_session_fr);
+      setCost(DBdata.cost);
+      setCost_fr(DBdata.cost_fr);
+    }
+  }, [DBdata]); // Update state when DBdata changes
+
+  const displaySchedule = currentLang === "fr" ? schedule_fr : schedule;
+  const displayCurrentSession = currentLang === "fr" ? current_session_fr : current_session;
+  const displayCost = currentLang === "fr" ? cost_fr : cost;
+
+  if (loading) return <p>Loading programs...</p>;
+  if (error) return <p>Error loading data.</p>;
+  if (!DBdata) return <p>No data available.</p>;
+
   return (
     <div className="w-full flex flex-col items-center">
       <div>
@@ -85,7 +110,7 @@ const ProgramDetailsPage = () => {
               <FiClock />
               <p className="mx-2 text-darkBlue font-medium">{t("program.page.subtitle.schedule")}</p>
             </div>
-            <p>{DBdata.schedule}</p>
+            <p>{displaySchedule}</p>
           </div>
 
           <div className="flex w-full mb-2">
@@ -95,14 +120,14 @@ const ProgramDetailsPage = () => {
                 {t("program.page.subtitle.current_session")}
               </p>
             </div>
-            <p>{DBdata.current_session}</p>
+            <p>{displayCurrentSession}</p>
           </div>
 
           <div className="flex flex-col w-full mb-2">
             <div className="flex flex-row items-center">
               <SiWebmoney />
               <p className="mx-2  text-darkBlue font-medium">{t("program.page.subtitle.cost")}</p>
-              <p>{DBdata.cost}</p>
+              <p>{displayCost}</p>
             </div>
             {DBdata.id !== "DEV1" && DBdata.id !== "DEV2" && (
               <p className="mx-5">
