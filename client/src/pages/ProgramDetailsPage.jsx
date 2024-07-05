@@ -155,7 +155,7 @@ const ProgramDetailsPage = () => {
 
         <div className="my-8">
           <Link
-            to={`https://drive.google.com/file/d/1jZe8RfRJZGtUQi8ocLbqG_jwRnP4KOr-/view?usp=sharing`}
+            to={`https://drive.google.com/file/d/1m0UlWP1jdHrOypUuqZpZ5I1lGBVVEn6H/view?usp=sharing`}
             className="bg-customRed text-white font-medium rounded px-3 py-1 mb-10 hover:font-bold hover:bg-red-800"
           >
             {t("program.page.subtitle.check_button")}

@@ -74,7 +74,7 @@ const ContactPage = () => {
             <input
               type="hidden"
               name="_next"
-              value="https://test.volleyballdynamique.ca/thankyou"
+              value="https://www.volleyballdynamique.ca/thankyou"
             ></input>
             <input type="hidden" name="_captcha" value="false"></input>
             <input
