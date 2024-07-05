@@ -192,7 +192,8 @@ const ProgramForm = () => {
           <input
             value={formData.id}
             name="id"
-            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+            className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 bg-gray-100"
+            readOnly
           ></input>
         </label>
         <label className="block text-lg font-medium text-blue-700">
