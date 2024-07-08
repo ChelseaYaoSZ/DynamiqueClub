@@ -127,7 +127,8 @@ const CarouselForm = () => {
           placeholder={currentCarousel}
           value={formData.num}
           onChange={handleNumChange}
-          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
+          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 bg-gray-100"
+          readOnly
         />
         {/* Carousel Image input */}
         <label className="block text-lg font-medium">Carousel Image:</label>
