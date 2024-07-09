@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { updateCarousel } from "../../utils/carouselService";
 import { uploadImage } from "../../utils/imageUploadService";
 import useFetchCarousels from "../../hooks/useFetchCarousels";
+import moment from "moment";
 
 const CarouselForm = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const CarouselForm = () => {
 
   const [currentCarouselId, setCurrentCarouselId] = useState("");
   const [currentCarousel, setCurrentCarousel] = useState("");
+  const [lastUpdated, setLastUpdated] = useState("");
 
   useEffect(() => {
     if (carousels && carousels.length > 0) {
@@ -47,12 +49,11 @@ const CarouselForm = () => {
   };
 
   const handleClick = (num) => {
-    const carousel = carousels.find(
-      (carousel) => carousel.num === num
-    );
+    const carousel = carousels.find((carousel) => carousel.num === num);
     console.log("Carousel clicked:", carousel);
     setCurrentCarouselId(carousel._id);
     setCurrentCarousel(carousel.num);
+    setLastUpdated(carousel.updatedAt);
     setFormData({ num: carousel.num, imageURL: carousel.imageURL });
   };
 
@@ -71,7 +72,10 @@ const CarouselForm = () => {
       );
 
       if (uploadResponse.success) {
-        console.log("New carousel image uploaded:", uploadResponse.data.imageURL)
+        console.log(
+          "New carousel image uploaded:",
+          uploadResponse.data.imageURL
+        );
         const updateResponse = await updateCarousel(currentCarouselId, {
           num: formData.num,
           imageURL: uploadResponse.data.imageURL,
@@ -80,7 +84,7 @@ const CarouselForm = () => {
         reloadCarousels();
 
         console.log("Carousel saved successfully:", updateResponse);
-        alert("Carousel saved successfully"); 
+        alert("Carousel saved successfully");
       }
     } catch (error) {
       console.error("Failed to save carousel:", error);
@@ -93,7 +97,7 @@ const CarouselForm = () => {
       <h2 className="text-2xl font-medium mb-4 text-center">Carousel Form</h2>
       {/* Display all the carousels info from Database */}
       <div className="mb-5 border bg-white text-sm">
-        {/* Display all the carousels info from Database */}
+        
         <table className="divide-y divide-gray-200 font-medium w-full">
           <thead className="bg-gray-50 uppercase text-gray-500 tracking-wider">
             <tr>
@@ -103,17 +107,25 @@ const CarouselForm = () => {
               <th scope="col" className="py-4 px-2">
                 Carousel ImageURL
               </th>
+              <th scope="col" className="py-4 px-2">Last Updated</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 text-center">
             {carousels.map((carousel, index) => (
               <tr key={index}>
-                <td className="text-gray-900 py-4 px-2" onClick={() => handleClick(carousel.num)}>
+                <td
+                  className="text-gray-900 py-4 px-2"
+                  onClick={() => handleClick(carousel.num)}
+                >
                   {carousel.num}
                 </td>
-                <td className="text-gray-500 py-4 px-2" onClick={() => handleClick(carousel.num)}>
+                <td
+                  className="text-gray-500 py-4 px-2"
+                  onClick={() => handleClick(carousel.num)}
+                >
                   <img src={carousel.imageURL} alt={carousel.num} />
                 </td>
+                <td className="text-gray-900 py-4 px-2">{moment(carousel.updatedAt).format("MMMM Do YYYY, h:mm:ss a")}</td>
               </tr>
             ))}
           </tbody>
@@ -127,9 +139,12 @@ const CarouselForm = () => {
           placeholder={currentCarousel}
           value={formData.num}
           onChange={handleNumChange}
-          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 bg-gray-100"
+          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 bg-gray-200"
           readOnly
         />
+        {/* Last update time display */}
+        
+        
         {/* Carousel Image input */}
         <label className="block text-lg font-medium">Carousel Image:</label>
         <input
@@ -139,7 +154,9 @@ const CarouselForm = () => {
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
         />
       </form>
-
+      <div className="text-sm font-medium mt-4">
+          Last Updated: {lastUpdated ? moment(lastUpdated).format("MMMM Do YYYY, h:mm:ss a") : "Not available"}
+        </div>
       <div className="flex justify-center gap-10 pt-6">
         <button
           type="submit"

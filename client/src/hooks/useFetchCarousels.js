@@ -15,6 +15,7 @@ const useFetchCarousels = () => {
       try {
         const { data } = await getAllCarousels();
         const fetchedCarousels = data;
+        console.log('Fetched carousels:', fetchedCarousels);
         setCarousels(fetchedCarousels);
         setLoading(false);
       } catch (error) {
