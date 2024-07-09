@@ -104,8 +104,7 @@ const ProgramForm = () => {
     });
   };
 
-  const handleClick = (e) => {
-    const selectedProgramId = e.target.innerText;
+  const handleClick = (selectedProgramId) => {
     const selectedProgram = programs.find((p) => p.id === selectedProgramId);
 
     if (selectedProgram) {
@@ -163,11 +162,10 @@ const ProgramForm = () => {
         </thead>
         <tbody className="divide-y divide-gray-200">
           {programs.map((program, index) => (
-            <tr key={index}>
-              <td className="text-gray-900 py-4 px-2" onClick={handleClick}>
+            <tr key={index} onClick={() => handleClick(program.id)}>
+              <td className="text-gray-900 py-4 px-2">
                 {program.id}
               </td>
-
               <td className="text-gray-900 py-4 px-2">{program.schedule}</td>
               <td className="text-gray-900 py-4 px-2">{program.schedule_fr}</td>
               <td className="text-gray-900 py-4 px-2">

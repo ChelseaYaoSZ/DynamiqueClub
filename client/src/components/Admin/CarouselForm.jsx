@@ -3,8 +3,10 @@ import { updateCarousel } from "../../utils/carouselService";
 import { uploadImage } from "../../utils/imageUploadService";
 import useFetchCarousels from "../../hooks/useFetchCarousels";
 import moment from "moment";
+import 'moment/locale/en-ca';
 
 const CarouselForm = () => {
+  moment.locale('en-ca');
   const [formData, setFormData] = useState({
     num: 0,
     imageURL: "",
@@ -48,8 +50,10 @@ const CarouselForm = () => {
     });
   };
 
-  const handleClick = (num) => {
-    const carousel = carousels.find((carousel) => carousel.num === num);
+  const handleClick = (selectedCarouselNum) => {
+    const carousel = carousels.find(
+      (carousel) => carousel.num === selectedCarouselNum
+    );
     console.log("Carousel clicked:", carousel);
     setCurrentCarouselId(carousel._id);
     setCurrentCarousel(carousel.num);
@@ -97,7 +101,6 @@ const CarouselForm = () => {
       <h2 className="text-2xl font-medium mb-4 text-center">Carousel Form</h2>
       {/* Display all the carousels info from Database */}
       <div className="mb-5 border bg-white text-sm">
-        
         <table className="divide-y divide-gray-200 font-medium w-full">
           <thead className="bg-gray-50 uppercase text-gray-500 tracking-wider">
             <tr>
@@ -107,25 +110,21 @@ const CarouselForm = () => {
               <th scope="col" className="py-4 px-2">
                 Carousel ImageURL
               </th>
-              <th scope="col" className="py-4 px-2">Last Updated</th>
+              <th scope="col" className="py-4 px-2">
+                Last Updated
+              </th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200 text-center">
             {carousels.map((carousel, index) => (
-              <tr key={index}>
-                <td
-                  className="text-gray-900 py-4 px-2"
-                  onClick={() => handleClick(carousel.num)}
-                >
-                  {carousel.num}
-                </td>
-                <td
-                  className="text-gray-500 py-4 px-2"
-                  onClick={() => handleClick(carousel.num)}
-                >
+              <tr key={index} onClick={() => handleClick(carousel.num)}>
+                <td className="text-gray-900 py-4 px-2">{carousel.num}</td>
+                <td className="text-gray-500 py-4 px-2">
                   <img src={carousel.imageURL} alt={carousel.num} />
                 </td>
-                <td className="text-gray-900 py-4 px-2">{moment(carousel.updatedAt).format("MMMM Do YYYY, h:mm:ss a")}</td>
+                <td className="text-gray-900 py-4 px-2">
+                  {moment(carousel.updatedAt).format("MMMM Do YYYY, h:mm:ss a")}
+                </td>
               </tr>
             ))}
           </tbody>
@@ -143,8 +142,7 @@ const CarouselForm = () => {
           readOnly
         />
         {/* Last update time display */}
-        
-        
+
         {/* Carousel Image input */}
         <label className="block text-lg font-medium">Carousel Image:</label>
         <input
@@ -154,10 +152,13 @@ const CarouselForm = () => {
           className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
         />
       </form>
-      <div className="text-sm font-medium mt-4">
-          Last Updated: {lastUpdated ? moment(lastUpdated).format("MMMM Do YYYY, h:mm:ss a") : "Not available"}
-        </div>
-      <div className="flex justify-center gap-10 pt-6">
+      <div className="text-lg font-medium mt-4 text-customRed">
+        Last Updated:{" "}
+        {lastUpdated
+          ? moment(lastUpdated).format("MMMM Do YYYY, h:mm:ss a")
+          : "Not available"}
+      </div>
+      <div className="flex justify-center gap-10 pt-10">
         <button
           type="submit"
           form="carousel-form"
