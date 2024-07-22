@@ -20,7 +20,7 @@ i18n
   .use(LanguageDetector) // detect language from the browser
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
-    fallbackLng: 'en',
+    fallbackLng: 'fr',
     debug: true,
     detection: {
       order: ['queryString', 'cookie'],
@@ -49,7 +49,8 @@ i18n
           coach: fr_coach,
           program: fr_program
         }
-      }
+      },
+      
     }
   });
 
