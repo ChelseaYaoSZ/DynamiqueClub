@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import useFetchPrograms from "../../hooks/useFetchPrograms";
 import { updateProgram } from "../../utils/programService";
 
@@ -29,7 +29,7 @@ const ProgramForm = () => {
   const [currentProgramScheduleFr, setCurrentProgramScheduleFr] = useState("");
   const [currentProgramSessionFr, setCurrentProgramSessionFr] = useState("");
   const [currentCostFr, setCurrentCostFr] = useState("");
-  const [registerDisplay, setRegisterDisplay] = useState(isToggled);
+  const [registerDisplay, setRegisterDisplay] = useState("isToggled");
 
   if (loading) return <p>Loading banners...</p>;
   if (error) return <p></p>;
