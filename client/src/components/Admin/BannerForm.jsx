@@ -5,7 +5,7 @@ import useFetchBanners from "../../hooks/useFetchBanners";
 
 const BannerForm = () => {
   const [formData, setFormData] = useState({
-    num: 0,
+    num: "",
     eventTitle: "",
     eventTitle_fr: "",
     imageURL: "",
@@ -180,7 +180,15 @@ const handleNumChange = (event) => {
         </table>
       </div>
       <form id="banner-form" onSubmit={handleSubmit} className="space-y-4">
-      
+      <label className="block text-lg font-medium">Number:</label>
+        <input
+          name="num"
+          placeholder={currentBannerNum}
+          value={formData.num}
+          onChange={handleNumChange}
+          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2 bg-gray-200"
+          readOnly
+        />
         {/* New Event input */}
         <label className="block text-lg font-medium text-blue-700">Event title:(English Version)</label>
         <textarea
