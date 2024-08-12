@@ -5,6 +5,10 @@ import mongoose, { Schema } from "mongoose";
 
 const bannerSchema = new Schema(
   {
+    num: {
+      type: Number,
+      required: true,
+    },
     eventTitle: {
       type: String,
       required: true,

@@ -5,6 +5,7 @@ import useFetchBanners from "../../hooks/useFetchBanners";
 
 const BannerForm = () => {
   const [formData, setFormData] = useState({
+    num: 0,
     eventTitle: "",
     eventTitle_fr: "",
     imageURL: "",
@@ -13,6 +14,7 @@ const BannerForm = () => {
   const { banners, loading, error, reloadBanners } = useFetchBanners();
 
   const [currentBannerId, setCurrentBannerId] = useState("");
+  const [currentBannerNum, setCurrentBannerNum] = useState("");
   const [currentBanner, setCurrentBanner] = useState("");
   const [currentBanner_fr, setCurrentBanner_fr] = useState("");
 
@@ -40,6 +42,14 @@ const BannerForm = () => {
     console.log(bannerImage);
   };
 
+// Handle other inputs
+const handleNumChange = (event) => {
+  setFormData({
+    ...formData,
+    num: event.target.value,
+  });
+};
+
   // Handle other inputs
   const handleEventTitleChange = (event) => {
     setFormData({
@@ -56,13 +66,14 @@ const BannerForm = () => {
     });
   };
 
-  const handleClick = (selectedEventTitle) => {
+  const handleClick = (selectedNum) => {
     const banner = banners.find(
-      (banner) => banner.eventTitle === selectedEventTitle
+      (banner) => banner.num === selectedNum
     );
     console.log("Banner clicked:", banner);
 
     setCurrentBannerId(banner._id);
+    setCurrentBannerNum(banner.num);
     setCurrentBanner(banner.eventTitle);
     setCurrentBanner_fr(banner.eventTitle_fr);
     setFormData({ eventTitle: banner.eventTitle, eventTitle_fr:banner.eventTitle_fr, imageURL: banner.imageURL });
@@ -81,6 +92,7 @@ const BannerForm = () => {
     if (!formData.bannerImage) {
       try {
         const updateResponse = await updateBanner(currentBannerId, {
+          num: formData.num,
           eventTitle: formData.eventTitle.trim(),
           eventTitle_fr: formData.eventTitle_fr.trim(),
           imageURL: formData.imageURL,
@@ -107,6 +119,7 @@ const BannerForm = () => {
             uploadResponse.data.imageURL
           );
           const updateResponse = await updateBanner(currentBannerId, {
+            num: formData.num,
             eventTitle: formData.eventTitle.trim(),
             eventTitle_fr: formData.eventTitle_fr.trim(),
             imageURL: uploadResponse.data.imageURL,
@@ -132,6 +145,9 @@ const BannerForm = () => {
         <table className="divide-y divide-gray-200 font-medium w-full">
           <thead className="bg-gray-50 uppercase text-gray-500 tracking-wider">
             <tr>
+            <th scope="col" className="py-4 px-2">
+                Number
+              </th>
               <th scope="col" className="py-4 px-2">
                 Event Title(English Version)
               </th>
@@ -145,7 +161,10 @@ const BannerForm = () => {
           </thead>
           <tbody className="divide-y divide-gray-200">
             {banners.map((banner, index) => (
-              <tr key={index} onClick={() => handleClick(banner.eventTitle)}>
+              <tr key={index} onClick={() => handleClick(banner.num)}>
+              <td className="text-gray-900 py-4 px-2" >
+                  {banner.num}
+                </td>
                 <td className="text-gray-900 py-4 px-2" >
                   {banner.eventTitle}
                 </td>
@@ -161,6 +180,7 @@ const BannerForm = () => {
         </table>
       </div>
       <form id="banner-form" onSubmit={handleSubmit} className="space-y-4">
+      
         {/* New Event input */}
         <label className="block text-lg font-medium text-blue-700">Event title:(English Version)</label>
         <textarea
