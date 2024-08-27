@@ -52,7 +52,7 @@ router.route("/update/:id").put(async (req, res) => {
   try {
     const updateBanner = await Banner.findByIdAndUpdate(
       id,
-      { num: num, eventTitle: eventTitle, eventTitle_fr: eventTitle_fr,imageURL: imageURL },
+      { eventTitle: eventTitle, eventTitle_fr: eventTitle_fr,imageURL: imageURL },
       { new: true }
     );
 

@@ -98,9 +98,15 @@ const handleNumChange = (event) => {
           imageURL: formData.imageURL,
         });
 
-        console.log("Banner saved successfully:", updateResponse);
-        alert("Banner saved successfully");
-        return;
+        if (updateResponse.success) {
+          console.log("Banner saved successfully:", updateResponse);
+          alert("Banner saved successfully");
+          return;
+        } else {
+          console.error("Failed to save banner:", updateResponse);
+          alert("Failed to save banner");
+          return;
+        }
       } catch (error) {
         console.error("Failed to save banner:", error);
         alert("Failed to save banner");
@@ -125,8 +131,15 @@ const handleNumChange = (event) => {
             imageURL: uploadResponse.data.imageURL,
           });
 
-          console.log("Banner saved successfully:", updateResponse);
-          alert("Banner saved successfully");
+          if (updateResponse.success) {
+            console.log("Banner saved successfully:", updateResponse);
+            alert("Banner saved successfully");
+            return;
+          } else {
+            console.error("Failed to save banner:", updateResponse);
+            alert("Failed to save banner");
+            return;
+          }
         }
       } catch (error) {
         console.error("Failed to save banner:", error);
